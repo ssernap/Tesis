@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html -->
+<html class="wf-futurapt-n5-active wf-museoslab-n7-active wf-futurapt-n4-active wf-futurapt-i4-active wf-futurapt-i5-active wf-futurapt-n7-active wf-futurapt-i7-active wf-automate-n7-active wf-minionprosubhead-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Modeling Flexible Bodies in SimMechanics and Simulink</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript" async="" src="./Modelar Modelo Flexible_files/ahy.js"></script><script type="text/javascript" async="" src="./Modelar Modelo Flexible_files/elqCfg.min.js"></script><script src="http://edge.quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1" async="" type="text/javascript"></script><script src="./Modelar Modelo Flexible_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script><style type="text/css"></style><script src="./Modelar Modelo Flexible_files/mbox.js"></script><style type="text/css">{visibility: hidden;}</style><style>.mboxDefault { visibility:hidden; }</style>
+<!-- END Adobe DTM --> <link href="./Modelar Modelo Flexible_files/reset.css" rel="stylesheet" type="text/css">
+<link href="./Modelar Modelo Flexible_files/960.css" rel="stylesheet" type="text/css">
+<link href="./Modelar Modelo Flexible_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Modelar Modelo Flexible_files/site5.css" rel="stylesheet" type="text/css">
+<!--[if IE 6]>
+<link href="/includes_content/nextgen/css/site5_ie6.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 7]>
+<link href="/includes_content/nextgen/css/site5_ie7.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 8]>
+<link href="/includes_content/nextgen/css/site5_ie8.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/nextgen/css/site5_ie9.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!-- Begin Eloqua 1st Party Cookie Tracking Script-->
+<script type="text/javascript">
+var _elqQ = _elqQ || [];
+_elqQ.push(['elqSetSiteId', '646005169']);
+_elqQ.push(['elqTrackPageView']);
+_elqQ.push(['elqUseFirstPartyCookie', 'tracking.mathworks.com']);
+(function () {
+function async_load() {
+var s = document.createElement('script'); s.type = 'text/javascript';
+s.async = true; s.src = '//img.en25.com/i/elqCfg.min.js';
+var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+}
+if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+else if (window.attachEvent) window.attachEvent('onload', async_load);
+})();
+</script>
+<!--End Eloqua 1st Party Cookie Tracking Script-->
+<link href="./Modelar Modelo Flexible_files/print.css" rel="stylesheet" type="text/css" media="print">
+<link rel="stylesheet" type="text/css" href="./Modelar Modelo Flexible_files/shadowbox.css">
+<link href="./Modelar Modelo Flexible_files/sticky-nav.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/jquery-latest.js"></script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/jquery.hover-intent.js"></script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/localnav.js"></script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/global.js"></script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/global_search.js"></script>
+<script src="./Modelar Modelo Flexible_files/bootstrap.min.js"></script>
+<script src="./Modelar Modelo Flexible_files/bootstrap-affix.min.js"></script>
+<script src="./Modelar Modelo Flexible_files/sticky-nav.js"></script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<script type="text/javascript" language="JavaScript1.3">var domain = "com";</script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/xvy5baa.js"></script>
+<style type="text/css">.tk-museo-slab{font-family:"museo-slab",serif;}.tk-futura-pt{font-family:"futura-pt","Arial","Helvetica",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}</style><link rel="stylesheet" href="./Modelar Modelo Flexible_files/xvy5baa-d.css"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<meta name="description" content="SimMechanics and Simulink combine to form an efficient tool for simulating rigid-body mechanical systems, especially in control systems applications. ">
+<link rel="stylesheet" href="./Modelar Modelo Flexible_files/print(1).css" type="text/css" media="print">
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/jquery.cookie.js"></script>
+<script type="text/javascript">
+(function() {
+// Check if cookies are enabled
+function cookiesEnabled() {
+return $.cookie('check', 'valid', { expires: 1 }) && $.cookie('check') == 'valid';
+}
+// Set the language of the domain and redirect to the domain
+function setDomainLanguage(language) {
+if($.cookie("lang") != null) {
+$.removeCookie("lang");
+}
+$.cookie("lang", 'lang=' + language, {path: '/', expires: 365, domain: 'ch.mathworks.com'});
+}
+// do not display the domain selector if querystring is not present
+// or if query string has nocookie value
+// or if cookies are disabled
+var displayDomainSelector = true;
+function detectDomain() {
+var queries = {};
+$.each(document.location.search.substr(1).split('&'), function(c,q){
+if(q != undefined && q != "") {
+var i = q.split('=');
+if(i[1] != undefined) {
+queries[i[0].toString()] = i[1].toString();
+}
+}
+});
+var requested_domain = (queries['requestedDomain'] != undefined) ? queries['requestedDomain'] : "";
+var nocookie = (queries['nocookie'] != undefined) ? queries['nocookie'] : "";
+var client = (queries['client'] != undefined) ? queries['client'] : "";
+if(requested_domain == "" || nocookie == "true" || !cookiesEnabled() || client == "addons") {
+displayDomainSelector = false;
+}
+}
+detectDomain();
+$(document).ready(function () {
+// determine if links need to be rewritten
+if ( $( "#country-unselected li a" ).length ) {
+$("#country-unselected li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+if ( $( "li.headernav_login > a" ).length ) {
+var login_url = $("li.headernav_login > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.headernav_login > a").attr("href", login_url);
+}
+if ( $( "li.mwa-nav_logout > a" ).length ) {
+var login_url = $("li.mwa-nav_logout > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.mwa-nav_logout > a").attr("href", login_url);
+}
+if ( $( ".mwa-nav li a" ).length ) {
+$(".mwa-nav li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+// set the country dropdown link to open the new domain selector
+$("#globalcountry_link").click(function(){
+var content = $('#country-unselected').html();
+Shadowbox.open({
+content: content,
+player: "html",
+height: 630,
+width: 800
+});
+});
+// set the selector button to close the modal
+$('body').on('click','#domain_select_button',function(){
+Shadowbox.close();
+});
+// set the click function for Switzerland/French link
+$('body').on('click','#swiss_french',function(){
+setDomainLanguage('fr');
+});
+// set the click function for the Switzerland/German link
+$('body').on('click','#swiss_german',function(){
+setDomainLanguage('de');
+});
+});
+// onload functionality for the selector
+window.onload = function() {
+$(document).ready(function () {
+if(displayDomainSelector) {
+var content = $('#country-unselected').html();
+Shadowbox.open({
+content: content,
+player: "html",
+height: 630,
+width: 800
+});
+}
+});
+}
+})(jQuery);
+</script>
+<script src="./Modelar Modelo Flexible_files/s-code-contents-73da148cb454c4f6e395aa8df704854c99540662.js"></script><style type="text/css" id="ki-qlj-qc"></style><style type="text/css" id="ki-qlj-qq"></style></head> 
+<body id="nextgen_b" class="adjusted_template">
+	<div class="container_192">
+	  <div class="grid_192">
+	    <div class="page_container">
+
+        <div class="grid_192">
+            	<div class="header_container">
+<div class="headernav">
+<ul>
+<li class="headernav_country"><a href="http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html#" id="globalcountry_link">United States</a></li>
+<li class="headernav_contact"><a href="http://www.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://www.mathworks.com/store/?s_tid=gn_store">How To Buy</a></li>
+<li class="headernav_search"><form name="search" id="site_search" class="site_search" action="http://www.mathworks.com/search/site_search.html" method="get">
+<input type="text" name="q" id="query" class="textfield clear_global_search_text_onfocus" value="Search MathWorks" autocomplete="off">
+<input type="submit" id="searchbutton" value="Search" class="submit_go clear_global_search_text_onsubmit">
+</form></li>
+</ul>
+</div>
+<div class="mwa-nav">
+<ul>
+<li class="mwa-nav_account"><a id="mwa-create_account" href="https://www.mathworks.com/accesslogin/createProfile.do?uri=http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html">Create Account</a></li>
+<li class="mwa-nav_logout"><a id="mwa-log_in" href="https://www.mathworks.com/accesslogin/login.do?uri=http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html">Log In</a></li>
+</ul>
+</div>
+<div class="logo_container">
+<a href="http://www.mathworks.com/index.html?s_tid=gn_logo"><img src="./Modelar Modelo Flexible_files/bg_header_mwlogo_notag.jpg" alt="MathWorks" class="mw_logo"></a>
+<p class="tagline">Accelerating the pace of engineering and science</p>
+</div>
+</div>
+        </div>
+        
+        <div class="grid_192"> <div class="topnav_container">
+<div class="topnav_frame">
+<div class="topnav">
+<ul>
+<li class="topnav_products "><a href="http://www.mathworks.com/products/?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://www.mathworks.com/solutions/?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://www.mathworks.com/academia/?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://www.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://www.mathworks.com/company/events/?s_tid=gn_ev">Events</a></li>
+<li class="topnav_company active"><a href="http://www.mathworks.com/company/?s_tid=gn_co">Company</a></li>
+</ul>
+</div>
+</div>
+</div> </div>
+	      <div class="sticky_header_container affix-top"> 
+	          <div class="grid_192">        
+        <div class="section_image level_3" style="background-color:#8bbcc9; background-image:url(/images/nextgen/section_heads/bg-newsletters.png);
+        ">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+          <td>         <p class="h1">Technical Articles and Newsletters</p> 
+     
+                </td>
+                <td class="ctabox_container">
+                <ul class="ctabox">
+                              
+
+
+        <li><a href="http://www.mathworks.com/company/aboutus/contact_us/contact_sales.html" class="sales" target="">Contact sales</a></li>
+                </ul>	
+ </td>
+        </tr>
+          </tbody></table>
+    </div>
+</div>
+	                <div class="grid_192">
+	                    <div class="horizontal_nav_container">
+	                        <div class="subnav" id="subnav">
+<ul>
+<li class="">
+<a href="http://www.mathworks.com/company/newsletters/index.html">Overview</a>
+</li><li class="">
+<a href="http://www.mathworks.com/company/newsletters/search.html">Search Technical Articles</a>
+</li><li class="">
+<a href="" data-toggle="dropdown" data-target="#">Newsletters<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class=""><a href="http://www.mathworks.com/digest/current/">MATLAB Digest</a></li><li class=""><a href="http://www.mathworks.com/edu_digest/current/">MATLAB Digest | Academic Edition</a></li><li class=""><a href="http://www.mathworks.com/news_notes/current/">MathWorks News&amp;Notes</a></li>
+</ul>
+</li><li class="">
+<a href="http://www.mathworks.com/company/newsletters/clevescorner/">Cleve's Corner Collection</a>
+</li><li class="">
+<a href="http://www.mathworks.com/company/newsletters/signup.html">Sign Up</a>
+</li>
+</ul>
+</div>
+	                    </div>
+	                </div>
+	      </div>
+	      <div class="content_frame" style="margin-top: 83px;">
+	        <div class="grid_192">
+	        
+	          <div class="content_container" id="content_container">
+	          		      <div id="tech_articles_indiv_article"> 
+    
+ 
+
+        
+        
+<div class="grid_128 push_6">
+      <div class="grid_128">
+		<h1>Modeling Flexible Bodies in SimMechanics and Simulink</h1>
+        <div class="grid_86">
+          <div id="byline">
+            <p>By Victor Chudnovsky, MathWorks, Dallas Kennedy, MathWorks, Arnav Mukherjee, MathWorks, and Jeff Wendlandt, MathWorks</p>          </div>
+        </div>
+        <div class="grid_42">
+			        </div>
+      </div>
+      <div class="grid_128">
+		<p>SimMechanics and Simulink combine to form an efficient tool for simulating rigid-body mechanical systems, especially in control systems applications. These products also enable you to simulate flexible body motion—a frequent requirement in aerospace, automotive, civil engineering, and other industries. Because the SimMechanics Body block represents only a rigid body, you must first transform your continuous flexible body into an approximate form that you can represent in Simulink. SimMechanics can then simulate flexibility with a fidelity that is sufficient for many applications, such as control design.</p><p>In this article we use SimMechanics to apply the two most common flexible body approximation methods to modeling beams: the lumped-parameter approximation and the state space/frequency response method using finite element analysis (FEA) results. Both methods assume that beam deflection is small and in the linear regime.</p><h3>Using Lumped Parameters</h3><p>The lumped parameter approach approximates a flexible body as a set of rigid bodies coupled with springs and dampers. It can be implemented by a chain of alternating bodies and joints. The springs and dampers act on the bodies or the joints. The spring stiffness and damping coefficients are functions of the material properties and the geometry of the flexible elements. While lumped parameter methods can be extended to more complicated systems, they are best suited for systems with chain-like geometries. It is easier to model bodies with multidimensional geometries using other approaches, such as FEA.</p><p>In this section we apply the lumped parameter method first to an abstract beam and then to a flexing cantilever. A beam is represented by a series of <strong>generalized beam elements</strong> (GBEs), each of which is a body-joint-body combination. This formulation actuates and senses the joints, taking advantage of the relative <strong>degrees of freedom</strong> (DoFs) inherent in SimMechanics.</p><p>The lumped parameter method involves five steps:</p><ol><li>Divide the beam into discrete elements and determine the DoFs of each element.</li><li>Represent the DoFs with a joint acting at the middle of each element along the neutral axis (the line through the element that suffers no stretching or compression)</li><li>Use flexible body theory to determine the effective spring constants from the geometry, material properties, and boundary conditions.</li><li>Apply damping as necessary to each DoF.</li><li>Couple the GBEs with welds.</li></ol><p>Simulink and SimMechanics simplify the task of deriving lumped parameter approximations by enabling you to:</p><ul><li>Wrap the GBE model into a prototype masked subsystem</li><li>Turn this subsystem into a library block that can be instantiated in a model wherever and as often as necessary</li><li>Organize all GBE data into data structures</li><li>Implement the body-joint-body-joint . . . structure by connecting a coordinate system (CS) on each side of each GBE to its immediate neighbor (Adjoining CS)</li></ul>
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/64990_wl_flexbod_fig1_wl.gif"><img src="./Modelar Modelo Flexible_files/64990_wm_flexbod_fig1_w.gif" alt="flexbod_fig1_w.gif" class="" height="118" width="250"></a></div>	  <div class="caption_container"><p>Figure 1. Discretization of a beam into generalized beam elements. Click on image to see enlarged view.</p></div><h3>Applying Lumped Parameters to Generalized Beam Elements and a Bending Beam</h3><p>To analyze the GBE motion and forces, define <strong><i>X</i></strong> and <strong><i>F</i></strong> to be generalized coordinates and forces at one end of the GBE. Assume that the other end is temporarily fixed. Let <strong><i>x</i></strong> represent the joint motion. Then</p><p align="center"><strong><i>X</i></strong> = <strong><i>g</i></strong><em>(</em><strong><i>x</i></strong><em>) &nbsp;</em>, &nbsp;<em>d</em><strong><i>X</i></strong> = <em>d</em><strong><i>g</i></strong><em>(</em><strong><i>x</i></strong><em>)</em>·<em>d</em><strong><i>x</i></strong> <em>=</em> [<em>J</em>]·<em>d</em><strong><i>x</i></strong> <strong>&nbsp;</strong>, &nbsp;where [<em>J</em>] = <em>d</em><strong><i>g/</i></strong><em>d</em><strong><i>x</i></strong><em>&nbsp;</em> &nbsp;&nbsp;</p><p align="right"><em>(1)</em></p><p>The generalized force <strong><i>F</i></strong> at the tip and generalized force <strong><i>f</i></strong> at the joint can be expressed with a generalized stiffness matrix [<em>K</em>] or [<em>k</em>]:</p><p align="center"><strong><i>F</i></strong> = [<em>K</em>]·<em>d</em><strong><i>X</i></strong> &nbsp;, &nbsp;&nbsp;<strong><i>f</i></strong> = [<em>k</em>]·<em>d</em><strong><i>x</i></strong>&nbsp; &nbsp;&nbsp;</p><p align="right"><em>(2)</em></p><p>The Jacobian [<em>J</em>] relates the two matrices, such that <strong><i>f</i></strong> = [<em>J</em>]<sup>T</sup>·[<em>K</em>]·[<em>J</em>]·<em>d</em><strong><i>x</i></strong>. Thus:</p><p align="center">[<em>k</em>] = [<em>J</em>]<sup>T</sup>·[<em>K</em>]·[<em>J</em>]</p><p align="right"><em>(2a)</em></p><p>Now we apply this technique to a cantilever or beam bending in a plane. In our example, one revolute represents the bending of a single GBE relative to its neighbor.</p>
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/64992_wl_flexbod_fig2_wl.gif"><img src="./Modelar Modelo Flexible_files/64992_wm_flexbod_fig2_w.gif" alt="flexbod_fig2_w.gif" class="" height="95" width="250"></a></div>	  <div class="caption_container"><p>Figure 2. Generalized beam element forces and deflection. Click on image to see enlarged view.</p></div><p><em>P</em> and <em>T</em> are the force and moment (torque), respectively, at the end of the GBE. The moment <em>τ</em> at the joint can be expressed from equation (2a) as</p><p align="right"><em>&nbsp;τ</em> &nbsp;= &nbsp;<em>k</em> <em>dθ</em> , where <em>k</em> = (<em>E ·I</em> <sub>Az</sub>)/<em>L</em>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;(3)</em></p><p>in terms of the area moment of inertia <em>I</em><sub>Az</sub> (second moment of area of the beam’s <em>yz</em> cross-section) and Young’s elastic modulus <em>E</em>. The rotational joint <em>n</em> executes damped oscillations according to the normalized moment equation<br></p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65428_wm_flexbod_eq4_1_w.gif" alt="flexbod_eq4_1_w.gif" class="" height="28" width="215"></div>	  
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/64999_wm_flexbod_eq4_2_w.gif" alt="flexbod_eq4_2_w.gif" class="" height="25" width="80"></div>	  <p align="right"><em>(4)</em></p><p><span style=" line-height: 160%;"><em>ω</em><sub>0</sub><sup>2</sup> is the ratio of the effective spring constant <em>k</em> and the mass moment of inertia <em>I</em><sub>Mz</sub>, both assumed to be the same for all GBEs. The damping coefficient 2<em>ξ</em><sub>0</sub><em>ω</em><sub>0</sub> that multiplies the velocity is a quasiempirical value that accounts for energy lost to viscoelastic effects.</span></p><p>The beam is made of an aluminum alloy of density 2700 kg/m<sup>3</sup> and Young’s modulus 6.9x10<sup>10</sup> N/m<sup>2</sup>. We apply a load of 196.2 N (equivalent to the weight of 20 kg) to the tip.</p>
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/64993_wl_flexbod_fig3_wl.gif"><img src="./Modelar Modelo Flexible_files/64993_wm_flexbod_fig3_w.gif" alt="flexbod_fig3_w.gif" class="" height="83" width="250"></a></div>	  <div class="caption_container"><p>Figure 3. Beam or cantilever bending in the xy plane. Click on image to see enlarged view.</p></div><p>Calculation yields these values, neglecting the beam weight.</p><table class="datatable zebra"><tbody><tr class="odd"><td class="cell_75">Mass (analytic)</td><td class="cell_25">1.35 kg</td></tr><tr class="even"><td>Equilibrium deflection at tip (analytic)</td><td>-3.56 mm</td></tr><tr class="odd"><td>Equilibrium deflection at tip (lumped GBEs)</td><td>-3.54 mm</td></tr><tr class="even"><td>Vibration frequency (lumped GBEs)</td><td>63.7 Hz</td></tr></tbody></table><p>Now we apply the lumped parameter method with ten GBEs to the same cantilever, mounted to the wall with a torsional spring and including the beam weight. Again, we apply the 20 kg-mass-equivalent load to the tip. The beam bends by this load as well as by its own weight. (Bending under its own weight is a <strong>rigid body mode</strong> of the beam.) The addition of the beam weight reduces the vibration frequency considerably. This system and approximation use a <a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=11027&amp;objectType=file">model</a> available from <a href="http://www.mathworks.com/matlabcentral/">MATLAB Central</a>.</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/64997_wm_flexbod_base_fig_w.gif" alt="flexbod_base_fig_w.gif" class="" height="127" width="533"></div>	  <table class="datatable zebra"><tbody><tr class="odd"><td>Base spring stiffness <em>K</em><sub>s</sub></td><td>10,000 N/m</td></tr><tr class="even"><td>Equilibrium deflection at tip (lumped GBEs)</td><td>-3.55 mm</td></tr><tr class="odd"><td>Vibration frequency (lumped GBEs)</td><td>6.82 Hz</td></tr></tbody></table>
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/64994_wl_flexbod_fig4_wl.gif"><img src="./Modelar Modelo Flexible_files/64994_wm_flexbod_fig4_w.gif" alt="flexbod_fig4_w.gif" class="" height="199" width="250"></a></div>	  <div class="caption_container"><p>Figure 4. Motion of spring-mounted, body-loaded beam, modeled by SimMechanics with 10 GBEs. Click on image to see enlarged view.</p></div><p>The lumped parameter method outlined here uses purely local forces as functions of local deflections. This approximation is useful for estimating the gross behavior and endpoint deflection of the beam but not for modeling local dynamics along the beam or the beam’s vibrational modes. The restoring moment generated by bending the cantilever is proportional to its curvature. This method approximates the curvature by the local difference in slopes rather than by the correct nonlocal difference in slopes between neighboring GBEs, which cannot be represented in a series of independent elements. Thus, while the lumped parameter method is a convenient way to represent a flexible body, it does not, in general, yield correct results.</p><h3>Using Finite Element Analysis Results</h3><p>A more powerful approach to modeling flexible bodies in SimMechanics is to first use an FEA program to obtain the <strong>frequency</strong> or <strong>modal response</strong> of the deformed bodies and then to incorporate this response into a SimMechanics model by superimposing flexible body deflection on rigid body motion. This approach involves three steps:<br><br></p><ol><li>Model the flexible parts as rigid bodies using Body blocks, making sure to insert a CS at each point where you want to measure or actuate a flexible-body deflection.</li><li>At each of these CSs, connect another Body through a Joint that includes primitives corresponding to the deflections specified in the FEA model.<br><br>These primitives are motion-actuated by a "black box" subsystem whose output is the deflection calculated from the FEA results.<br><br></li><li>Use the appropriate loads on the body as the input to this black box— the load force from one or more connected bodies or from external conditions.</li></ol><p><br></p>
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/64995_wl_flexbod_fig5_wl.gif"><img src="./Modelar Modelo Flexible_files/64995_wm_flexbod_fig5_w.gif" alt="flexbod_fig5_w.gif" class="" height="137" width="250"></a></div>	  <div class="caption_container"><p>Figure 5. Embedding a state-space flexible body model into a SimMechanics model. Click on image to see enlarged view.</p></div><p>The most direct way to implement the black box in Simulink is to use the State Space or LTI System block. Either block implements the flexible body dynamics in a state-space model and uses the results to actuate the motion of massless bodies to which other SimMechanics blocks can be connected. You can use this method to model multiple flexible bodies and complex systems comprising many flexible parts, if the deformations remain small enough for linear approximation..</p><p>The state-space model is based on the multi-DoF version of (4),&nbsp;</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65007_wm_flexbod_eq9_1_w.gif" alt="flexbod_eq9_1_w.gif" class="" height="21" width="132"></div>	  <p>, with <em>M</em>, <em>C</em>, <em>K</em>, and <em>F</em> as mass, friction, spring, and force matrices acting on the joint DoFs <em><strong>q</strong></em> and system inputs <em><strong>u</strong></em> (for example, reaction forces). A proper choice of coordinate transformation <strong>Φ</strong> from the spatial DoFs <em><strong>q</strong></em> to the <em>normal coordinates</em> <em><strong>η</strong></em> = <strong>Φ<em>·q</em></strong> yields the normalized form of the dynamical equations,&nbsp;</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65008_wm_flexbod_eq9_2_w.gif" alt="flexbod_eq9_2_w.gif" class="" height="21" width="127"></div>	  <p>, and diagonalizes <strong>Ω</strong>, the <strong>stiffness matrix</strong> whose eigenvalues are the squared angular frequencies, ω<sub>n</sub><sup>2</sup>. We obtain the <em><strong>η</strong></em>, <strong>Φ</strong>, and <strong>Ω</strong> values from the FEA program. Since there is no simple way to derive <strong>Γ</strong> from theory, we use approximations and empirical values instead. In the commonly used <strong>proportional damping</strong> ansatz, <strong>Γ</strong> is assumed to be diagonal, with each eigenvalue γ<sub>n</sub> = ξ<sub>n</sub>ω<sub>n</sub>. A complete state space also includes system outputs <em><strong>y</strong></em> (for example, sensors), represented as linear functions of the DoFs and their velocities and accelerations:<br></p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65009_wm_flexbod_eq9_3_w.gif" alt="flexbod_eq9_3_w.gif" class="" height="17" width="113"></div>	  <p>We represent this collection of forced, damped, coupled linear harmonic oscillators in linear time-invariant (LTI) state-space form</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65000_wm_flexbod_eq5_w.gif" alt="flexbod_eq5_w.gif" class="" height="52" width="503"></div>	  <p>with</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65002_wm_flexbod_eq6_w.gif" alt="flexbod_eq6_w.gif" class="" height="81" width="511"></div>	  <p>where</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65003_wm_flexbod_eq6_1_w.gif" alt="flexbod_eq6_1_w.gif" class="" height="48" width="70"></div>	  <p>and</p>
+		
+	  		
+	    	<div class="image_container"><img src="./Modelar Modelo Flexible_files/65004_wm_flexbod_eq6_2_w.gif" alt="flexbod_eq6_2_w.gif" class="" height="49" width="70"></div>	  <p>Now we apply the FEA method to the same bending aluminum cantilever that we previously modeled using lumped parameters. Without spring-mounting at the wall or any beam weight, the lowest two vibration frequencies are 69.8 Hz and 434 Hz.</p><p>Consider this cantilever with the same spring loading and revolute joint at the wall and the same beam weight as before. Modeling the cantilever using only the lowest vibration mode in FEA yields a vibration frequency and equilibrium deflection of 8.76 Hz and -3.20 mm, respectively.</p><p><em>All FEA results were obtained from COSMOSWorks 2006 SP2.0, a commercial FEA software application, using default mesh parameters (global size 7.94 mm, tolerance 0.40 mm). The <a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=11027&amp;objectType=file">SimMechanics model</a> is available from <a href="http://www.mathworks.com/matlabcentral/">MATLAB Central</a>.</em></p>
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/64996_wl_flexbod_fig6_wl.gif"><img src="./Modelar Modelo Flexible_files/64996_wm_flexbod_fig6_w.gif" alt="flexbod_fig6_w.gif" class="" height="187" width="250"></a></div>	  <div class="caption_container"><p>Figure 6. Motion of spring-mounted, body-loaded beam, modeled by FEA and state space dynamics. Click on image to see enlarged view.</p></div><h3>Comparing Methods and Results</h3><p>With a reasonable number of discrete elements, the lumped parameter method gives accurate results for static bending, but the FEA method gives more accurate results for vibration modes and frequencies.</p><table border="0" class="datatable zebra"><thead><tr><th>Body-loaded, spring-mounted cantilever</th><th>Vibration frequency (Hz)</th><th>Equilibrium deflection (mm)</th></tr></thead><tbody><tr class="odd"><td>Lumped parameters (10 GBEs)</td><td>6.79</td><td>-3.63</td></tr><tr class="even"><td>FEA/Frequency response</td><td>8.76</td><td>-3.20</td></tr></tbody></table><p>Each method has advantages and disadvantages. The lumped parameter method is easy and quick to implement for flexible bodies with chain-like geometries but is more difficult and ambiguous, and hence less useful, for modeling bodies with higher-dimensional geometries. The simplification to independent GBEs also incorrectly represents the curvature bending moment. To correctly approximate the curvature moment you must apply the moment on each joint as a function of its own and neighboring joint deflections.</p><p>The FEA/state-space method is straightforward to implement for any body geometry and any number of DoFs. It is also more naturally suited to control design and analysis problems. Once you embed your FEA state space into a SimMechanics model, this method introduces algebraic loops as Simulink seeks a consistent solution for the acceleration of the Massless Bodies. (The acceleration depends on the reaction force, which is itself a function of the acceleration.) Algebraic loops can slow down the simulation and make it less accurate. You can break algebraic loops with Transfer Function blocks, with little or no effect on fidelity.</p><p>For a highly refined discretization and a large number of DoFs (many GBEs and joints in the lumped parameter case, many states in the FEA case) the dynamics become difficult to solve numerically.</p><p>Both methods can lead to dynamics controlled by a wide range of frequencies. A large ratio of the highest important frequency to the lowest makes the system technically "stiff" and difficult to simulate, meaning that the dynamics simultaneously reflect many different time scales. In the FEA method, you can select the modes and frequencies of interest, neglecting the others, to mitigate this difficulty.</p><p>A <a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=11027&amp;objectType=file">text-and-model archive</a>, including a detailed technical paper and models referenced in this article,&nbsp;is available from <a href="http://www.mathworks.com/matlabcentral/">MATLAB Central</a>.</p><p><br></p>      </div>      
+      <div class="grid_128">
+            <div class="footnote float_right">
+            <p>Published 2006</p>
+            </div>
+      </div>           
+      <div class="grid_128">
+		<div class="separator margined_40"> </div>
+      </div>
+      <div class="grid_128">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+      <div class="callout_container   solid margined_20  ">
+        <div class="callout_content  bg_center_center" id="reference_container">         	<div class="grid_136">
+									<h3>References</h3>
+					<p>Klaus-Jürgen Bathe, <em>Finite Element Procedures</em>. Prentice-Hall, 1996.</p><p>S. Crandall, D. Karnopp, E. Kurtz, and D. Pridmore-Brown, <em>Dynamics of Mechanical and Electromechanical Systems</em>. McGraw-Hill, 1982.</p><p>Michael R. Hatch, <em>Vibration Simulation using MATLAB and ANSYS</em>. Chapman &amp; Hall/CRC, 2001.</p><p>J. N. Reddy, <em>An Introduction to Finite Element Methods</em>. McGraw-Hill, 1993.</p> <br><br>
+				           </div>
+		<div class="grid_122">			<div class="grid_59">				
+																					           	<h3>Products Used</h3>
+			<ul>
+																											<li><a href="http://www.mathworks.com/products/simulink">Simulink</a></li>
+																																										<li><a href="http://www.mathworks.com/products/simmechanics">SimMechanics</a></li>
+																		</ul>
+			                	         	</div>
+           <div class="grid_59 push_4">
+			        					<h3>Learn More</h3>
+								<ul>
+    				                    																			    						    																									<li><a href="http://www.mathworks.com/matlabcentral/fileexchange/11027">Text-and-model archive from MATLAB Central</a></li>
+						    								</ul>
+        	         	</div>
+		</div>
+ </div>
+      </div>
+
+  
+      </div>
+
+    	  <div class="grid_128">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+      <div class="callout_container   solid margined_20  ">
+        <div class="callout_content  bg_center_center" id="reference_container">           <div class="grid_122">
+			    					            <div class="grid_59 push_4">
+              <h3>View Articles for Related Industries</h3>
+ 				                 			  <ul>
+                <li><a href="http://www.mathworks.com/company/newsletters/search.html?q=industry%3A%22Automotive%22">Automotive</a></li>
+              </ul>
+			              </div>
+			          </div>
+ </div>
+      </div>
+
+  
+      </div>
+	  
+    </div>
+	<div class="current_url" style="display:none;">
+		This page was printed from: <strong>http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html</strong>
+	</div>
+
+</div>
+<div class="grid_50 push_4">
+  <h3>Start a new search</h3>
+  <div class="search_container">
+              <form method="get" action="http://www.mathworks.com/company/newsletters/search.html" id="technical_articles_search" name="search">
+                <input type="hidden" value="technical_articles_en" name="c[]">
+                
+                <input type="text" class="textfield clear_text_onfocus" name="q" id="technical_articles_query" value="Search Technical Articles" autocomplete="off">
+                <input id="submitsearch" class="search_submit clear_text_onsubmit" type="submit" value="Search" name="submitsearch">
+              </form>
+  </div>
+</div>
+
+  
+
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+ 
+
+                                                                          
+
+<style>
+h2.domain_selector { border-bottom:none; }
+</style>
+
+<div id="country-unselected" style="display:none;"> 
+  <div class="content_container" id="content_container">
+    <div class="container_192">
+      <div class="grid_150 push_3">
+        <object type="image/svg+xml" width="167px" class="mw_logo" alt="MathWorks" data="http://www.mathworks.com/images/responsive/global/pic-header-mathworks-logo2.svg">
+          <img alt="MathWorks" width="167px" src="./Modelar Modelo Flexible_files/pic-header-mathworks-logo.png">
+        </object>
+      </div>
+      <div class="clear"></div>
+      <div class="separator"></div>
+      <div class="grid_150 push_3 margined_20">
+        <h1>Select Your Country</h1>
+        <p>Choose your country to get translated content where available and see local events and offers. Based on your location, we recommend you select <strong>United States</strong> from the following list:</p>
+      </div>
+      <div class="clear"></div>
+      <div class="grid_150 push_3">
+        <div class="grid_32">
+          <h2 class="domain_selector">Americas</h2>
+          <div class="separator"></div>
+          <ul class="unbulleted_list">
+            <li><a href="http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Canada</a> (English)</li>
+            <li><a href="http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">United States</a> (English)</li>
+          </ul>
+        </div>
+        <div class="grid_76 push_5">
+          <h2 class="domain_selector">Europe</h2>
+          <div class="separator"></div>
+          <div class="grid_32">
+            <ul class="unbulleted_list">
+              <li><a href="http://nl.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Belgium</a> (English)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Denmark</a> (English)</li>
+              <li><a href="http://de.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Deutschland</a> (Deutsch)</li>
+              <li><a href="http://es.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">España</a> (Español)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Finland</a> (English)</li>
+              <li><a href="http://fr.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">France</a> (Français)</li>
+              <li><a href="http://uk.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Ireland</a> (English)</li>
+              <li><a href="http://it.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Italia</a> (Italiano)</li>
+              <li><a href="http://nl.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Luxembourg</a> (English)</li>
+            </ul>
+          </div>
+          <div class="grid_32 push_5">
+            <ul class="unbulleted_list">
+              <li><a href="http://nl.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Netherlands</a> (English)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Norway</a> (English)</li>
+              <li><a href="http://de.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Österreich</a> (Deutsch)</li>
+              <li><a href="http://www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Portugal</a> (English)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Sweden</a> (English)</li>
+              <li>Switzerland
+                <ul class="unbulleted_list" style="margin-left:20px;">
+                  <li><a href="http://ch.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_german">Deutsch</a></li>
+                  <li><a href="http://ch.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_french">Français</a></li>
+                </ul>
+              </li>
+              <li><a href="http://uk.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">United Kingdom</a> (English)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid_32 push_5">
+          <h2 class="domain_selector">Asia Pacific</h2>
+          <div class="separator"></div>
+          <ul class="unbulleted_list">
+            <li><a href="http://au.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">Australia</a> (English)</li>
+            <li><a href="http://in.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">India</a> (English)</li>
+            <li><a href="http://au.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">New Zealand</a> (English)</li>
+            <li><a href="http://cn.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">中国</a> (简体中文)</li>
+            <li><a href="http://jp.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_dropp">日本</a> (日本語)</li>
+            <li><a href="http://kr.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop">한국</a> (한국어)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="grid_150 push_3">
+        <p class="txt_center"><strong><a href="http://www.mathworks.com/company/worldwide/">See all countries</a></strong></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+	            
+	                
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+		
+	  
+	  <div class="grid_192">
+<div class="fat_footer">
+<div id="homepage_fat_footer" class="grid_176 push_8">
+<div class="grid_26">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/company/">About MathWorks</a></li>
+<li><a href="http://www.mathworks.com/company/jobs/opportunities/">Careers – <em>300+ Openings</em></a></li>
+<li><a href="http://www.mathworks.com/company/aboutus/soc_mission/">Social Mission</a></li>
+<li><a href="http://www.mathworks.com/company/aboutus/contact_us/">Contact Us</a></li>
+<li><a href="http://www.mathworks.com/videos/">Videos</a></li>
+<li>&nbsp;</li>
+<li><a href="http://www.mathworks.com/discovery/">Discover…</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/support/">Support</a></li>
+<li><a href="http://www.mathworks.com/help/">Documentation</a></li>
+<li><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?url=/licensecenter/">License Center</a></li>
+<li><a href="http://www.mathworks.com/downloads/web_downloads/">Downloads</a></li>
+<li><a href="http://www.mathworks.com/support/contact_us/index.html">Contact Support</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/company/events/">Events</a></li>
+<li><a href="http://www.mathworks.com/company/events/webinars/upcoming.html">Webinars</a></li>
+<li><a href="http://www.mathworks.com/company/events/seminars/">Seminars</a></li>
+<li><a href="http://www.mathworks.com/company/events/conferences/">Conferences</a></li>
+<li><a href="http://www.mathworks.com/company/events/tradeshows/">Tradeshows</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/services/training/index.html">Training</a></li>
+<li><a href="http://www.mathworks.com/services/training/courses/">Course Offerings</a></li>
+<li><a href="http://www.mathworks.com/training-schedule/">Schedule</a></li>
+<li><a href="http://www.mathworks.com/services/training/request_training.html">Training at Your Facility</a></li>
+<li><a href="http://www.mathworks.com/services/training/certification/index.html">Certification</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/matlabcentral/">User Community</a></li>
+<li><a href="http://www.mathworks.com/matlabcentral/fileexchange/">File Exchange</a></li>
+<li><a href="http://www.mathworks.com/matlabcentral/answers/index/">MATLAB Answers</a></li>
+<li><a href="http://www.mathworks.com/matlabcentral/newsreader/">Newsgroup</a></li>
+<li><a href="http://blogs.mathworks.com/">Blogs</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/company/newsroom/press-releases/">News</a></li>
+<li><a href="http://www.mathworks.com/company/newsroom/">Newsroom</a></li>
+<li><a href="http://www.mathworks.com/company/newsletters/">Newsletters</a></li>
+<li><a href="http://www.mathworks.com/company/user_stories/">User Stories</a></li>
+<li><a href="http://www.mathworks.com/company/newsletters/search.html">Technical Articles</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+	  <div class="grid_192"> <div class="footer_container">
+<div class="footer">
+<div class="social_media_icon_container">
+<div class="social_media_icons">
+<ul class="footernav">
+<li class="footernav_rss"><a href="http://www.mathworks.com/company/rss/index.html"></a></li>
+<li class="footernav_linkedin"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_lkd&amp;url=http://www.linkedin.com/company/the-mathworks_2" target="_blank"></a></li>
+<li class="footernav_google"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_glg&amp;url=https://plus.google.com/117177960465154322866?prsrc=3" target="_blank"></a></li>
+<li class="footernav_facebook"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&amp;url=http://www.facebook.com/MATLAB" target="_blank"></a></li>
+<li class="footernav_twitter"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_twt&amp;url=http://www.twitter.com/MATLAB" target="_blank"></a></li>
+</ul>
+</div>
+<p><em>Join the conversation</em></p>
+</div>
+<ul class="footernav">
+<li class="footernav_piracy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+<li class="footernav_privacy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_trademarks"><a href="http://www.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_patents"><a href="http://www.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+</ul>
+<div class="copyright">© 1994-2016 The MathWorks, Inc.</div>
+</div>
+</div>
+<!-- Quantcast Tag -->
+<script>
+(function(){
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem,scpt);
+}());
+var smarttagdata={qacct: 'p-zfNtLVVEHXE-1',
+orderid: '',
+revenue: '',
+};
+</script>
+<noscript>
+&lt;img src="//pixel.quantserve.com/pixel/p-zfNtLVVEHXE-1.gif?labels=_fp.event.Default;" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript>
+<!-- End Quantcast tag -->
+<!-- BEGIN Google Code for UK and .COM Domains-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023777138;
+var google_conversion_label = "SVIBCMq3xwIQ8rKW6AM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Modelar Modelo Flexible_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./Modelar Modelo Flexible_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?frame=0&amp;random=1451947075407&amp;cv=8&amp;fst=1451947075407&amp;num=1&amp;fmt=1&amp;label=SVIBCMq3xwIQ8rKW6AM&amp;guid=ON&amp;u_h=768&amp;u_w=1360&amp;u_ah=738&amp;u_aw=1360&amp;u_cd=24&amp;u_his=1&amp;u_tz=-300&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A//www.mathworks.com/company/newsletters/articles/modeling-flexible-bodies-in-simmechanics-and-simulink.html&amp;ref=http%3A//www.mathworks.com/matlabcentral/answers/153393-flexible-shaft-modelling-in-simmechanics-2g" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;label=SVIBCMq3xwIQ8rKW6AM&amp;guid=ON&amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Google Code for UK and .COM Domains-->
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script>
+<!-- END Adobe DTM -->
+<!-- BEGIN Qualaroo -->
+<script type="text/javascript">
+var _kiq = _kiq || [];
+(function(){
+setTimeout(function(){
+var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript';
+s.async = true; s.src = '//s3.amazonaws.com/ki.js/49559/ahy.js'; f.parentNode.insertBefore(s, f);
+}, 1);
+})();
+</script>
+<!-- END Qualaroo --> </div>
+	</div>
+
+
+<div class="go-top" style="display: none;"></div><div id="sb-container"><div id="sb-overlay"></div><div id="sb-wrapper"><div id="sb-title"><div id="sb-nav"><a id="sb-nav-close" title="Close" onclick="Shadowbox.close()"></a><a id="sb-nav-next" title="Next" onclick="Shadowbox.next()"></a><a id="sb-nav-play" title="Play" onclick="Shadowbox.play()"></a><a id="sb-nav-pause" title="Pause" onclick="Shadowbox.pause()"></a><a id="sb-nav-previous" title="Previous" onclick="Shadowbox.previous()"></a><div id="sb-counter"></div></div><div id="sb-title-inner"></div></div><div id="sb-wrapper-inner"><div id="sb-body"><div id="sb-body-inner"></div><div id="sb-loading"><div id="sb-loading-inner"><span>loading</span></div></div></div></div><div id="sb-info"><div id="sb-info-inner"></div></div></div></div></body></html>

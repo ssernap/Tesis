@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimMechanicsImportXML version="1.0" xmlns="urn:mathworks:simmechanics:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="01/03/16||09:27:03" using="SimMechanics Link Version 4.4" from="SolidWorks 23.3.0"/>
+<ModelUnits mass="kilogram" length="millimeter"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="CompletoToMatlab" uid="CompletoToMatlab" version="149">
+<AssemblyFile name="CompletoToMatlab.SLDASM" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="BaseFcompleta-1" uid="BaseFcompleta-1" grounded="true" entityUid="BaseFcompleta*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="Mbrazo-3" uid="Mbrazo-3" entityUid="Mbrazo" rigid="true">
+<Transform>
+<Rotation>0.25 0.86602540378443882 0.43301270189221908 -0.8660254037844386 -2.4060421445772221e-016 0.50000000000000033 0.43301270189221985 -0.49999999999999972 0.74999999999999978</Rotation>
+<Translation>-0.095276253623497786 -0.095018762025353865 -0.19786750030178143</Translation>
+</Transform>
+<Instance name="Hombro-1" uid="Hombro-1" grounded="true" entityUid="Hombro*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.028124441270518705 -0.033603002856532449 0.073999999999984495</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo-1" uid="Tubo-1" entityUid="Tubo*:*Predeterminado">
+<Transform>
+<Rotation>1 0 1.110223024625156e-016 1.110223024625156e-016 0 -1 0 1 0</Rotation>
+<Translation>-0.003774441270518708 -0.013603002856532445 -0.03400000000001549</Translation>
+</Transform>
+</Instance>
+<Instance name="MCodo-1" uid="MCodo-1" entityUid="MCodo*:*Predeterminado">
+<Transform>
+<Rotation>-5.5511151231257827e-016 -1.0000000000000002 0 -1 4.4408920985006262e-016 0 0 0 -1</Rotation>
+<Translation>-0.0037744412705187011 -0.013603002856532459 -0.019000000000015477</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="Mbrazo-1" uid="Mbrazo-1" entityUid="Mbrazo" rigid="true">
+<Transform>
+<Rotation>0.11239593871776922 -0.86602540378443782 0.48720339998788259 -0.97440679997576274 4.7184478546569153e-016 0.22479187743553863 -0.19467547642357447 -0.50000000000000122 -0.8438610423993117</Rotation>
+<Translation>-0.1298482707337138 -0.066943800554677385 0.19205961391468607</Translation>
+</Transform>
+<Instance name="Hombro-1" uid="Hombro-1" grounded="true" entityUid="Hombro*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.028124441270518687 -0.033603002856532435 0.073999999999984495</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo-1" uid="Tubo-1" entityUid="Tubo*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 0 -1 0 1 0</Rotation>
+<Translation>-0.0037744412705186803 -0.013603002856532431 -0.034000000000015518</Translation>
+</Transform>
+</Instance>
+<Instance name="MCodo-1" uid="MCodo-1" entityUid="MCodo*:*Predeterminado">
+<Transform>
+<Rotation>-4.4408920985006271e-016 -1 0 -1 4.4408920985006271e-016 0 0 0 -1</Rotation>
+<Translation>-0.0037744412705186803 -0.013603002856532431 -0.019000000000015504</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="Mbrazo-4" uid="Mbrazo-4" entityUid="Mbrazo" rigid="true">
+<Transform>
+<Rotation>-0.98507045805500071 1.025703942976239e-016 -0.17215165601094476 -0.17215165601094476 0 0.98507045805500071 0 1 0</Rotation>
+<Translation>0.1453496058058808 -0.14260456872395111 0.016422094135532507</Translation>
+</Transform>
+<Instance name="Hombro-1" uid="Hombro-1" grounded="true" entityUid="Hombro*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.028124441270518677 -0.033603002856532449 0.073999999999984481</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo-1" uid="Tubo-1" entityUid="Tubo*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 0 -1 0 1 0</Rotation>
+<Translation>-0.0037744412705186664 -0.013603002856532445 -0.034000000000015435</Translation>
+</Transform>
+</Instance>
+<Instance name="MCodo-1" uid="MCodo-1" entityUid="MCodo*:*Predeterminado">
+<Transform>
+<Rotation>-4.4408920985006232e-016 -1 0 -1 4.4408920985006232e-016 0 0 0 -1</Rotation>
+<Translation>-0.0037744412705186803 -0.013603002856532445 -0.019000000000015477</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="MAntebrazo-1" uid="MAntebrazo-1" entityUid="MAntebrazo" rigid="true">
+<Transform>
+<Rotation>0.94508641914128055 0.047543463470333176 0.32334390273508595 0.059611345222079684 0.94768870755184742 -0.31358029450130165 -0.32133805855442282 0.31563544265489918 0.89281359726682041</Rotation>
+<Translation>-0.098260688489819559 -0.14052633458391678 0.42695581454098119</Translation>
+</Transform>
+<Instance name="MTerminal-1" uid="MTerminal-1" grounded="true" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.0059746030918847448 0.0075101242930106227 0.060000000000000053</Translation>
+</Transform>
+</Instance>
+<Instance name="MTerminal-2" uid="MTerminal-2" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>-0.99999999999999989 -2.0816681711721685e-016 0 -1.2490009027033011e-016 1.0000000000000002 0 0 0 -1</Rotation>
+<Translation>0.014172652436205524 0.0075101242930106088 -0.20761226248112241</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo L1-1" uid="Tubo L1-1" entityUid="Tubo L1*:*Predeterminado">
+<Transform>
+<Rotation>0.99999999999999989 0 0 0 0 -1 0 1 0</Rotation>
+<Translation>0.0040990246721603896 -0.00045719890574057176 -0.1868061312405612</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="MAntebrazo-4" uid="MAntebrazo-4" entityUid="MAntebrazo" rigid="true">
+<Transform>
+<Rotation>0.42606851178196042 0.41069656463979304 0.80609798105501895 0.38308828431683573 0.72529124927623545 -0.57201046331557692 -0.81957854394016949 0.55252233938221018 0.1516907208649278</Rotation>
+<Translation>0.3402663919525718 -0.31697266025766757 0.011032180663083873</Translation>
+</Transform>
+<Instance name="MTerminal-1" uid="MTerminal-1" grounded="true" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.0059746030918847847 0.0075101242930105672 0.060000000000000109</Translation>
+</Transform>
+</Instance>
+<Instance name="MTerminal-2" uid="MTerminal-2" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>-1 -1.1102230246251565e-016 0 1.1102230246251565e-016 1 0 0 0 -1</Rotation>
+<Translation>0.01417265243620547 0.0075101242930105949 -0.20761226248112238</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo L1-1" uid="Tubo L1-1" entityUid="Tubo L1*:*Predeterminado">
+<Transform>
+<Rotation>1 0 -2.2204460492503141e-016 -2.2204460492503141e-016 0 -1 0 1 0</Rotation>
+<Translation>0.0040990246721603497 -0.000457198905740544 -0.18680613124056117</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="MAntebrazo-6" uid="MAntebrazo-6" entityUid="MAntebrazo" rigid="true">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.15867981719037044 -0.11143362271906906 -0.29157383783324164</Translation>
+</Transform>
+<Instance name="MTerminal-1" uid="MTerminal-1" grounded="true" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.0059746030918847726 0.0075101242930106088 0.060000000000000053</Translation>
+</Transform>
+</Instance>
+<Instance name="MTerminal-2" uid="MTerminal-2" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>-1 -2.2204460492503131e-016 0 -1.1102230246251565e-016 1.0000000000000002 0 0 0 -1</Rotation>
+<Translation>0.014172652436205468 0.0075101242930106088 -0.20761226248112241</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo L1-1" uid="Tubo L1-1" entityUid="Tubo L1*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 0 -1 0 1 0</Rotation>
+<Translation>0.0040990246721603341 -0.00045719890574055788 -0.18680613124056117</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="MAntebrazo-3" uid="MAntebrazo-3" entityUid="MAntebrazo" rigid="true">
+<Transform>
+<Rotation>0.39367626635364539 -0.018940200948618223 0.91905400608336396 -0.039217194732814951 0.99853141621457275 0.037376763768521046 -0.91841222168868275 -0.050757064735318526 0.39235533822329027</Rotation>
+<Translation>0.36559594609363022 -0.1781227096263481 0.12426436521801879</Translation>
+</Transform>
+<Instance name="MTerminal-1" uid="MTerminal-1" grounded="true" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.0059746030918847587 0.0075101242930105672 0.060000000000000053</Translation>
+</Transform>
+</Instance>
+<Instance name="MTerminal-2" uid="MTerminal-2" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>-1 -1.0408340855860843e-016 1.6653345369377346e-016 -1.0408340855860843e-016 0.99999999999999989 0 -1.6653345369377348e-016 0 -0.99999999999999989</Rotation>
+<Translation>0.014172652436205448 0.0075101242930105672 -0.20761226248112247</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo L1-1" uid="Tubo L1-1" entityUid="Tubo L1*:*Predeterminado">
+<Transform>
+<Rotation>1 -1.6653345369377358e-016 0 0 0 -1 1.6653345369377348e-016 1 0</Rotation>
+<Translation>0.0040990246721603271 -0.00045719890574055788 -0.18680613124056128</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="MAntebrazo-2" uid="MAntebrazo-2" entityUid="MAntebrazo" rigid="true">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.12010171044288705 -0.0697632967033322 0.4790904942519067</Translation>
+</Transform>
+<Instance name="MTerminal-1" uid="MTerminal-1" grounded="true" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.0059746030918847864 0.0075101242930106088 0.059999999999999998</Translation>
+</Transform>
+</Instance>
+<Instance name="MTerminal-2" uid="MTerminal-2" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>-1 -2.2204460492503131e-016 0 -1.1102230246251565e-016 1.0000000000000002 0 0 0 -1</Rotation>
+<Translation>0.014172652436205468 0.0075101242930106157 -0.20761226248112236</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo L1-1" uid="Tubo L1-1" entityUid="Tubo L1*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 0 -1 0 1 0</Rotation>
+<Translation>0.0040990246721603479 -0.00045719890574055788 -0.18680613124056117</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="MAntebrazo-5" uid="MAntebrazo-5" entityUid="MAntebrazo" rigid="true">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.10758431836708851 -0.11143362271906906 -0.32107383783324162</Translation>
+</Transform>
+<Instance name="MTerminal-1" uid="MTerminal-1" grounded="true" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.0059746030918847726 0.0075101242930106088 0.060000000000000053</Translation>
+</Transform>
+</Instance>
+<Instance name="MTerminal-2" uid="MTerminal-2" entityUid="MTerminal*:*Predeterminado">
+<Transform>
+<Rotation>-1 -2.2204460492503131e-016 0 -1.1102230246251565e-016 1.0000000000000002 0 0 0 -1</Rotation>
+<Translation>0.014172652436205468 0.0075101242930106088 -0.20761226248112241</Translation>
+</Transform>
+</Instance>
+<Instance name="Tubo L1-1" uid="Tubo L1-1" entityUid="Tubo L1*:*Predeterminado">
+<Transform>
+<Rotation>1 0 0 0 0 -1 0 1 0</Rotation>
+<Translation>0.0040990246721603479 -0.00045719890574055788 -0.18680613124056111</Translation>
+</Transform>
+</Instance>
+</Instance>
+</InstanceTree>
+<Constraints>
+<Coincident name="Coincidente1">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>BaseFcompleta-1</Uid>
+</InstancePath>
+<Position>-0.094047166776734248 -0.040000000000000008 0.097256288607207586</Position>
+<Axis>0.86602540378443882 0 0.49999999999999978</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Mbrazo-1</Uid>
+<Uid>Hombro-1</Uid>
+</InstancePath>
+<Position>0.024349999999999986 0.049999999999999975 0.029499999999999998</Position>
+<Axis>-4.163336342344337e-016 1 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincidente2">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>BaseFcompleta-1</Uid>
+</InstancePath>
+<Position>0.13125000000000001 -0.03999999999999998 0.032819091278999984</Position>
+<Axis>-5.046468293750711e-016 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Mbrazo-4</Uid>
+<Uid>Hombro-1</Uid>
+</InstancePath>
+<Position>0.024349999999999983 0.049999999999999968 0.029499999999999985</Position>
+<Axis>-4.081702296416015e-016 1 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincidente3">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>BaseFcompleta-1</Uid>
+</InstancePath>
+<Position>-0.037202833223265674 -0.03999999999999998 -0.13007537988620754</Position>
+<Axis>-0.86602540378443871 0 0.50000000000000011</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Mbrazo-3</Uid>
+<Uid>Hombro-1</Uid>
+</InstancePath>
+<Position>0.024349999999999997 0.049999999999999968 0.029500000000000026</Position>
+<Axis>-3.0531133177191805e-016 1 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concéntrica4">
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>BaseFcompleta-1</Uid>
+</InstancePath>
+<Position>-0.1134461358215057 -0.040000000000000008 0.086056288607207598</Position>
+<Axis>-0.86602540378443882 0 -0.49999999999999978</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>Mbrazo-1</Uid>
+<Uid>Hombro-1</Uid>
+</InstancePath>
+<Position>0.024349999999999993 0.073999999999999955 0.029499999999999998</Position>
+<Axis>4.163336342344337e-016 -1 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica5">
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>BaseFcompleta-1</Uid>
+</InstancePath>
+<Position>-0.017803864178494277 -0.03999999999999998 -0.14127537988620764</Position>
+<Axis>0.86602540378443871 0 -0.50000000000000011</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>Mbrazo-3</Uid>
+<Uid>Hombro-1</Uid>
+</InstancePath>
+<Position>0.024349999999999993 0.073999999999999982 0.029499999999999998</Position>
+<Axis>3.0531133177191805e-016 -1 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica6">
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>BaseFcompleta-1</Uid>
+</InstancePath>
+<Position>0.13125000000000001 -0.03999999999999998 0.032819091278999984</Position>
+<Axis>-5.046468293750711e-016 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>Mbrazo-4</Uid>
+<Uid>Hombro-1</Uid>
+</InstancePath>
+<Position>0.024349999999999983 0.073999999999999982 0.029499999999999992</Position>
+<Axis>4.081702296416015e-016 -1 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica7">
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>Mbrazo-1</Uid>
+<Uid>MCodo-1</Uid>
+</InstancePath>
+<Position>-0.029499999999999985 0.0035901699437494716 0.027500000000000024</Position>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>MAntebrazo-1</Uid>
+<Uid>MTerminal-2</Uid>
+</InstancePath>
+<Position>0.01007362776404519 -0.0079673231987511806 0.017193868759438735</Position>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica8">
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>Mbrazo-1</Uid>
+<Uid>MCodo-1</Uid>
+</InstancePath>
+<Position>0.029499999999999998 0.0035901699437494716 0.027500000000000024</Position>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>MAntebrazo-2</Uid>
+<Uid>MTerminal-2</Uid>
+</InstancePath>
+<Position>0.010073627764045134 -0.0079673231987511667 0.017193868759438735</Position>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica9">
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>Mbrazo-4</Uid>
+<Uid>MCodo-1</Uid>
+</InstancePath>
+<Position>-0.029500000000000005 0.0035901699437494577 0.027500000000000024</Position>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>MAntebrazo-3</Uid>
+<Uid>MTerminal-2</Uid>
+</InstancePath>
+<Position>0.010073627764045127 -0.0079673231987511806 0.017193868759438763</Position>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica10">
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>Mbrazo-4</Uid>
+<Uid>MCodo-1</Uid>
+</InstancePath>
+<Position>0.029500000000000012 0.0035901699437494855 0.027500000000000024</Position>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>MAntebrazo-4</Uid>
+<Uid>MTerminal-2</Uid>
+</InstancePath>
+<Position>0.010073627764045141 -0.0079673231987511667 0.017193868759438763</Position>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica11">
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>Mbrazo-3</Uid>
+<Uid>MCodo-1</Uid>
+</InstancePath>
+<Position>-0.029500000000000012 0.0035901699437494855 0.027499999999999969</Position>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>MAntebrazo-5</Uid>
+<Uid>MTerminal-1</Uid>
+</InstancePath>
+<Position>0.010073627764045134 -0.0079673231987511667 0.017193868759438763</Position>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concéntrica12">
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>Mbrazo-3</Uid>
+<Uid>MCodo-1</Uid>
+</InstancePath>
+<Position>0.029499999999999998 0.0035901699437494647 0.027499999999999969</Position>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="sphere">
+<InstancePath>
+<Uid>MAntebrazo-6</Uid>
+<Uid>MTerminal-1</Uid>
+</InstancePath>
+<Position>0.010073627764045134 -0.0079673231987511667 0.017193868759438763</Position>
+</ConstraintGeometry>
+</Concentric>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+<Assembly name="Mbrazo" uid="Mbrazo" version="127">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<AssemblyFile name="Mbrazo.SLDASM" type="SolidWorks Assembly"/>
+</Assembly>
+<Assembly name="MAntebrazo" uid="MAntebrazo" version="122">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<AssemblyFile name="MAntebrazo.SLDASM" type="SolidWorks Assembly"/>
+</Assembly>
+</Assemblies>
+<Parts>
+<Part name="BaseFcompleta" uid="BaseFcompleta*:*Predeterminado" version="218">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="BaseFcompleta.sldprt" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>20.287367140330733</Mass>
+<CenterOfMass>1.6031211334647475e-007 -0.0066435658685755575 1.4003345645237391e-007</CenterOfMass>
+<Inertia>0.27253697775492591 0.51368759866317037 0.27253763479954612 -4.0180599751929447e-008 -5.4487405851122439e-008 -4.6070157340080686e-008</Inertia>
+</MassProperties>
+<GeometryFile name="BaseFcompleta_Predeterminado_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="0.65098039215686276" g="0.61960784313725492" b="0.58823529411764708" a="1"/>
+<Diffuse r="0.65098039215686276" g="0.61960784313725492" b="0.58823529411764708" a="1"/>
+<Specular r="0.52078432148578124" g="0.49568628189610503" b="0.47058824230642882" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.10000000149011612</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Hombro" uid="Hombro*:*Predeterminado" version="137">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Hombro.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.20760150513005343</Mass>
+<CenterOfMass>0.02436332194015781 0.029033193849344188 0.029174735993220575</CenterOfMass>
+<Inertia>0.00011327836577052259 9.2084688062058536e-005 0.00011281570579108028 -4.7458984261584788e-007 1.2302978205576904e-008 1.8421113034699507e-007</Inertia>
+</MassProperties>
+<GeometryFile name="Hombro_Predeterminado_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="1" g="1" b="1" a="0.84999999999999998"/>
+<Diffuse r="1" g="1" b="1" a="0.84999999999999998"/>
+<Specular r="0.5" g="0.5" b="0.5" a="0.84999999999999998"/>
+<Emissive r="0.29999999999999999" g="0.29999999999999999" b="0.29999999999999999" a="0.84999999999999998"/>
+<Shininess>0.20000000298023224</Shininess>
+</VisualProperties>
+</Part>
+<Part name="MCodo" uid="MCodo*:*Predeterminado" version="153">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="MCodo.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.030790063735616068</Mass>
+<CenterOfMass>9.6991773717240049e-010 -0.00047205283398857735 0.01899352557558932</CenterOfMass>
+<Inertia>4.5516792753816827e-006 7.3798100199271615e-006 5.993822972153529e-006 1.2363516891677728e-007 -5.0128347145168926e-013 2.6119241542599854e-013</Inertia>
+</MassProperties>
+<GeometryFile name="MCodo_Predeterminado_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="1" g="1" b="1" a="0.84999999999999998"/>
+<Diffuse r="1" g="1" b="1" a="0.84999999999999998"/>
+<Specular r="0.5" g="0.5" b="0.5" a="0.84999999999999998"/>
+<Emissive r="0.29999999999999999" g="0.29999999999999999" b="0.29999999999999999" a="0.84999999999999998"/>
+<Shininess>0.20000000298023224</Shininess>
+</VisualProperties>
+</Part>
+<Part name="MTerminal" uid="MTerminal*:*Predeterminado" version="132">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="MTerminal.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.0076451566311216065</Mass>
+<CenterOfMass>0.010073625929533262 -0.0078161579128909735 -0.0046087276238615292</CenterOfMass>
+<Inertia>2.0853201719485526e-006 2.1508047454810766e-006 1.8030118788460993e-007 2.5654156312233122e-008 1.3955799142908861e-013 5.3776931336676658e-013</Inertia>
+</MassProperties>
+<GeometryFile name="MTerminal_Predeterminado_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="1" g="1" b="1" a="0.84999999999999998"/>
+<Diffuse r="1" g="1" b="1" a="0.84999999999999998"/>
+<Specular r="0.5" g="0.5" b="0.5" a="0.84999999999999998"/>
+<Emissive r="0.29999999999999999" g="0.29999999999999999" b="0.29999999999999999" a="0.84999999999999998"/>
+<Shininess>0.20000000298023224</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Tubo L1" uid="Tubo L1*:*Predeterminado" version="110">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Tubo L1.sldprt" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.0080087993199433917</Mass>
+<CenterOfMass>0 0.113 0</CenterOfMass>
+<Inertia>3.4125160202307118e-005 7.4081393709476381e-008 3.4125160202307118e-005 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Tubo L1_Predeterminado_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="1" g="1" b="1" a="1"/>
+<Diffuse r="1" g="1" b="1" a="1"/>
+<Specular r="1" g="1" b="1" a="1"/>
+<Emissive r="0.050000000000000003" g="0.050000000000000003" b="0.050000000000000003" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Tubo" uid="Tubo*:*Predeterminado" version="113">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Tubo.sldprt" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.020698069038910989</Mass>
+<CenterOfMass>0 0.065000000000000002 0</CenterOfMass>
+<Inertia>2.9667232289105739e-005 1.0349034519455496e-006 2.9667232289105739e-005 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Tubo_Predeterminado_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="1" g="1" b="1" a="1"/>
+<Diffuse r="1" g="1" b="1" a="1"/>
+<Specular r="1" g="1" b="1" a="1"/>
+<Emissive r="0.050000000000000003" g="0.050000000000000003" b="0.050000000000000003" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimMechanicsImportXML>

@@ -1,0 +1,38 @@
+clear all
+clc
+
+% l3=10;
+% l1=20;
+% l2=20;
+% x = 20;
+% y = 20;
+
+syms l1 l2 l3 x y wz;
+
+
+
+m = x-l3*cos(wz);
+n = y-l3*sin(wz);
+a = atan(n/m);
+q2 = pi() - acos((l1^2 + l2^2 - m)^2 - n^2)/(2*l1*l2);
+q1 = a + acos(((m^2 + n^2 + l1^2 - l2^2)/(2*l1*sqrt(m^2 + n^2))));
+
+
+y = atan2(((-n)/(sqrt(m^2 + n^2))),((m)/(sqrt(m^2 + n^2))));
+q1 = y + acos((-(m^2 + n^2 + l1^2 - l2^2))/(2*l1*sqrt(m^2 + n^2)));
+q2 = atan2(((n-l1*sin(q1))/(l2)),((m-l1*cos(q1))/(l2)))-q1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

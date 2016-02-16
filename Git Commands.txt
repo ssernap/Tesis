@@ -1,0 +1,5 @@
+git clone https://github.com/ssernap/Tesis_Organizado.git    -->> crea el repositorio
+git status                                                   -->> muestar las diferencias
+git add                                                      -->> dice q ahi q anadir el archivo
+git commit                                                   -->> lock in en el repositorio
+git push                                                     -->> lo sube a la nube 
