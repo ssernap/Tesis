@@ -1,2 +1,2 @@
 Angulos
-UbicarCentro.
+UbicarCentro
