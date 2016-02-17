@@ -1,0 +1,80 @@
+@charset "utf-8";
+/*
+Theme Name: MathWorks
+Theme URI: http://blogs.mathworks.com
+Description: MathWorks theme for Blogs Facelift project
+Version: 1.0
+Author: MathWorks
+Author URI: MathWorks
+Tags: custom header, fixed width, two columns, widgets
+*/
+
+@media print {
+  
+/*-----------------------------------------------------------
+    $LAYOUT
+-------------------------------------------------------------*/
+
+html { font-size: 62.5%; }
+
+body {
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+/*-----------------------------------------------------------
+    1. $HEADER
+-------------------------------------------------------------*/
+
+
+#header {display:none;}
+#header #globalnav {display:none;}
+#header #logo {display:none;}
+#header #headertools {display:none;}
+
+/*---- 1b-1. $BLOG_BANNER
+-------------------------------------------------------------*/
+
+header .blog_banner {display:none;}
+
+/*---- 1b-2a. $BLOG_TITLE
+-------------------------------------------------------------*/
+
+header #mw_blogs_title {display:none;}
+header .badge {display:none;}
+
+/*-----------------------------------------------------------
+    $LEFT_PANEL
+-------------------------------------------------------------*/
+
+.left-panel {display:none;}
+
+/*-----------------------------------------------------------
+    $RIGHT_PANEL
+-------------------------------------------------------------*/
+.right-panel .post {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;}
+.right-panel .post {margin-top:-80px; }
+.right-panel .post .row {display:none;}  
+.right-panel .post header h1 a[href]:after {
+   content:"" !important;
+}
+#videoplayer {
+visibility: hidden;
+width:50px;
+height:50px;
+}
+.video {
+background-image:url('/wp-content/themes/mathworks_1.0/images/print_video_placeholder.png') !important;
+background-repeat:no-repeat !important;
+background-size: 50px 50px !important;
+-webkit-print-color-adjust: exact;}
+
+/*-----------------------------------------------------------
+    $FOOTER
+-------------------------------------------------------------*/
+.mw_footer {display:none;}
+.post_comment_list {display:none;}
+}

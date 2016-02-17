@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html -->
+<html class="wf-automate-n7-active wf-futurapt-i5-active wf-futurapt-i7-active wf-futurapt-n5-active wf-futurapt-n7-active wf-minionprosubhead-n4-active wf-museoslab-n7-active wf-futurapt-i4-active wf-futurapt-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Solid Inertia - MATLAB &amp; Simulink</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="./Solid Inertia - MATLAB & Simulink_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6.css" rel="stylesheet" type="text/css">
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6_lg.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6_md.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6_sm+xs.css" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6_sm.css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6_xs.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_ie8.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/html5shiv-printshiv.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/site6_ie9.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<link href="./Solid Inertia - MATLAB & Simulink_files/site6_offcanvas.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_offcanvas_ie8.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" async="" src="./Solid Inertia - MATLAB & Simulink_files/ahy.js"></script><script src="./Solid Inertia - MATLAB & Simulink_files/aquant.js" async="" type="text/javascript"></script><script src="./Solid Inertia - MATLAB & Simulink_files/jquery-latest.js"></script><style type="text/css"></style>
+<script src="./Solid Inertia - MATLAB & Simulink_files/jquery.mobile.custom.min.js"></script>
+<script src="./Solid Inertia - MATLAB & Simulink_files/bootstrap.min.js"></script>
+<script src="./Solid Inertia - MATLAB & Simulink_files/global.js"></script>
+<script src="./Solid Inertia - MATLAB & Simulink_files/xvy5baa.js"></script>
+<style type="text/css">.tk-museo-slab{font-family:"museo-slab",serif;}.tk-futura-pt{font-family:"futura-pt","Arial","Helvetica",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}</style><link rel="stylesheet" href="./Solid Inertia - MATLAB & Simulink_files/xvy5baa-l.css" media="all"><script>try{Typekit.load();}catch(e){}</script>
+<!-- BEGIN Adobe DTM -->
+<script src="./Solid Inertia - MATLAB & Simulink_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script><script src="./Solid Inertia - MATLAB & Simulink_files/mbox.js"></script><style type="text/css">{visibility: hidden;}</style><style>.mboxDefault { visibility:hidden; }</style>
+<!-- END Adobe DTM -->
+<link href="./Solid Inertia - MATLAB & Simulink_files/doc_center.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/releases/R2015b/css/doc_center_ie8.css?20150306" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/releases/R2015b/css/doc_center_ie9.css?20150306" rel="stylesheet" type="text/css">
+<![endif]-->
+<link href="./Solid Inertia - MATLAB & Simulink_files/doc_center_print.css" rel="stylesheet" type="text/css" media="print">
+<script src="./Solid Inertia - MATLAB & Simulink_files/matlab_dialog.js"></script>
+<link rel="stylesheet" href="./Solid Inertia - MATLAB & Simulink_files/docstyle.css" type="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="toctype" itemprop="pagetype" content="con">
+<meta name="infotype" itemprop="infotype" content="con">
+<meta name="description" itemprop="description" content="Definition of the moments and products of inertia that you enter in the Inertia and Solid blocks">
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/l10n.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/docscripts.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/mw.toc.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/mw.imagescaling.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/mw.imageanimation.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/mw.breadcrumb.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/jquery.highlight.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/nanoscroller.min.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/doc_omniture.js"></script>
+<!-- Additions/overrides from the doc side -->
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/docsearch.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/jquery.toggleval.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/MathRenderer.js"></script><style type="text/css">math { visibility: hidden; }</style><link type="text/css" rel="stylesheet" href="./Solid Inertia - MATLAB & Simulink_files/main.css"><script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/dojo.js"></script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/jquery.cookie.js"></script>
+<script type="text/javascript">
+(function() {
+// Check if cookies are enabled
+function cookiesEnabled() {
+return $.cookie('check', 'valid', { expires: 1 }) && $.cookie('check') == 'valid';
+}
+// Set the language of the domain and redirect to the domain
+function setDomainLanguage(language) {
+if($.cookie("lang") != null) {
+$.removeCookie("lang");
+}
+$.cookie("lang", 'lang=' + language, {path: '/', expires: 365, domain: 'ch.mathworks.com'});
+}
+// do not display the domain selector if querystring is not present
+// or if query string has nocookie value
+// or if cookies are disabled
+var displayDomainSelector = true;
+function detectDomain() {
+var queries = {};
+$.each(document.location.search.substr(1).split('&'), function(c,q){
+if(q != undefined && q != "") {
+var i = q.split('=');
+if(i[1] != undefined) {
+queries[i[0].toString()] = i[1].toString();
+}
+}
+});
+var requested_domain = (queries['requestedDomain'] != undefined) ? queries['requestedDomain'] : "";
+var nocookie = (queries['nocookie'] != undefined) ? queries['nocookie'] : "";
+var client = (queries['client'] != undefined) ? queries['client'] : "";
+if(requested_domain == "" || nocookie == "true" || !cookiesEnabled() || client == "addons") {
+displayDomainSelector = false;
+}
+}
+detectDomain();
+function extractDomain(url) {
+var domain;
+//find & remove protocol (http, ftp, etc.) and get domain
+if (url.indexOf("://") > -1) {
+domain = url.split('/')[2];
+} else {
+domain = url.split('/')[0];
+}
+//find & remove port number
+domain = domain.split(':')[0];
+return domain;
+}
+function getDomainContent(returnContent) {
+// Get the location information from the marketing site
+$.ajax({
+url : "/includes_content/domainSelect/location.html",
+type : "get",
+async: false,
+success : function(data) {
+$("#location_content").html(data);
+var button_link = $("#button_link").text();
+var current_location = $("#current_location").text();
+var location_key = $("#location_key").text();
+//Set the location in the text and button
+$(".text_location").text(current_location);
+$("#domain_select_button").text("Select " + current_location);
+// if the current location is different from the browser location, update the button functionality
+var browser_domain = extractDomain(window.location.href);
+if(button_link.indexOf(browser_domain) == -1) {
+// Get the current page link from the links within the selector
+new_button_link = $("." + location_key).attr("href");
+$("#domain_select_button").attr("href",new_button_link);
+$("#domain_select_button").removeAttr("data-dismiss");
+}
+}
+});
+if(returnContent) {
+return $('#country-unselected').html();
+}
+}
+$(document).ready(function () {
+//setLocation();
+// determine if links need to be rewritten
+if ( $( "#country-unselected li a" ).length ) {
+$("#country-unselected li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+if ( $( "li.headernav_login > a" ).length ) {
+var login_url = $("li.headernav_login > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.headernav_login > a").attr("href", login_url);
+}
+if ( $( "li.mwa-nav_logout > a" ).length ) {
+var login_url = $("li.mwa-nav_logout > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.mwa-nav_logout > a").attr("href", login_url);
+}
+if ( $( ".mwa-nav li a" ).length ) {
+$(".mwa-nav li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+$('body').on('click','.footernav_country a',function(){
+getDomainContent(false);
+});
+// set the click function for Switzerland/French link
+$('body').on('click','#swiss_french',function(){
+setDomainLanguage('fr');
+});
+// set the click function for the Switzerland/German link
+$('body').on('click','#swiss_german',function(){
+setDomainLanguage('de');
+});
+});
+// onload functionality for the selector
+$(document).ready(function () {
+if(displayDomainSelector) {
+getDomainContent(false);
+$('#country-unselected').modal('show');
+}
+});
+})(jQuery);
+</script>
+<style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><script src="./Solid Inertia - MATLAB & Simulink_files/satellite-5480c4083639370018670600.js"></script><style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><script src="./Solid Inertia - MATLAB & Simulink_files/s-code-contents-73da148cb454c4f6e395aa8df704854c99540662.js"></script><style type="text/css" id="ki-k7v-ku"></style><style type="text/css" id="ki-k7v-kl"></style></head>
+  
+<body id="responsive_offcanvas" class="no_animate">
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+<a href="http://www.mathworks.com/index.html?s_tid=gn_logo" class="svg_link navbar-brand">
+<img src="./Solid Inertia - MATLAB & Simulink_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav">
+<li class="headernav_login dropdown">
+<a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#" class="dropdown-toggle" data-toggle="dropdown">
+sebastian
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="mwa-nav_account"><a href="https://www.mathworks.com/accesslogin/myAccount.do?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_associate"><a href="https://www.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc">Associate License</a></li>
+<li class="mwa-nav_logout"><a href="https://www.mathworks.com/accesslogin/logout.do?uri=http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</li>
+<li class="topnav_products "><a href="http://www.mathworks.com/products/?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://www.mathworks.com/solutions/?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://www.mathworks.com/academia/?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://www.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://www.mathworks.com/company/events/?s_tid=gn_ev">Events</a></li>
+<li class="topnav_company "><a href="http://www.mathworks.com/company/?s_tid=gn_co">Company</a></li>
+<li class="headernav_contact"><a href="http://www.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://www.mathworks.com/store/default.do?s_cid=store_top_nav&amp;s_tid=gn_store">How To Buy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_contact"><a href="http://www.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://www.mathworks.com/store/default.do?s_cid=store_top_nav&amp;s_tid=gn_store">How To Buy</a></li>
+<li class="headernav_login dropdown">
+<a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#" class="dropdown-toggle" data-toggle="dropdown">
+sebastian
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="mwa-nav_account"><a href="https://www.mathworks.com/accesslogin/myAccount.do?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_associate"><a href="https://www.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc">Associate License</a></li>
+<li class="mwa-nav_logout"><a href="https://www.mathworks.com/accesslogin/logout.do?uri=http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="http://www.mathworks.com/index.html?s_tid=gn_logo" class="svg_link pull-left">
+<img src="./Solid Inertia - MATLAB & Simulink_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="http://www.mathworks.com/products/?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://www.mathworks.com/solutions/?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://www.mathworks.com/academia/?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://www.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://www.mathworks.com/company/events/?s_tid=gn_ev">Events</a></li>
+<li class="topnav_company "><a href="http://www.mathworks.com/company/?s_tid=gn_co">Company</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Conjoined Header: Start -->
+<div class="sticky_header_container includes_subnav affix-top">
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container-fluid">
+<div class="row" id="mobile_search_row">
+<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7" id="mobile_search">
+<div class="search_nested_content_container">
+<div id="search_scope_doc" class="collapse in">
+<form id="docsearch_form" name="docsearch_form" method="get" data-release="R2015b" data-language="en" action="http://www.mathworks.com/help/search.html">
+<div class="input-group tokenized_search_field">
+<label class="sr-only">Search MATLAB Documentation</label>
+<input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search R2015b Documentation" id="docsearch">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Documentation</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<!-- <li data-toggle="collapse" data-target="#search_scope_doc"><a href="#">Documentation</a></li> -->
+<li data-toggle="collapse" data-target="#search_scope_support" class="doc_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#">Support</a></li>
+<li data-toggle="collapse" data-target="#search_scope_site" class="doc_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#">MathWorks</a></li>
+</ul>
+<script>
+$(".doc_search_scope_trigger").click(function() {
+$("#search_scope_doc").removeClass("in");
+$("#search").val($("#docsearch").val());
+$("#query").val($("#docsearch").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1" disabled=""></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_support" class="collapse">
+<form id="support_search" action="http://www.mathworks.com/support/search_results.html" method="get" accept-charset="utf-8">
+<div class="input-group">
+<label class="sr-only">Search All Support Resources</label>
+<input id="suggestion" type="hidden" name="suggestion" value="">
+<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+<input id="search" class="form-control conjoined_search" type="text" name="q" placeholder="Search All Support Resources" autocomplete="off">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Support</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="support_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#">Documentation</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_support"><a href="#">Support</a></li>-->
+<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#">MathWorks</a></li>
+</ul>
+<script>
+$(".support_search_scope_trigger").click(function() {
+$("#search_scope_support").removeClass("in");
+$("#docsearch").val($("#search").val());
+$("#query").val($("#search").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="support_submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_site" class="collapse">
+<form name="search" id="site_search" class="site_search" action="http://www.mathworks.com/search/site_search.html" method="get">
+<div class="input-group">
+<label class="sr-only">Search MathWorks.com</label>
+<input type="hidden" name="c[]" value="entire_site">
+<input type="text" name="q" id="query" class="form-control conjoined_search" placeholder="Search MathWorks.com" autocomplete="off" \="">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="site_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#">Documentation</a></li>
+<li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#">Support</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="#">MathWorks</a></li>-->
+</ul>
+<script>
+$(".site_search_scope_trigger").click(function() {
+$("#search_scope_site").removeClass("in");
+$("#search").val($("#query").val());
+$("#docsearch").val($("#query").val());
+});
+</script>
+<button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+<div class="col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5" id="section_header_title">
+<div class="section_header_content">
+<div class="section_header_title add_cursor_pointer">
+<h1>Documentation</h1>
+</div>
+</div>
+</div>
+<div class="visible-xs" id="search_actuator">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+</div>
+<script>
+$(".section_header_title").click(function(){
+$(window.location).attr('href', '/help');
+});
+</script>
+<!-- Section Header: End -->
+<!-- Mobile Local Nav: Start -->
+<!-- Mobile Local Nav: End -->
+</div>
+</div>
+<!-- Horo Nav: Start -->
+<div class="horizontal_nav">
+<div class="horizontal_nav_container">
+<div class="offcanvas_actuator active" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle">
+<button type="button" class="btn">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-menu"></span>
+</button>
+<span class="offcanvas_actuator_label" id="translation_icon-menu"></span>
+<span class="offcanvas_actuator_close"></span>
+</div>
+<div class="offcanvas_horizontal_nav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12 hidden-xs hidden-sm">
+<div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trial Software</a></li>
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horo Nav: End -->
+</div>
+<!-- Conjoined Header: End -->
+
+  <div class="row-offcanvas row-offcanvas-left active">
+  
+    <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+      <nav class="offcanvas_nav" role="navigation">
+          <ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_breadcrumb">
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://www.mathworks.com/help/index.html" itemprop="url"><span itemprop="title">All Products</span></a></li>
+</ul>
+
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_disambiguation">
+<li class="product"><a href="http://www.mathworks.com/help/physmod/sm/index.html">SimMechanics</a>
+<div class="dropdown">
+<span class="icon-arrow-down icon_16" id="dropdownMenu1" data-toggle="dropdown"></span>
+<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/sm/getting-started-with-simmechanics.html?s_cid=doc_flyout">Getting Started</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/sm/examples.html?s_cid=doc_flyout">Examples</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/sm/simscapeblocklist.html?s_cid=doc_flyout">Simscape Blocks and Other Reference</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/sm/release-notes.html?s_cid=doc_flyout">Release Notes</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/releases/R2015b/pdf_doc/physmod/sm/index.html?s_cid=doc_flyout">PDF Documentation</a></li>
+</ul>
+</div>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://www.mathworks.com/help/physmod/sm/multibody-modeling.html" itemprop="url"><span itemprop="title">Multibody Modeling</span></a></li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://www.mathworks.com/help/physmod/sm/rigid-bodies-1.html" itemprop="url"><span itemprop="title">Rigid Bodies</span></a></li>
+</ul>
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_scrollspy nav">
+<li class="nav_scrollspy_function active"><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#responsive_offcanvas">Solid Inertia</a></li>
+<li class="nav_scrollspy_title">On this page</li>
+
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-1" class="intrnllnk">Inertial Properties</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-2" class="intrnllnk">Blocks with Inertia</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-3" class="intrnllnk">Inertia in a Model</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-4" class="intrnllnk">Inertia Parameterizations</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-5" class="intrnllnk">Custom Inertia</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-6" class="intrnllnk">Moments and Products of Inertia</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#buj6ief-7" class="intrnllnk">Complex Inertias</a></li>
+
+
+</ul>
+
+      </nav>
+      <script src="./Solid Inertia - MATLAB & Simulink_files/offcanvas.js"></script>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <!-- MOBILE CTA - End -->
+
+
+    <div class="content_container" id="content_container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+              
+
+
+
+
+
+
+           
+     
+    
+           
+<section id="doc_center_content" lang="en"><div id="pgtype-topic">
+  
+
+<span id="btvajpj" class="anchor_target"></span><h2 class="title r2015b" itemprop="title content" id="btvajpj">Solid Inertia</h2><div itemprop="content"><span id="buj6ief-1" class="anchor_target"></span><h3 class="title" id="buj6ief-1">Inertial Properties</h3><p>Inertia is the resistance of matter to acceleration due to applied
+forces and torques. The inertial properties of a body include its
+mass and inertia tensor—a symmetric 3×3 matrix that contains
+the moments and products of inertia. Mass resists translational acceleration
+while the moments and products of inertia resist rotational acceleration.</p><p>Among the solid properties of a model, the inertial properties
+have the greatest impact on multibody dynamics. Those that you must
+specify depend on the type of inertia you are modeling—a point
+mass or a body with a 3-D mass distribution. They include one or more
+of the following:</p><ul type="disc"><li><p>Mass or density</p></li><li><p>Center of mass</p></li><li><p>Moments of inertia</p></li><li><p>Products of inertia</p></li></ul><p>In a SimMechanics™ model, these properties are time-invariant.
+Rigid bodies cannot gain or lose mass nor can they deform in response
+to an applied force or torque. The mass distribution of a body—and
+therefore its inertia tensor and center of mass—remain constant
+throughout simulation.</p></div><div itemprop="content"><span id="buj6ief-2" class="anchor_target"></span><h3 class="title" id="buj6ief-2">Blocks with Inertia</h3><p>You can model inertia using the following blocks:</p><ul type="disc"><li><p><a href="http://www.mathworks.com/help/physmod/sm/ref/solid.html">Solid</a> — Model
+a complete solid element with geometry, inertia, and color. This block
+can automatically compute the moments of inertia, products of inertia,
+and center of mass based on the solid geometry and mass or mass density.
+During simulation, Mechanics Explorer renders the solid using the
+geometry and color specified.</p></li><li><p><a href="http://www.mathworks.com/help/physmod/sm/ref/inertia.html">Inertia</a> — Model
+only the inertial properties of a solid element. You must specify
+the moments of inertia, products of inertia, and center of mass explicitly.
+During simulation, Mechanics Explorer identifies the center of mass
+using the inertia icon <span class="inlinemediaobject">
+<img src="./Solid Inertia - MATLAB & Simulink_files/inertia_icon.png" height="23" width="22" alt=""></span>.</p></li></ul></div><div itemprop="content"><span id="buj6ief-3" class="anchor_target"></span><h3 class="title" id="buj6ief-3">Inertia in a Model</h3><p>To add a Solid or Inertia block to your model, connect its frame
+port to another frame entity in the model. Frame entities include
+frame lines, nodes, and ports. The frame entity to which you connect
+the block determines the position and orientation of the inertia within
+the model. See <a href="http://www.mathworks.com/help/physmod/sm/ug/representing-frames.html">Representing Frames</a>.</p><p>The Solid and Inertia blocks each provide a reference frame
+port. The Solid block enables you to create additional frames, each
+of which adds a new frame port to the block. You can use any of these
+frames to connect a Solid block in a model.</p><p>The figure shows an example. The model shown contains two Solid
+blocks, labeled Link A and Link B. The reference frame port of Link
+A connects directly to the World Frame block. Its reference frame
+is therefore coincident with the World frame.</p><p>The reference frame port of Link B connects to the follower
+frame port of the Rigid Transform block. This block applies a spatial
+transform between the World frame the reference frame of the Link
+B block. The spatial transform translates and/or rotates the two frames
+relative to each other.</p><p>
+<img src="./Solid Inertia - MATLAB & Simulink_files/inertia_frame_example.png" height="239" width="423" alt=""></p><p>For examples showing how to position solid elements in a model,
+see:</p><ul type="disc"><li><p><a href="http://www.mathworks.com/help/physmod/sm/ug/model-two-hole-binary-link.html">Model Two-Hole Binary Link</a></p></li><li><p><a href="http://www.mathworks.com/help/physmod/sm/ug/model-pivot-mount.html">Model Pivot Mount</a></p></li></ul></div><div itemprop="content"><span id="buj6ief-4" class="anchor_target"></span><h3 class="title" id="buj6ief-4">Inertia Parameterizations</h3><p>Once you have connected the Solid or Inertia blocks in a model,
+you must specify their inertial parameters. These depend on the inertia
+parameterization that you select. The blocks provide three optional
+parameterizations:</p><ul type="disc"><li><p><code>Calculate from Geometry</code> —
+Specify mass or density. The Solid block automatically computes the
+remaining inertial properties based on the solid geometry. Only the
+Solid block provides this parameterization.</p></li><li><p><code>Point Mass</code> — Specify
+the mass and ignore the remaining inertial parameters. The inertia
+behaves as point mass with no rotational inertia. </p></li><li><p><code>Custom</code> — Manually
+specify every inertial parameter. You must obtain each parameter through
+direct calculation or from an external modeling platform.</p></li></ul></div><div itemprop="content"><span id="buj6ief-5" class="anchor_target"></span><h3 class="title" id="buj6ief-5">Custom Inertia</h3><p>If you select the <code>Custom Inertia</code> parameterization,
+you must specify the moments of inertia, products of inertia, and
+center of mass explicitly. These parameters depend closely on the
+reference frame used in their calculations, so you must ensure that
+frame matches the one used in SimMechanics:</p><ul type="disc"><li><p>Moments and products of inertia — Enter with
+respect to a frame parallel to the reference port frame but with origin
+at the center of mass. </p></li><li><p>Center of mass — Enter with respect to the
+reference port frame.</p></li></ul><p>Consider the main section of the binary link in <a href="http://www.mathworks.com/help/physmod/sm/ug/model-binary-link.html">Model Binary Link</a>. You model this solid
+using a single solid block with a <code>General Extrusion</code> shape.
+As described in the Solid block documentation, the reference port
+frame for a general extrusion has its origin in the XY plane at the
+[0,0] cross-section coordinate.</p><p>The figure shows the solid reference port frame, labeled R.
+The center-of-mass coordinates must be with respect to this frame.
+The moments and products of inertia must be with respect to a parallel
+frame offset so that its origin coincides with the center of mass.
+This frame is virtual , as it does not correspond to any frame port,
+line, or node in the model. It is labeled R* in the figure.</p></div><div itemprop="content"><span id="buj6ief-6" class="anchor_target"></span><h3 class="title" id="buj6ief-6">Moments and Products of Inertia</h3><p>You can extract the moments and products of inertia directly
+from the inertia tensor. This tensor is symmetric: elements with reciprocal
+indices have the same magnitude. That is:</p><ul type="disc"><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathScript HBox" style="display: inline-block; position: relative; padding-left: 4px;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span></span></span></span><!--MathType@End@5@5@--></span></p></li><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathScript HBox" style="display: inline-block; position: relative; padding-left: 4px;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span></span></span></span><!--MathType@End@5@5@--></span></p></li><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathScript HBox" style="display: inline-block; position: relative; padding-left: 4px;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span></span></span></span><!--MathType@End@5@5@--></span></p></li></ul><p>This symmetry reduces the number of unique tensor elements to
+six—three moments of inertia and three products of inertia.
+The complete inertia tensor has the form:</p><p class="programlistingindent"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathMatrix VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -24px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span></span></span></span></span></span><!--MathType@End@5@5@--></p><p>The moments of inertia are the diagonal elements:</p><p class="programlistingindent"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathMatrix VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -24px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span></span></span></span></span></span><!--MathType@End@5@5@--></p><p>SimMechanics defines these elements as follows:</p><ul type="disc"><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox mtext" style="position: relative; font-size: 0.8em; font-style: normal;">xx</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathScript VBox" style="display: inline-block; position: relative; padding-left: 4px; text-align: center; vertical-align: -21px;"><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: 0px;"><span class="MathStyle HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra" style="position: relative; display: inline-block; vertical-align: 20px; line-height: 32px; margin-top: -6px; margin-bottom: 7px;"></span></span></span></span></span><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-right: 2px; font-size: 0.8em;">V</span></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra2" style="position: relative; display: inline-block; vertical-align: 13px; line-height: 17px; margin-top: -4px; margin-bottom: 5px;">(</span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px;">y</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: 7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox number" style="position: relative; font-size: 0.8em;">2</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">+</span><span class="MathScript HBox" style="display: inline-block; position: relative; padding-left: 4px;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">z</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: 7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox number" style="position: relative; font-size: 0.8em;">2</span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra2" style="position: relative; display: inline-block; vertical-align: 13px; line-height: 17px; margin-top: -4px; margin-bottom: 5px;">)</span></span></span><span class="MathText MathTextBox text" style="position: relative;">d</span><span class="MathText MathTextBox text" style="position: relative;">m</span></span></span></span></span><!--MathType@End@5@5@--></span></p></li><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox mtext" style="position: relative; font-size: 0.8em; font-style: normal;">yy</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathScript VBox" style="display: inline-block; position: relative; padding-left: 4px; text-align: center; vertical-align: -21px;"><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: 0px;"><span class="MathStyle HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra" style="position: relative; display: inline-block; vertical-align: 20px; line-height: 32px; margin-top: -6px; margin-bottom: 7px;"></span></span></span></span></span><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-right: 2px; font-size: 0.8em;">V</span></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra2" style="position: relative; display: inline-block; vertical-align: 13px; line-height: 17px; margin-top: -4px; margin-bottom: 5px;">(</span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">z</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: 7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox number" style="position: relative; font-size: 0.8em;">2</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">+</span><span class="MathScript HBox" style="display: inline-block; position: relative; padding-left: 4px;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">x</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: 7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox number" style="position: relative; font-size: 0.8em;">2</span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra2" style="position: relative; display: inline-block; vertical-align: 13px; line-height: 17px; margin-top: -4px; margin-bottom: 5px;">)</span></span></span><span class="MathText MathTextBox text" style="position: relative;">d</span><span class="MathText MathTextBox text" style="position: relative;">m</span></span></span></span></span><!--MathType@End@5@5@--></span></p></li><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox mtext" style="position: relative; font-size: 0.8em; font-style: normal;">zz</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathScript VBox" style="display: inline-block; position: relative; padding-left: 4px; text-align: center; vertical-align: -21px;"><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: 0px;"><span class="MathStyle HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra" style="position: relative; display: inline-block; vertical-align: 20px; line-height: 32px; margin-top: -6px; margin-bottom: 7px;"></span></span></span></span></span><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-right: 2px; font-size: 0.8em;">V</span></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra2" style="position: relative; display: inline-block; vertical-align: 13px; line-height: 17px; margin-top: -4px; margin-bottom: 5px;">(</span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">x</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: 7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox number" style="position: relative; font-size: 0.8em;">2</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">+</span><span class="MathScript HBox" style="display: inline-block; position: relative; padding-left: 4px;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px;">y</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: 7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox number" style="position: relative; font-size: 0.8em;">2</span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra2" style="position: relative; display: inline-block; vertical-align: 13px; line-height: 17px; margin-top: -4px; margin-bottom: 5px;">)</span></span></span><span class="MathText MathTextBox text" style="position: relative;">d</span><span class="MathText MathTextBox text" style="position: relative;">m</span></span></span></span></span><!--MathType@End@5@5@--></span></p></li></ul><p>The products of inertia are the unique off-diagonal elements,
+each of which appears in the inertia tensor twice:</p><p class="programlistingindent"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathMatrix VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -24px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span></span></span></span></span></span><!--MathType@End@5@5@--></p><p>SimMechanics defines these elements as follows:</p><ul type="disc"><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox mtext" style="position: relative; font-size: 0.8em; font-style: normal;">yz</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">−</span><span class="MathScript VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -21px;"><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: 0px;"><span class="MathStyle HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra" style="position: relative; display: inline-block; vertical-align: 20px; line-height: 32px; margin-top: -6px; margin-bottom: 7px;"></span></span></span></span></span><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-right: 2px; font-size: 0.8em;">V</span></span></span><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px;">y</span><span class="MathText MathTextBox text" style="position: relative;">z</span><span class="MathText MathTextBox mtext" style="position: relative;"> </span><span class="MathText MathTextBox text" style="position: relative;">d</span><span class="MathText MathTextBox text" style="position: relative;">m</span></span></span></span></span><!--MathType@End@5@5@--></span></p></li><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox mtext" style="position: relative; font-size: 0.8em; font-style: normal;">zx</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">−</span><span class="MathScript VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -21px;"><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: 0px;"><span class="MathStyle HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra" style="position: relative; display: inline-block; vertical-align: 20px; line-height: 32px; margin-top: -6px; margin-bottom: 7px;"></span></span></span></span></span><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-right: 2px; font-size: 0.8em;">V</span></span></span><span class="MathText MathTextBox text" style="position: relative;">z</span><span class="MathText MathTextBox text" style="position: relative;">x</span><span class="MathText MathTextBox mtext" style="position: relative;"> </span><span class="MathText MathTextBox text" style="position: relative;">d</span><span class="MathText MathTextBox text" style="position: relative;">m</span></span></span></span></span><!--MathType@End@5@5@--></span></p></li><li><p><span class="inlinemediaobject"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox mtext" style="position: relative; font-size: 0.8em; font-style: normal;">xy</span></span></span></span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">=</span><span class="MathText MathTextBox symbol" style="position: relative; padding-left: 4px;">−</span><span class="MathScript VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -21px;"><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: 0px;"><span class="MathStyle HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText StretchyBox" style="display: inline-block; position: relative; text-align: left;"><span class="MathTextBox extra" style="position: relative; display: inline-block; vertical-align: 20px; line-height: 32px; margin-top: -6px; margin-bottom: 7px;"></span></span></span></span></span><span class="WhiteSpaceBox" style="display: none;"></span><span class="MathRow HBox" style="display: block; position: relative; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-right: 2px; font-size: 0.8em;">V</span></span></span><span class="MathText MathTextBox text" style="position: relative;">x</span><span class="MathText MathTextBox text" style="position: relative;">y</span><span class="MathText MathTextBox mtext" style="position: relative;"> </span><span class="MathText MathTextBox text" style="position: relative;">d</span><span class="MathText MathTextBox text" style="position: relative;">m</span></span></span></span></span><!--MathType@End@5@5@--></span></p></li></ul><p>The inertia tensor is simplest when it is diagonal. Such a tensor
+provides the moments of inertia about the principal axes of the solid
+or inertia element—known as the principal moments of inertia.
+The products of inertia reduce to zero:</p><p class="programlistingindent"><!--MathType@Translator@5@5@MathML2(Clipboard).tdl@MathML2.0(Clipboard)@--><span><span class="MathEquation Windows" style="font-size: 14.3px;"><span class="MathRoot HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathMatrix VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: -24px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">x</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox number" style="position: relative;">0</span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox number" style="position: relative;">0</span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox number" style="position: relative;">0</span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; padding-left: 2px; font-size: 0.8em;">y</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">y</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox number" style="position: relative;">0</span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 12px;"></span></span></span><span class="VBox" style="display: inline-block; position: relative; text-align: center; vertical-align: 0px;"><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox number" style="position: relative;">0</span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 28px; vertical-align: -13px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox number" style="position: relative;">0</span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span><span class="HBox" style="display: block; position: relative; margin-top: 0px;"><span class="VBox" style="display: inline-block; position: relative; height: 25px; vertical-align: -10px;"></span><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathScript HBox" style="display: inline-block; position: relative;"><span class="MathRow HBox" style="display: inline-block; position: relative;"><span class="MathText MathTextBox text" style="position: relative;">I</span></span><span class="VBox" style="display: inline-block; position: relative; text-align: left; vertical-align: -7px;"><span class="MathRow HBox" style="display: block; position: relative; margin-left: -2px; margin-top: -2px;"><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span><span class="MathText MathTextBox text" style="position: relative; font-size: 0.8em;">z</span></span></span></span></span><span class="WhiteSpaceBox" style="display: inline-block; position: relative; margin-left: 0px;"></span></span></span></span></span></span><span class="MathDelimiter StretchyBox" style="display: inline-block; position: relative; text-align: left; height: 78px; width: 10px; vertical-align: -34px;"><span class="MathTextBox extra" style="position: absolute; display: block; top: 3px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 27px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 34px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 41px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 48px;"></span><span class="MathTextBox extra" style="position: absolute; display: block; top: 55px;"></span></span></span></span></span></span></span><!--MathType@End@5@5@--></p><p>For more information, see the <a href="http://www.mathworks.com/help/physmod/sm/ref/solid.html">Solid</a> and <a href="http://www.mathworks.com/help/physmod/sm/ref/inertia.html">Inertia</a> block reference pages.</p></div><div itemprop="content"><span id="buj6ief-7" class="anchor_target"></span><h3 class="title" id="buj6ief-7">Complex Inertias</h3><p>Bodies often comprise different materials, have complex shapes,
+or contain material imperfections that alter their centers of mass
+and principal axes. One example is an imbalanced automobile wheel
+after driving through a pothole. You can model complex inertias such
+as these using two approaches:</p><ul type="disc"><li><p>Use a divide-and-conquer approach. Break up the complex
+solid or inertia into simpler chunks and model each using a separate
+Solid or Inertia block. The resulting set of Solid and Inertia blocks
+constitute a compound inertia. You use a similar approach to model
+complex geometries, such as the binary link geometry in <a href="http://www.mathworks.com/help/physmod/sm/ug/model-binary-link.html">Model Binary Link</a>.</p></li><li><p>Manually specify the complete inertial properties
+using a single Solid or Inertia block with the inertia parameterization
+set to <code>Custom</code>. You must obtain the moments
+of inertia, products of inertia, and center of mass through direct
+calculation, from another modeling platform, or from another external
+source.</p></li></ul><p>For bodies with complex shapes but uniform mass distributions,
+you can also import a STEP file containing the solid geometry and
+set the inertia parameterization to <code>Calculate from Geometry</code>.</p></div>
+</div></section>
+
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onclick="openFeedbackWindow(&#39;http://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams=&#39;+document.location.href+&#39;-YES-R2015b&#39;);">
+<input type="button" value="No" onclick="openFeedbackWindow(&#39;http://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams=&#39;+document.location.href+&#39;-NO-R2015b&#39;);">
+</div>
+<!--Last updated: Tue Aug 25 00:00:37 EDT 2015-->
+
+  
+
+
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+
+<div class="modal fade" id="country-unselected">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <object type="image/svg+xml" width="167px" class="mw_logo" alt="MathWorks" data="http://www.mathworks.com/images/responsive/global/pic-header-mathworks-logo2.svg">
+          <img alt="MathWorks" width="167px" src="./Solid Inertia - MATLAB & Simulink_files/pic-header-mathworks-logo.png">
+        </object>
+      </div>
+      <div class="modal-body">
+        <div class="row add_margin_40">
+          <div class="col-xs-12">
+            <h1 class="icon-globe icon_color_secondary">Select Your Country</h1>
+            <p>Choose your country to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="text_location"></strong>.</p>
+            <a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html#" id="domain_select_button" class="btn btn_secondary" data-dismiss="modal"></a>
+          </div>
+        </div>
+        <p>You can also select a location from the following list:</p>
+        <div class="row add_margin_30">
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Americas</h3>
+            <ul class="list-unstyled">
+              <li><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="canada_select">Canada</a> (English)</li>
+              <li><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_states_select">United States</a> (English)</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 class="add_bottom_rule">Europe</h3>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled add_margin_0_sm">
+                  <li><a href="http://nl.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="belgium_select">Belgium</a> (English)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="denmark_select">Denmark</a> (English)</li>
+                  <li><a href="http://de.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="deutschland_select">Deutschland</a> (Deutsch)</li>
+                  <li><a href="http://es.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="espana_select">España</a> (Español)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="finland_select">Finland</a> (English)</li>
+                  <li><a href="http://fr.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="france_select">France</a> (Français)</li>
+                  <li><a href="http://uk.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="ireland_select">Ireland</a> (English)</li>
+                  <li><a href="http://it.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="italia_select">Italia</a> (Italiano)</li>
+                  <li><a href="http://nl.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="luxembourg_select">Luxembourg</a> (English)</li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><a href="http://nl.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="netherlands_select">Netherlands</a> (English)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="norway_select">Norway</a> (English)</li>
+                  <li><a href="http://de.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="osterreich_select">Österreich</a> (Deutsch)</li>
+                  <li><a href="http://www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="portugal_select">Portugal</a> (English)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="sweden_select">Sweden</a> (English)</li>
+                  <li>Switzerland
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="http://ch.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_german" class="switzerland_select">Deutsch</a></li>
+                      <li><a href="http://ch.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_french">Français</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="http://uk.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_kingdom_select">United Kingdom</a> (English)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Asia Pacific</h3>
+            <ul class="list-unstyled">
+              <li><a href="http://au.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="australia_select">Australia</a> (English)</li>
+              <li><a href="http://in.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="india_select">India</a> (English)</li>
+              <li><a href="http://au.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="new_zealand_select">New Zealand</a> (English)</li>
+              <li><a href="http://cn.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="china_select">中国</a> (简体中文)</li>
+              <li><a href="http://jp.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="japan_select">日本</a> (日本語)</li>
+              <li><a href="http://kr.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="korea_select">한국</a> (한국어)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center"><strong><a href="http://www.mathworks.com/company/worldwide/">See all countries</a></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <div class="cta_container_mobile visible-sm visible-xs">
+      <div class="container-fluid">      
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trial Software</a></li>
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MOBILE CTA - End -->
+
+        <!-- BODY TRAIL - Begin -->
+        <div class="body_trail_container">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="http://www.mathworks.com/help/physmod/sm/index.html?s_cid=doc_ftr">SimMechanics Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://www.mathworks.com/help/physmod/sm/getting-started-with-simmechanics.html?s_cid=doc_ftr">Getting Started</a></li>
+<li><a href="http://www.mathworks.com/help/physmod/sm/examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="http://www.mathworks.com/help/physmod/sm/simscapeblocklist.html?s_cid=doc_ftr">Simscape Blocks and Other Reference</a></li>
+<li><a href="http://www.mathworks.com/help/physmod/sm/release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+<li><a href="http://www.mathworks.com/help/releases/R2015b/pdf_doc/physmod/sm/index.html?s_cid=doc_ftr">PDF Documentation</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="http://www.mathworks.com/help/index.html?s_cid=doc_ftr">Other Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://www.mathworks.com/help/matlab/index.html?s_cid=doc_ftr">MATLAB</a></li><li><a href="http://www.mathworks.com/help/simulink/index.html?s_cid=doc_ftr">Simulink</a></li><li><a href="http://www.mathworks.com/help/physmod/simscape/index.html?s_cid=doc_ftr">Simscape</a></li><li><a href="http://www.mathworks.com/help/physmod/smlink/index.html?s_cid=doc_ftr">SimMechanics Link</a></li><li><a href="http://www.mathworks.com/help/physmod/sdl/index.html?s_cid=doc_ftr">SimDriveline</a></li><li><a href="http://www.mathworks.com/help/index.html?s_cid=doc_ftr">All Products</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="http://www.mathworks.com/support/?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://www.mathworks.com/matlabcentral/answers/?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="http://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="http://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="http://www.mathworks.com/products/availability/?s_cid=doc_ftr">Product Requirements</a></li><li><a href="http://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3">
+<div class="panel panel_color_transparent panel_color_fill">
+<div class="panel-body"> <img src="./Solid Inertia - MATLAB & Simulink_files/bg-trial-arrow_02.png" class="add_margin_5">
+<h4>Try MATLAB, Simulink, and Other Products</h4>
+<a href="http://www.mathworks.com/programs/trials/trial_request.html?prodcode=MS&amp;s_iid=doc_trial_MS_footer" class="icon-chevron">Get trial now </a>
+</div>
+</div>
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BODY TRAIL - End -->
+
+    <footer id="footer" class="bs-footer">
+        <!-- FAT FOOTER - Begin --> 
+        <div class="container-fluid">
+          <div class="fat_footer_container">
+            <div class="execmatlabproduct">
+<p class="copyright">© 1994-2015 The MathWorks, Inc.</p>
+<ul class="footernav">
+<li class="footernav_acknowledgments"><a href="matlab:web([docroot &#39;/acknowledgments.html&#39;])">Acknowledgments</a></li>
+<li class="footernav_trademarks"><a href="matlab:web([matlabroot &#39;/trademarks.txt&#39;])">Trademarks</a></li>
+<li class="footernav_patents"><a href="matlab:web([matlabroot &#39;/patents.txt&#39;])">Patents</a></li>
+<li class="footernav_terms"><a href="matlab:web(matlab.internal.licenseAgreement)">Terms of Use</a></li>
+</ul>
+</div>
+          </div>
+        </div>
+        <!-- FAT FOOTER - End -->
+      <div class="container-fluid">
+       <div class="footer">
+<div class="row">
+<div class="col-xs-12 col-lg-9">
+<ul class="countrynav" id="countrynav">
+<li class="footernav_country">
+<a href="javascript:void(0);" data-toggle="modal" data-target="#country-unselected">
+<span class="icon-globe icon_color_quinary icon_16"></span>United States
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<ul class="footernav">
+<li class="footernav_patents"><a href="http://www.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+<li class="footernav_trademarks"><a href="http://www.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_privacy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_piracy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<p class="copyright">© 1994-2016 The MathWorks, Inc.</p>
+</div>
+<div class="clearfix visible-sm add_margin_10"></div>
+<div class="col-xs-12 col-lg-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&amp;url=http://www.facebook.com/MATLAB" target="_blank" class="svg_link">
+<img src="./Solid Inertia - MATLAB & Simulink_files/ico-facebook.svg" alt="Facebook" class="ico_facebook">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_twt&amp;url=http://www.twitter.com/MATLAB" target="_blank" class="svg_link">
+<img src="./Solid Inertia - MATLAB & Simulink_files/ico-twitter.svg" alt="Twitter" class="ico_twitter">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_glg&amp;url=https://plus.google.com/117177960465154322866?prsrc=3" target="_blank" class="svg_link">
+<img src="./Solid Inertia - MATLAB & Simulink_files/ico-google-plus.svg" alt="Google+" class="ico_google">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_lkd&amp;url=http://www.linkedin.com/company/the-mathworks_2" target="_blank" class="svg_link">
+<img src="./Solid Inertia - MATLAB & Simulink_files/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/company/rss/index.html" class="svg_link">
+<img src="./Solid Inertia - MATLAB & Simulink_files/ico-rss.svg" alt="RSS" class="ico_rss">
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Join the conversation</em></p>
+</div>
+</div>
+</div>
+</div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script><script>
+ var qcord;var qcrev; var qclabels;
+ var ezt = ezt ||[];
+
+ (function(){
+   var elem = document.createElement('script');
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem,scpt);
+ }());
+
+
+ ezt.push({qacct: 'p-zfNtLVVEHXE-1',
+           orderid: qcord,
+           revenue: qcrev,
+           labels: qclabels
+           });
+</script>
+<noscript>
+  &lt;img src="//pixel.quantserve.com/pixel/p-zfNtLVVEHXE-1.gif?labels=_fp.event.Default" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript><script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023777138;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Solid Inertia - MATLAB & Simulink_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./Solid Inertia - MATLAB & Simulink_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?frame=0&amp;random=1455679813998&amp;cv=8&amp;fst=1455679813998&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=667&amp;u_w=1184&amp;u_ah=636&amp;u_aw=1184&amp;u_cd=24&amp;u_his=2&amp;u_tz=-300&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A//www.mathworks.com/help/physmod/sm/ug/specifying-solid-inertia.html&amp;ref=http%3A//www.mathworks.com/help/physmod/sm/ug/joints.html&amp;tiba=Solid%20Inertia%20-%20MATLAB%20%26%20Simulink" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Adobe DTM -->
+      </div>
+    </footer>
+
+  </div>
+
+
+
+<a class="btn btn_primary" id="go-top" style="display: none;"><span class="icon-arrow-open-up icon_24"></span></a><span id="MathEquationRendererScratch" class="MathEquation Windows" style="position: absolute; right: -1000px; bottom: -1000px; white-space: pre-wrap; font-size: 14.3px;"></span></body></html>

@@ -1,0 +1,13 @@
+*:not(.extracategories) + li.catlist.extracategories{
+		border-top:1px solid #ccc;
+		padding-top:10px;
+	}
+.admin_select_table{
+		height: 300px; overflow: scroll; border: 1px solid #dfdfdf;width:70%; background-color:#FFFFFF;
+	}
+.catetable{
+	width:100%
+}
+.cate_detail td{
+	text-align:center;vertical-align:middle
+}
