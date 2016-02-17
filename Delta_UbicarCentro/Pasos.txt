@@ -1,0 +1,3 @@
+(seguir pasos de "sm_stewart_platform"  )
+-promedio de las 6 juntas en el efector final
+-se le pone un bloque llamado axes
