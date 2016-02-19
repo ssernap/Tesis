@@ -1,0 +1,4390 @@
+Model {
+  Name			  "Cylinder_Lift"
+  Version		  7.9
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.26"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  Description		  " \nCopyright 2012 The MathWorks, Inc."
+  SavedCharacterEncoding  "windows-1252"
+  slprops.hdlmdlprops {
+    $PropName		    "HDLParams"
+    $ObjectID		    1
+    Array {
+      Type		      "Cell"
+      Dimension		      2
+      Cell		      "HDLSubsystem"
+      Cell		      "Cylinder_Lift"
+      PropName		      "mdlProps"
+    }
+  }
+  PreLoadFcn		  "cylinder_length = 15;\npiston_length = 15;\nleg_length = 15;\nplatform_length = 25;\n"
+  PostLoadFcn		  "warning off mech2:compiler:state:UnsatisfiedDesiredTarget"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts"
+  PhysicalModelingChecksum "1562665278"
+  PhysicalModelingParameterChecksum "3597804571"
+  PhysicalModelingProducts "SimMechanics|Simscape"
+  Created		  "Thu Mar 01 14:47:02 2012"
+  Creator		  "smiller"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "smiller"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Wed Jul 25 12:10:35 2012"
+  RTWModifiedTimeStamp	  265119034
+  ModelVersionFormat	  "1.%<AutoIncrement:26>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "disabled"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    2
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "Cylinder_Lift"
+    signals_		    []
+    overrideMode_	    [0.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "Cylinder_Lift"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      3
+      Version		      "1.12.0"
+      Array {
+	Type			"Handle"
+	Dimension		10
+	Simulink.SolverCC {
+	  $ObjectID		  4
+	  Version		  "1.12.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "1e-4"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
+	  Solver		  "ode15s"
+	  SolverName		  "ode15s"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  5
+	  Version		  "1.12.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  6
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  7
+	  Version		  "1.12.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Enable All"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  8
+	  Version		  "1.12.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  9
+	  Version		  "1.12.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  10
+	  Version		  "1.12.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  11
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    9
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    Cell		    "GenerateCodeReplacementReport"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      12
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      13
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      CodeReplacementLibrary  "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      CodeExecutionProfiling  off
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      GRTInterface	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	hdlcoderui.hdlcc {
+	  $ObjectID		  14
+	  Version		  "1.12.0"
+	  Description		  "HDL Coder custom configuration component"
+	  Name			  "HDL Coder"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    ""
+	    PropName		    "HDLConfigFile"
+	  }
+	  HDLCActiveTab		  "0"
+	}
+	SSC.SimscapeCC {
+	  $ObjectID		  15
+	  Version		  "1.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "Name"
+	    PropName		    "DisabledProps"
+	  }
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    MECH.SimMechanicsCC {
+	      $ObjectID		      16
+	      Version		      "1.12.0"
+	      Name		      "SimMechanics"
+	      WarnOnRedundantConstraints on
+	      WarnOnSingularInitialAssembly off
+	      ShowCutJoints	      off
+	      VisOnUpdateDiagram      off
+	      VisDuringSimulation     off
+	      EnableVisSimulationTime on
+	      VisSampleTime	      "0"
+	      DisableBodyVisControl   off
+	      ShowCG		      on
+	      ShowCS		      on
+	      ShowOnlyPortCS	      off
+	      HighlightModel	      on
+	      FramesToBeSkipped	      "0"
+	      AnimationDelay	      "3"
+	      RecordAVI		      off
+	      CompressAVI	      on
+	      AutoFitVis	      "off"
+	      EnableSelection	      on
+	      LastVizWinPosition      "[-1 -1 -1 -1]"
+	      CamPosition	      "[0 0 0]"
+	      CamTarget		      "[0 0 -1]"
+	      CamUpVector	      "[0 1 0]"
+	      CamHeight		      "-1"
+	      CamViewAngle	      "0"
+	      VisBackgroundColor      "[0.9 0.9 0.95]"
+	      DefaultBodyColor	      "[1 0 0]"
+	      MDLBodyVisualizationType "Convex hull from body CS locations"
+	      OVRRIDBodyVisualizationType "NONE"
+	    }
+	    simmechanics.ConfigurationSet {
+	      $ObjectID		      17
+	      Version		      "1.12.0"
+	      Description	      "SimMechanics 2G"
+	      Array {
+		Type			"Handle"
+		Dimension		2
+		simmechanics.DiagnosticsConfigSet {
+		  $ObjectID		  18
+		  Version		  "1.12.0"
+		  Description		  "Diagnostics"
+		  Name			  "DiagnosticsConfigSet"
+		  SimMechanicsInvalidVisualProperty "warning"
+		  SimMechanicsCrossSectionNullEdge "warning"
+		  SimMechanicsUnconnectedFramePorts "warning"
+		  SimMechanicsRedundantBlock "warning"
+		  SimMechanicsConflictingReferenceFrames "warning"
+		  SimMechanicsRigidlyBoundBlock	"error"
+		  SimMechanicsUnsatisfiedHighPriorityTargets "warning"
+		  SimMechanicsJointTargetOverSpecification "error"
+		}
+		simmechanics.ExplorerConfigSet {
+		  $ObjectID		  19
+		  Version		  "1.12.0"
+		  Description		  "Explorer"
+		  Name			  "ExplorerConfigSet"
+		  SimMechanicsOpenEditorOnUpdate on
+		  InternalSimMechanicsExplorerSettings "<ExplorerConfiguration><canonicalview>default</canonicalview><TilePanel><Til"
+		  "eInfo><Tiles Columns=\"1\" Count=\"1\" Rows=\"1\"><Column Left=\"2\" Weight=\"1\"/><Column Left=\"648\"/><Row Top="
+		  "\"2\" Weight=\"1\"/><Row Top=\"486\"/><Tile Height=\"1\" Width=\"1\" X=\"0\" Y=\"0\"/></Tiles></TileInfo><SceneInf"
+		  "o><SceneViewer><BGColor><R>0.60000002384185791</R><G>0.60000002384185791</G><B>0.60000002384185791</B></BGColor><C"
+		  "amera><Position><X>-0.44364551767995797</X><Y>0.1109070807435347</Y><Z>0.24140297846773306</Z></Position><Center><"
+		  "X>0.013418290441538767</X><Y>0.046835125050246305</Y><Z>-0.0074905839005544334</Z></Center><Up><X>0.08720775721927"
+		  "472</X><Y>0.99163780390102674</Y><Z>-0.095127666612469186</Z></Up><Left>-0.15062485285858435</Left><Right>0.150624"
+		  "85285858435</Right><Bottom>-0.04104860211324831</Bottom><Top>0.04104860211324831</Top></Camera></SceneViewer></Sce"
+		  "neInfo></TilePanel></ExplorerConfiguration>"
+		}
+		PropName		"Components"
+	      }
+	      Name		      "SimMechanics2G"
+	    }
+	    PropName		    "Components"
+	  }
+	  Name			  "Simscape"
+	  EditingMode		  "Full"
+	  ExplicitSolverDiagnosticOptions "warning"
+	  GlobalZcOffDiagnosticOptions "warning"
+	  SimscapeLogType	  "none"
+	  SimscapeLogName	  "simlog"
+	  SimscapeLogDecimation	  1
+	  SimscapeLogLimitData	  on
+	  SimscapeLogDataHistory  5000
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition     [ 502, 213, 1418, 933 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    3
+  }
+  ExplicitPartitioning	  off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      FromWorkspace
+      VariableName	      "simulink_input"
+      OutDataTypeStr	      "Inherit: auto"
+      SampleTime	      "-1"
+      Interpolate	      on
+      ZeroCross		      off
+      OutputAfterFinalValue   "Extrapolation"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      PMIOPort
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "Array"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+  }
+  System {
+    Name		    "Cylinder_Lift"
+    Location		    [27, 117, 879, 603]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "197"
+    Block {
+      BlockType		      SubSystem
+      Name		      "2-way Valve Custom"
+      SID		      "55"
+      Ports		      [0, 0, 0, 0, 0, 2, 1]
+      Position		      [328, 250, 397, 285]
+      BlockRotation	      270
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "2-way Valve, Custrom model"
+      MaskDescription	      "The model is built entirely of the foundation library blocks. It accounts for the initial"
+      " opening, discharge coefficients, and flow regime which can be turbulent or critical depending on the Reynolds n"
+      "umber."
+      MaskPromptString	      "Maximum area (m^2)|Orifice width (m)|Initial opening (m)|Discharge coefficient|Critical "
+      "Reynolds Number|Leakage area (m^2)"
+      MaskStyleString	      "edit,edit,edit,edit,edit,edit"
+      MaskVariables	      "area_max=@1;or_width=@2;init_opening=@3;C_d=@4;Re_cr=@5;leakage_area=@6;"
+      MaskTunableValueString  "on,on,on,on,on,on"
+      MaskCallbackString      "|||||"
+      MaskEnableString	      "on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on"
+      MaskDisplay	      "plot([73.6983027309179;124.720204621553], [181.41120672226;181.41120672226])\nplot([76.280892"
+      "8266168;277.78591029346], [385.498814284801;385.498814284801])\nplot([77.0997628569603;276.967040263116], [283.4"
+      "55010503531;283.455010503531])\nplot([73.6983027309179;276.967040263116;276.967040263116;73.6983027309179;73.698"
+      "3027309179], [487.542618066072;487.542618066072;79.3674029409885;79.3674029409885;487.542618066072])\nplot([277."
+      "78591029346;226.764008402824], [181.41120672226;181.285226717591])\nplot([226.764008402824;226.764008402824], [2"
+      "05.28441760689;157.286035828292])\npatch([206.35524764657;206.35524764657;280.368500389159;206.35524764657], [40"
+      "0.805384851992;370.192243717611;385.498814284801;400.805384851992], [0;0;0])\nplot([206.35524764657;206.35524764"
+      "657;280.368500389159;206.35524764657], [400.805384851992;370.192243717611;385.498814284801;400.805384851992])\np"
+      "lot([124.720204621553;124.720204621553], [204.906477592885;156.971085816622])\nplot([0;351.484213024378;351.4842"
+      "13024378;0;0], [566.910021007061;566.910021007061;0;0;566.910021007061])\n;color('red'); \nport_label('LConn', 1"
+      ",'S')\nport_label('LConn', 2,'A')\nport_label('RConn', 1,'B')"
+      MaskIconFrame	      off
+      MaskIconOpaque	      on
+      MaskIconRotate	      "port"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "2.2e-4|2.2e-2|8e-4|0.7|12|1e-12"
+      System {
+	Name			"2-way Valve Custom"
+	Location		[246, 332, 977, 529]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "56"
+	  Position		  [30, 74, 125, 106]
+	  Value			  "init_opening"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PS Add"
+	  SID			  "57"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [245, 65, 275, 100]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Physical Signals/Functions/PS Add"
+	  SourceType		  "PS Add"
+	  SourceFile		  "foundation.physical_signal.functions.add"
+	  ComponentPath		  "foundation.physical_signal.functions.add"
+	  ComponentVariants	  "foundation.physical_signal.functions.add"
+	  ComponentVariantNames	  "add"
+	  ClassName		  "ps_add"
+	  SchemaVersion		  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PS Saturation"
+	  SID			  "58"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [420, 65, 450, 95]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Physical Signals/Nonlinear Operators/PS Saturation"
+	  SourceType		  "PS Saturation"
+	  SourceFile		  "foundation.physical_signal.nonlinear.saturation"
+	  ComponentPath		  "foundation.physical_signal.nonlinear.saturation"
+	  ComponentVariants	  "foundation.physical_signal.nonlinear.saturation"
+	  ComponentVariantNames	  "saturation"
+	  ClassName		  "ps_saturation"
+	  SchemaVersion		  "1"
+	  upper_limit		  "area_max"
+	  upper_limit_unit	  "1"
+	  lower_limit		  "leakage_area"
+	  lower_limit_unit	  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Simulink-PS\nConverter"
+	  SID			  "59"
+	  Ports			  [1, 0, 0, 0, 0, 0, 1]
+	  Position		  [155, 75, 185, 105]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "nesl_utility/Simulink-PS\nConverter"
+	  SourceType		  "Simulink-PS\nConverter"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "output"
+	  SubClassName		  "ps_input"
+	  Unit			  "1"
+	  AffineConversion	  off
+	  InputFilterTimeConstant ".001"
+	  UdotUserProvided	  "0"
+	  SimscapeFilterOrder	  "1"
+	  InputFiltering	  "off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Variable Area\nOrifice"
+	  SID			  "60"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [545, 72, 595, 108]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Variable Area\nHydraulic Orifice"
+	  SourceType		  "Variable Area\nHydraulic Orifice"
+	  SourceFile		  "foundation.hydraulic.elements.variable_area_orifice"
+	  ComponentPath		  "foundation.hydraulic.elements.variable_area_orifice"
+	  ComponentVariants	  "foundation.hydraulic.elements.variable_area_orifice"
+	  ComponentVariantNames	  "orifice_vrb_area"
+	  ClassName		  "orifice_vrb_area"
+	  SchemaVersion		  "1"
+	  C_d			  "C_d"
+	  C_d_unit		  "1"
+	  Re_cr			  "Re_cr"
+	  Re_cr_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pr_drop_Log		  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pr_drop|power"
+	  LocalVarDescs		  "|Flow rate through the orifice (m^3)|Pressure drop across the orifice (Pa)|Power dissipated in th"
+	  "e orifice (W)"
+	  LocalVarLogging	  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "or_width"
+	  SID			  "61"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [325, 65, 355, 95]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Physical Signals/Functions/PS Gain"
+	  SourceType		  "PS Gain"
+	  SourceFile		  "foundation.physical_signal.functions.gain"
+	  ComponentPath		  "foundation.physical_signal.functions.gain"
+	  ComponentVariants	  "foundation.physical_signal.functions.gain"
+	  ComponentVariantNames	  "gain"
+	  ClassName		  "ps_gain"
+	  SchemaVersion		  "1"
+	  gain			  "2.2e-2"
+	  gain_unit		  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "S"
+	  SID			  "62"
+	  Position		  [40, 23, 70, 37]
+	  ForegroundColor	  "magenta"
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  SID			  "63"
+	  Position		  [645, 83, 675, 97]
+	  BlockMirror		  on
+	  ForegroundColor	  "magenta"
+	  Port			  "2"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  SID			  "64"
+	  Position		  [45, 148, 75, 162]
+	  ForegroundColor	  "magenta"
+	  Port			  "3"
+	  Side			  "Left"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  DstBlock		  "Variable Area\nOrifice"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "A"
+	  SrcPort		  RConn1
+	  Points		  [425, 0; 0, -55]
+	  DstBlock		  "Variable Area\nOrifice"
+	  DstPort		  LConn2
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Simulink-PS\nConverter"
+	  DstPort		  1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Simulink-PS\nConverter"
+	  SrcPort		  RConn1
+	  DstBlock		  "PS Add"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "PS Add"
+	  SrcPort		  RConn1
+	  Points		  [0, -5]
+	  DstBlock		  "or_width"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "S"
+	  SrcPort		  RConn1
+	  Points		  [140, 0; 0, 40]
+	  DstBlock		  "PS Add"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "or_width"
+	  SrcPort		  RConn1
+	  DstBlock		  "PS Saturation"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "PS Saturation"
+	  SrcPort		  RConn1
+	  DstBlock		  "Variable Area\nOrifice"
+	  DstPort		  LConn1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Constant Area\nOrifice"
+      SID		      "65"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [415, 245, 445, 305]
+      BlockRotation	      270
+      NamePlacement	      "alternate"
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Hydraulic/Hydraulic Elements/Constant Area\nHydraulic Orifice"
+      SourceType	      "Constant Area\nHydraulic Orifice"
+      SourceFile	      "foundation.hydraulic.elements.constant_area_orifice"
+      ComponentPath	      "foundation.hydraulic.elements.constant_area_orifice"
+      ComponentVariants	      "foundation.hydraulic.elements.constant_area_orifice"
+      ComponentVariantNames   "orifice_cnst_area"
+      ClassName		      "orifice_cnst_area"
+      SchemaVersion	      "1"
+      area		      "2.5e-5"
+      area_unit		      "m^2"
+      C_d		      "0.7"
+      C_d_unit		      "1"
+      Re_cr		      "12"
+      Re_cr_unit	      "1"
+      flow_rate_Log	      "off"
+      pr_drop_Log	      "off"
+      power_Log		      "off"
+      LocalVarNames	      "|flow_rate|pr_drop|power"
+      LocalVarDescs	      "|Flow rate through the orifice (m^3/s)|Pressure drop across the orifice (Pa)|Power (W)"
+      LocalVarLogging	      "[0 0 0]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Constant Area\nOrifice1"
+      SID		      "66"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [530, 245, 560, 305]
+      BlockRotation	      270
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Hydraulic/Hydraulic Elements/Constant Area\nHydraulic Orifice"
+      SourceType	      "Constant Area\nHydraulic Orifice"
+      SourceFile	      "foundation.hydraulic.elements.constant_area_orifice"
+      ComponentPath	      "foundation.hydraulic.elements.constant_area_orifice"
+      ComponentVariants	      "foundation.hydraulic.elements.constant_area_orifice"
+      ComponentVariantNames   "orifice_cnst_area"
+      ClassName		      "orifice_cnst_area"
+      SchemaVersion	      "1"
+      area		      "1e-5"
+      area_unit		      "m^2"
+      C_d		      "0.7"
+      C_d_unit		      "1"
+      Re_cr		      "12"
+      Re_cr_unit	      "1"
+      flow_rate_Log	      "off"
+      pr_drop_Log	      "off"
+      power_Log		      "off"
+      LocalVarNames	      "|flow_rate|pr_drop|power"
+      LocalVarDescs	      "|Flow rate through the orifice (m^3/s)|Pressure drop across the orifice (Pa)|Power (W)"
+      LocalVarLogging	      "[0 0 0]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Custom Hydraulic\nFluid"
+      SID		      "67"
+      Ports		      [0, 0, 0, 0, 0, 0, 1]
+      Position		      [235, 280, 295, 320]
+      BlockRotation	      180
+      BlockMirror	      on
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Hydraulic/Hydraulic Utilities/Custom Hydraulic\nFluid"
+      SourceType	      "Custom Hydraulic\nFluid"
+      SourceFile	      "foundation.hydraulic.utilities.custom_fluid"
+      ComponentPath	      "foundation.hydraulic.utilities.custom_fluid"
+      ComponentVariants	      "foundation.hydraulic.utilities.custom_fluid"
+      ComponentVariantNames   "custom_fluid"
+      ClassName		      "custom_fluid"
+      SchemaVersion	      "1"
+      density		      "850"
+      density_unit	      "kg/m^3"
+      viscosity_kin	      "1.8e-05"
+      viscosity_kin_unit      "m^2/s"
+      bulk		      "8e+08"
+      bulk_unit		      "Pa"
+      alpha		      "0.005"
+      alpha_unit	      "1"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Cylinder"
+      SID		      "179"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [360, 53, 425, 87]
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Cylinder"
+	Location		[230, 164, 545, 323]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Cylinder"
+	  SID			  "182"
+	  Ports			  [0, 0, 0, 0, 0, 0, 1]
+	  Position		  [135, 25, 175, 65]
+	  ZOrder		  3
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Body Elements/Solid"
+	  SourceType		  ""
+	  ClassName		  "Solid"
+	  InertiaType		  "CalculateFromGeometry"
+	  Mass			  "1"
+	  MassUnits		  "kg"
+	  CenterOfMass		  "[0 0 0]"
+	  CenterOfMassUnits	  "m"
+	  MomentsOfInertia	  "[1 1 1]"
+	  MomentsOfInertiaUnits	  "kg*m^2"
+	  ProductsOfInertia	  "[0 0 0]"
+	  ProductsOfInertiaUnits  "kg*m^2"
+	  DensityBased		  "on"
+	  Density		  "1000"
+	  DensityUnits		  "kg/(m^3)"
+	  GraphicType		  "FromGeometry"
+	  MarkerShape		  "Sphere"
+	  MarkerSize		  "10"
+	  MarkerSizeUnits	  "m"
+	  GraphicVisPropType	  "SimpleVisualProperties"
+	  GraphicDiffuseColor	  "[0.5 0.5 0.5]"
+	  GraphicSpecularColor	  "[0.5 0.5 0.5 1.0]"
+	  GraphicAmbientColor	  "[0.15 0.15 0.15 1.0]"
+	  GraphicEmissiveColor	  "[0.0 0.0 0.0 1.0]"
+	  GraphicShininess	  "75"
+	  GraphicOpacity	  "1.0"
+	  GeometryShape		  "Brick"
+	  RectangleSize		  "[1 1]"
+	  RectangleSizeUnits	  "m"
+	  BrickDimensions	  "[cylinder_length 1.1 1.1]"
+	  BrickDimensionUnits	  "cm"
+	  CylinderRadius	  "1"
+	  CylinderRadiusUnits	  "m"
+	  CylinderLength	  "1"
+	  CylinderLengthUnits	  "m"
+	  SphereRadius		  "1"
+	  SphereRadiusUnits	  "m"
+	  EllipsoidRadii	  "[1 1 1]"
+	  EllipsoidRadiiUnits	  "m"
+	  ExtrusionCrossSection	  "[1 1; -1 1; -1 -1; 1 -1]"
+	  ExtrusionCrossSectionUnits "m"
+	  ExtrusionLength	  "1"
+	  ExtrusionLengthUnits	  "m"
+	  PolygonNumSides	  "3"
+	  PolygonOuterRadius	  "1"
+	  PolygonOuterRadiusUnits "m"
+	  ExtGeomFileUnits	  "m"
+	  BlockFunction		  "simmechanics.library.body_elements.solid"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Transform\nCylinder CG"
+	  SID			  "180"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [80, 65, 120, 105]
+	  ZOrder		  2
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	  SourceType		  ""
+	  ClassName		  "RigidTransform"
+	  TranslationMethod	  "StandardAxis"
+	  TranslationLengthUnit	  "cm"
+	  TranslationStandardAxis "+X"
+	  TranslationStandardOffset "cylinder_length/2"
+	  TranslationCartesianOffset "[0 0 0]"
+	  TranslationROffset	  "0"
+	  TranslationROffsetUnits "m"
+	  TranslationZOffset	  "0"
+	  TranslationZOffsetUnits "m"
+	  TranslationThetaOffset  "0"
+	  TranslationThetaOffsetUnits "deg"
+	  RotationMethod	  "None"
+	  RotationAngleUnits	  "deg"
+	  RotationStandardAxis	  "+Z"
+	  RotationAngle		  "0"
+	  RotationArbitraryAxis	  "[0 0 1]"
+	  FollAlignAxisA	  "+X"
+	  BaseAlignAxisA	  "+Y"
+	  FollAlignAxisB	  "+Y"
+	  BaseAlignAxisB	  "+Z"
+	  BlockFunction		  "simmechanics.library.frames_transforms.rigid_transform"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Transform\nCylinderF"
+	  SID			  "181"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [195, 65, 235, 105]
+	  ZOrder		  2
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	  SourceType		  ""
+	  ClassName		  "RigidTransform"
+	  TranslationMethod	  "StandardAxis"
+	  TranslationLengthUnit	  "cm"
+	  TranslationStandardAxis "+X"
+	  TranslationStandardOffset "cylinder_length/2"
+	  TranslationCartesianOffset "[0 0 0]"
+	  TranslationROffset	  "0"
+	  TranslationROffsetUnits "m"
+	  TranslationZOffset	  "0"
+	  TranslationZOffsetUnits "m"
+	  TranslationThetaOffset  "0"
+	  TranslationThetaOffsetUnits "deg"
+	  RotationMethod	  "StandardAxis"
+	  RotationAngleUnits	  "deg"
+	  RotationStandardAxis	  "+Y"
+	  RotationAngle		  "90"
+	  RotationArbitraryAxis	  "[0 0 1]"
+	  FollAlignAxisA	  "+X"
+	  BaseAlignAxisA	  "+Y"
+	  FollAlignAxisB	  "+Y"
+	  BaseAlignAxisB	  "+Z"
+	  BlockFunction		  "simmechanics.library.frames_transforms.rigid_transform"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  SID			  "183"
+	  Position		  [25, 78, 55, 92]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "F"
+	  SID			  "184"
+	  Position		  [260, 78, 290, 92]
+	  BlockMirror		  on
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "2"
+	  Side			  "Right"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "F"
+	  SrcPort		  RConn1
+	  DstBlock		  "Transform\nCylinderF"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  DstBlock		  "Transform\nCylinder CG"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [155, 85; 25, 0]
+	  DstBlock		  "Transform\nCylinderF"
+	  DstPort		  LConn1
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "Transform\nCylinder CG"
+	    SrcPort		    RConn1
+	    Points		    [20, 0]
+	  }
+	  Branch {
+	    ConnectType		    "SRC_SRC"
+	    DstBlock		    "Cylinder"
+	    DstPort		    RConn1
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "DA Cylinder\nCustom"
+      SID		      "68"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [450, 200, 525, 235]
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Hydraulic Double-Acting Cylinder, Custom Model"
+      MaskDescription	      "The model is built entirely of the foundation library blocks and accounts for hard stops,"
+      " fluid compressibility, and fluid consumption due to piston motion."
+      MaskPromptString	      "Area A (m^2)|Area B (m^2)|Stroke (m)|Initial position (m)|Chamber A dead volume (m^3)|Ch"
+      "amber B dead volume (m^3)|Contact stiffness (N/m)|Contact damping (N*s/m)"
+      MaskStyleString	      "edit,edit,edit,edit,edit,edit,edit,edit"
+      MaskVariables	      "area_A=@1;area_B=@2;stroke=@3;init_pos=@4;dead_vol_A=@5;dead_vol_B=@6;stiffness=@7;damping="
+      "@8;"
+      MaskTunableValueString  "on,on,on,on,on,on,on,on"
+      MaskCallbackString      "|||||||"
+      MaskEnableString	      "on,on,on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on,on,on"
+      MaskDisplay	      "plot([127.790967235342;156.136468285695;156.136468285695;127.790967235342;127.790967235342], "
+      "[113.618216710165;113.618216710165;56.927214609459;56.927214609459;113.618216710165])\nplot([227.000220911577;22"
+      "7.000220911577;56.927214609459;56.927214609459;227.000220911577;227.000220911577], [99.4454661849886;113.6182167"
+      "10165;113.618216710165;56.927214609459;56.927214609459;71.0999651346356])\nplot([156.136468285695;297.8639735374"
+      "6;297.86397353746;156.136468285695;156.136468285695], [99.4454661849886;99.4454661849886;71.0999651346356;71.099"
+      "9651346356;99.4454661849886])\nplot([56.927214609459;28.581713559106;56.927214609459], [113.618216710165;85.2727"
+      "156598121;56.927214609459])\nplot([28.581713559106;0.236212508752942], [85.2727156598121;85.2727156598121])\nplo"
+      "t([297.86397353746;326.209474587813], [85.2727156598121;85.2727156598121])\nplot([0.236212508752942;71.099965134"
+      "6356;71.0999651346356], [28.581713559106;28.581713559106;56.927214609459])\nplot([212.827470386401;212.827470386"
+      "401;323.374924482778], [56.927214609459;28.581713559106;28.581713559106])\npatch([0;326.445687096566;326.4456870"
+      "96566;0;0;0.472425017505884;0.472425017505884;325.97326207906;325.97326207906;0.472425017505884;0], [113.8544292"
+      "18918;113.854429218918;0;0;113.854429218918;113.382004201412;0.472425017505884;0.472425017505884;113.38200420141"
+      "2;113.382004201412;113.854429218918], [1;1;1])\n;"
+      MaskIconFrame	      off
+      MaskIconOpaque	      off
+      MaskIconRotate	      "port"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "0.003|0.002|0.3|0|1e-4|1e-4|1e6|150"
+      System {
+	Name			"DA Cylinder\nCustom"
+	Location		[4, 93, 844, 468]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ideal Translational\nMotion Sensor1"
+	  SID			  "69"
+	  Ports			  [0, 0, 0, 0, 0, 1, 3]
+	  Position		  [665, 25, 705, 65]
+	  BlockMirror		  on
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Mechanical/Mechanical Sensors/Ideal Translational\nMotion Sensor"
+	  SourceType		  "Ideal Translational\nMotion Sensor"
+	  SourceFile		  "foundation.mechanical.sensors.velocity"
+	  ComponentPath		  "foundation.mechanical.sensors.velocity"
+	  ComponentVariants	  "foundation.mechanical.sensors.velocity"
+	  ComponentVariantNames	  "velocity"
+	  ClassName		  "sensor_transl_motion"
+	  SchemaVersion		  "1"
+	  offset		  "init_pos"
+	  offset_unit		  "m"
+	  v_Log			  "off"
+	  f_Log			  "off"
+	  x_Log			  "off"
+	  LocalVarNames		  "|v|f|x"
+	  LocalVarDescs		  "|v|f|x"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PS Constant"
+	  SID			  "70"
+	  Ports			  [0, 0, 0, 0, 0, 0, 1]
+	  Position		  [410, 260, 440, 290]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Physical Signals/Sources/PS Constant"
+	  SourceType		  "PS Constant"
+	  SourceFile		  "foundation.physical_signal.sources.constant"
+	  ComponentPath		  "foundation.physical_signal.sources.constant"
+	  ComponentVariants	  "foundation.physical_signal.sources.constant"
+	  ComponentVariantNames	  "constant"
+	  ClassName		  "constant"
+	  SchemaVersion		  "1"
+	  constant		  "stroke"
+	  constant_unit		  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PS Subtract"
+	  SID			  "71"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [480, 258, 500, 327]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Physical Signals/Functions/PS Subtract"
+	  SourceType		  "PS Subtract"
+	  SourceFile		  "foundation.physical_signal.functions.subtract"
+	  ComponentPath		  "foundation.physical_signal.functions.subtract"
+	  ComponentVariants	  "foundation.physical_signal.functions.subtract"
+	  ComponentVariantNames	  "subtract"
+	  ClassName		  "subtract"
+	  SchemaVersion		  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Piston\nchamber A"
+	  SID			  "72"
+	  Ports			  [0, 0, 0, 0, 0, 2]
+	  Position		  [175, 300, 215, 340]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Hydraulic Piston\nChamber"
+	  SourceType		  "Hydraulic Piston\nChamber"
+	  SourceFile		  "foundation.hydraulic.elements.piston_chamber"
+	  ComponentPath		  "foundation.hydraulic.elements.piston_chamber"
+	  ComponentVariants	  "foundation.hydraulic.elements.piston_chamber"
+	  ComponentVariantNames	  "piston_chamber"
+	  ClassName		  "chamber_vrb"
+	  SchemaVersion		  "1"
+	  area			  "area_A"
+	  area_unit		  "m^2"
+	  init_pos		  "0"
+	  init_pos_unit		  "m"
+	  or			  "1"
+	  or_unit		  "1"
+	  V_dead		  "dead_vol_A"
+	  V_dead_unit		  "m^3"
+	  k_sh			  "1.4"
+	  k_sh_unit		  "1"
+	  initial_pressure	  "0"
+	  initial_pressure_unit	  "Pa"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  volume_Log		  "off"
+	  fl_volume_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|volume|fl_volume"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Instantaneous chamber volume (m^3)"
+	  "|Compressed fluid volume (m^3)"
+	  LocalVarLogging	  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Piston\nchamber B"
+	  SID			  "73"
+	  Ports			  [0, 0, 0, 0, 0, 2]
+	  Position		  [535, 320, 575, 360]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Hydraulic Piston\nChamber"
+	  SourceType		  "Hydraulic Piston\nChamber"
+	  SourceFile		  "foundation.hydraulic.elements.piston_chamber"
+	  ComponentPath		  "foundation.hydraulic.elements.piston_chamber"
+	  ComponentVariants	  "foundation.hydraulic.elements.piston_chamber"
+	  ComponentVariantNames	  "piston_chamber"
+	  ClassName		  "chamber_vrb"
+	  SchemaVersion		  "1"
+	  area			  "area_B"
+	  area_unit		  "m^2"
+	  init_pos		  "0"
+	  init_pos_unit		  "m"
+	  or			  "2"
+	  or_unit		  "1"
+	  V_dead		  "dead_vol_B"
+	  V_dead_unit		  "m^3"
+	  k_sh			  "1.4"
+	  k_sh_unit		  "1"
+	  initial_pressure	  "0"
+	  initial_pressure_unit	  "Pa"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  volume_Log		  "off"
+	  fl_volume_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|volume|fl_volume"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Instantaneous chamber volume (m^3)"
+	  "|Compressed fluid volume (m^3)"
+	  LocalVarLogging	  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Translational\nHydro-Mechanical\nConverter"
+	  SID			  "74"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [265, 185, 305, 205]
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Translational\nHydro-Mechanical\nConverter"
+	  SourceType		  "Translational\nHydro-Mechanical\nConverter"
+	  SourceFile		  "foundation.hydraulic.elements.translational_converter"
+	  ComponentPath		  "foundation.hydraulic.elements.translational_converter"
+	  ComponentVariants	  "foundation.hydraulic.elements.translational_converter"
+	  ComponentVariantNames	  "converter_transl"
+	  ClassName		  "converter_transl"
+	  SchemaVersion		  "1"
+	  area			  "area_A"
+	  area_unit		  "m^2"
+	  or			  "1"
+	  or_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  force_Log		  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|force|power"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Output force (N)|Power (W)"
+	  LocalVarLogging	  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Translational\nHydro-Mechanical\nConverter1"
+	  SID			  "75"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [460, 185, 500, 205]
+	  BlockMirror		  on
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Translational\nHydro-Mechanical\nConverter"
+	  SourceType		  "Translational\nHydro-Mechanical\nConverter"
+	  SourceFile		  "foundation.hydraulic.elements.translational_converter"
+	  ComponentPath		  "foundation.hydraulic.elements.translational_converter"
+	  ComponentVariants	  "foundation.hydraulic.elements.translational_converter"
+	  ComponentVariantNames	  "converter_transl"
+	  ClassName		  "converter_transl"
+	  SchemaVersion		  "1"
+	  area			  "area_B"
+	  area_unit		  "m^2"
+	  or			  "2"
+	  or_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  force_Log		  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|force|power"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Output force (N)|Power (W)"
+	  LocalVarLogging	  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Translational Hard\nStop"
+	  SID			  "76"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [260, 110, 300, 130]
+	  BlockMirror		  on
+	  LibraryVersion	  "1.1"
+	  SourceBlock		  "fl_lib/Mechanical/Translational\nElements/Translational Hard\nStop"
+	  SourceType		  "Translational Hard\nStop"
+	  SourceFile		  "foundation.mechanical.translational.hardstop"
+	  ComponentPath		  "foundation.mechanical.translational.hardstop"
+	  ComponentVariants	  "foundation.mechanical.translational.hardstop"
+	  ComponentVariantNames	  "hardstop"
+	  ClassName		  "hardstop_transl"
+	  SchemaVersion		  "1"
+	  upper_bnd		  "stroke - init_pos"
+	  upper_bnd_unit	  "m"
+	  lower_bnd		  "-init_pos"
+	  lower_bnd_unit	  "m"
+	  stiff_up		  "stiffness"
+	  stiff_up_unit		  "N/m"
+	  stiff_low		  "stiffness"
+	  stiff_low_unit	  "N/m"
+	  D_up			  "damping"
+	  D_up_unit		  "N/(m/s)"
+	  D_low			  "damping"
+	  D_low_unit		  "N/(m/s)"
+	  initial_position	  "0"
+	  initial_position_unit	  "m"
+	  f_Log			  "off"
+	  v_Log			  "off"
+	  x_Log			  "off"
+	  LocalVarNames		  "|contact_force|rel_displacement"
+	  LocalVarDescs		  "|Contact force (N)|Slider-case relative displacement (m)"
+	  LocalVarLogging	  "[0 0]"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "R"
+	  SID			  "77"
+	  Tag			  "PMCPort"
+	  Position		  [785, 186, 815, 204]
+	  BlockMirror		  on
+	  ForegroundColor	  "magenta"
+	  Port			  "1"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "C"
+	  SID			  "78"
+	  Tag			  "PMCPort"
+	  Position		  [25, 181, 55, 199]
+	  ForegroundColor	  "magenta"
+	  Port			  "2"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  SID			  "79"
+	  Tag			  "PMCPort"
+	  Position		  [35, 226, 65, 244]
+	  ForegroundColor	  "magenta"
+	  Port			  "3"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  SID			  "80"
+	  Tag			  "PMCPort"
+	  Position		  [785, 256, 815, 274]
+	  BlockMirror		  on
+	  ForegroundColor	  "magenta"
+	  Port			  "4"
+	  Side			  "Right"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "PS Constant"
+	  SrcPort		  RConn1
+	  DstBlock		  "PS Subtract"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "PS Subtract"
+	  SrcPort		  RConn1
+	  Points		  [30, 0]
+	  DstBlock		  "Piston\nchamber B"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [565, 265; 0, 40]
+	  DstBlock		  "Piston\nchamber B"
+	  DstPort		  LConn2
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "B"
+	    SrcPort		    RConn1
+	    Points		    [-205, 0]
+	  }
+	  Branch {
+	    ConnectType		    "SRC_SRC"
+	    Points		    [0, -65]
+	    DstBlock		    "Translational\nHydro-Mechanical\nConverter1"
+	    DstPort		    LConn2
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Piston\nchamber A"
+	  SrcPort		  LConn2
+	  Points		  [0, -50]
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    SrcBlock		    "A"
+	    SrcPort		    RConn1
+	    Points		    [125, 0]
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    Points		    [0, -35]
+	    DstBlock		    "Translational\nHydro-Mechanical\nConverter"
+	    DstPort		    LConn2
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [380, 60; 0, 250; 85, 0]
+	  DstBlock		  "PS Subtract"
+	  DstPort		  LConn2
+	  Branch {
+	    ConnectType		    "SRC_SRC"
+	    Points		    [-195, 0]
+	    DstBlock		    "Piston\nchamber A"
+	    DstPort		    LConn1
+	  }
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "Ideal Translational\nMotion Sensor1"
+	    SrcPort		    RConn3
+	    Points		    [-270, 0]
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [565, 30; 0, 160; -50, 0]
+	  DstBlock		  "Translational\nHydro-Mechanical\nConverter1"
+	  DstPort		  LConn1
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "Ideal Translational\nMotion Sensor1"
+	    SrcPort		    RConn1
+	    Points		    [-85, 0]
+	  }
+	  Branch {
+	    ConnectType		    "SRC_SRC"
+	    Points		    [-460, 0; 0, 0]
+	    Branch {
+	      ConnectType	      "DEST_SRC"
+	      Points		      [0, 160]
+	      DstBlock		      "C"
+	      DstPort		      RConn1
+	    }
+	    Branch {
+	      ConnectType	      "DEST_DEST"
+	      Points		      [205, 120; 0, 70; -100, 0; 0, -160]
+	      Branch {
+		ConnectType		"SRC_DEST"
+		SrcBlock		"Translational Hard\nStop"
+		SrcPort			RConn1
+		Points			[-40, 0]
+	      }
+	      Branch {
+		ConnectType		"SRC_DEST"
+		SrcBlock		"Translational\nHydro-Mechanical\nConverter"
+		SrcPort			LConn1
+		Points			[-45, 0; 0, -70]
+	      }
+	    }
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Translational Hard\nStop"
+	  SrcPort		  LConn1
+	  Points		  [45, 0]
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    Points		    [360, 185; 0, -65]
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Translational\nHydro-Mechanical\nConverter"
+	      SrcPort		      RConn1
+	      Points		      [40, 0; 0, -10]
+	    }
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Translational\nHydro-Mechanical\nConverter1"
+	      SrcPort		      RConn1
+	      Points		      [-85, 0; 0, -10]
+	    }
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    Points		    [375, 0]
+	    Branch {
+	      ConnectType	      "DEST_SRC"
+	      Points		      [0, 75]
+	      DstBlock		      "R"
+	      DstPort		      RConn1
+	    }
+	    Branch {
+	      ConnectType	      "DEST_SRC"
+	      Points		      [0, -75]
+	      DstBlock		      "Ideal Translational\nMotion Sensor1"
+	      DstPort		      LConn1
+	    }
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Extension"
+      SID		      "190"
+      Ports		      [1]
+      Position		      [645, 114, 675, 146]
+      ZOrder		      -3
+      FontName		      "Arial"
+      FontSize		      12
+      Floating		      off
+      Location		      [852, 164, 1176, 403]
+      Open		      on
+      NumInputPorts	      "1"
+      ZoomMode		      "xonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      TimeRange		      "10"
+      YMin		      "0"
+      YMax		      "0.06"
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Four Bar"
+      SID		      "142"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [720, 37, 785, 93]
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Four Bar"
+	Location		[378, 216, 808, 566]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Leg1"
+	  SID			  "143"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [76, 85, 109, 150]
+	  BlockRotation		  270
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Leg1"
+	    Location		    [230, 164, 531, 350]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Leg"
+	      SID		      "146"
+	      Ports		      [0, 0, 0, 0, 0, 0, 1]
+	      Position		      [135, 25, 175, 65]
+	      ZOrder		      3
+	      BlockRotation	      270
+	      BlockMirror	      on
+	      NamePlacement	      "alternate"
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Body Elements/Solid"
+	      SourceType	      ""
+	      ClassName		      "Solid"
+	      InertiaType	      "CalculateFromGeometry"
+	      Mass		      "1"
+	      MassUnits		      "kg"
+	      CenterOfMass	      "[0 0 0]"
+	      CenterOfMassUnits	      "m"
+	      MomentsOfInertia	      "[1 1 1]"
+	      MomentsOfInertiaUnits   "kg*m^2"
+	      ProductsOfInertia	      "[0 0 0]"
+	      ProductsOfInertiaUnits  "kg*m^2"
+	      DensityBased	      "on"
+	      Density		      "1000"
+	      DensityUnits	      "kg/(m^3)"
+	      GraphicType	      "FromGeometry"
+	      MarkerShape	      "Sphere"
+	      MarkerSize	      "10"
+	      MarkerSizeUnits	      "m"
+	      GraphicVisPropType      "SimpleVisualProperties"
+	      GraphicDiffuseColor     "[0.0 0.6 0.8]"
+	      GraphicSpecularColor    "[0.5 0.5 0.5 1.0]"
+	      GraphicAmbientColor     "[0.15 0.15 0.15 1.0]"
+	      GraphicEmissiveColor    "[0.0 0.0 0.0 1.0]"
+	      GraphicShininess	      "75"
+	      GraphicOpacity	      "1.0"
+	      GeometryShape	      "Brick"
+	      RectangleSize	      "[1 1]"
+	      RectangleSizeUnits      "m"
+	      BrickDimensions	      "[leg_length 1 1]"
+	      BrickDimensionUnits     "cm"
+	      CylinderRadius	      "1"
+	      CylinderRadiusUnits     "m"
+	      CylinderLength	      "1"
+	      CylinderLengthUnits     "m"
+	      SphereRadius	      "1"
+	      SphereRadiusUnits	      "m"
+	      EllipsoidRadii	      "[1 1 1]"
+	      EllipsoidRadiiUnits     "m"
+	      ExtrusionCrossSection   "[1 1; -1 1; -1 -1; 1 -1]"
+	      ExtrusionCrossSectionUnits "m"
+	      ExtrusionLength	      "1"
+	      ExtrusionLengthUnits    "m"
+	      PolygonNumSides	      "3"
+	      PolygonOuterRadius      "1"
+	      PolygonOuterRadiusUnits "m"
+	      ExtGeomFileUnits	      "m"
+	      BlockFunction	      "simmechanics.library.body_elements.solid"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Transform\nLeg CG"
+	      SID		      "144"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [80, 65, 120, 105]
+	      ZOrder		      2
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	      SourceType	      ""
+	      ClassName		      "RigidTransform"
+	      TranslationMethod	      "StandardAxis"
+	      TranslationLengthUnit   "cm"
+	      TranslationStandardAxis "+X"
+	      TranslationStandardOffset	"leg_length/2"
+	      TranslationCartesianOffset "[0 0 0]"
+	      TranslationROffset      "0"
+	      TranslationROffsetUnits "m"
+	      TranslationZOffset      "0"
+	      TranslationZOffsetUnits "m"
+	      TranslationThetaOffset  "0"
+	      TranslationThetaOffsetUnits "deg"
+	      RotationMethod	      "None"
+	      RotationAngleUnits      "deg"
+	      RotationStandardAxis    "+Z"
+	      RotationAngle	      "0"
+	      RotationArbitraryAxis   "[0 0 1]"
+	      FollAlignAxisA	      "+X"
+	      BaseAlignAxisA	      "+Y"
+	      FollAlignAxisB	      "+Y"
+	      BaseAlignAxisB	      "+Z"
+	      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Transform\nLeg F"
+	      SID		      "145"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [195, 65, 235, 105]
+	      ZOrder		      2
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	      SourceType	      ""
+	      ClassName		      "RigidTransform"
+	      TranslationMethod	      "StandardAxis"
+	      TranslationLengthUnit   "cm"
+	      TranslationStandardAxis "+X"
+	      TranslationStandardOffset	"leg_length/2"
+	      TranslationCartesianOffset "[0 0 0]"
+	      TranslationROffset      "0"
+	      TranslationROffsetUnits "m"
+	      TranslationZOffset      "0"
+	      TranslationZOffsetUnits "m"
+	      TranslationThetaOffset  "0"
+	      TranslationThetaOffsetUnits "deg"
+	      RotationMethod	      "None"
+	      RotationAngleUnits      "deg"
+	      RotationStandardAxis    "+Z"
+	      RotationAngle	      "0"
+	      RotationArbitraryAxis   "[0 0 1]"
+	      FollAlignAxisA	      "+X"
+	      BaseAlignAxisA	      "+Y"
+	      FollAlignAxisB	      "+Y"
+	      BaseAlignAxisB	      "+Z"
+	      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "CG"
+	      SID		      "147"
+	      Position		      [148, 125, 162, 155]
+	      BlockRotation	      270
+	      NamePlacement	      "alternate"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "1"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "B"
+	      SID		      "148"
+	      Position		      [33, 125, 47, 155]
+	      BlockRotation	      270
+	      NamePlacement	      "alternate"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "2"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "F"
+	      SID		      "149"
+	      Position		      [268, 125, 282, 155]
+	      BlockRotation	      270
+	      NamePlacement	      "alternate"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "3"
+	      Side		      "Right"
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "F"
+	      SrcPort		      RConn1
+	      Points		      [0, -25]
+	      DstBlock		      "Transform\nLeg F"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "B"
+	      SrcPort		      RConn1
+	      Points		      [0, -25]
+	      DstBlock		      "Transform\nLeg CG"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      Points		      [155, 85; 0, -5]
+	      DstBlock		      "Leg"
+	      DstPort		      RConn1
+	      Branch {
+		ConnectType		"SRC_DEST"
+		Points			[155, 85; 0, 0]
+		Branch {
+		  ConnectType		  "SRC_DEST"
+		  SrcBlock		  "CG"
+		  SrcPort		  RConn1
+		  Points		  [0, -25]
+		}
+		Branch {
+		  ConnectType		  "SRC_DEST"
+		  SrcBlock		  "Transform\nLeg CG"
+		  SrcPort		  RConn1
+		  Points		  [20, 0]
+		}
+	      }
+	      Branch {
+		ConnectType		"SRC_SRC"
+		DstBlock		"Transform\nLeg F"
+		DstPort			LConn1
+	      }
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Leg2"
+	  SID			  "150"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [354, 85, 386, 150]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Leg2"
+	    Location		    [230, 164, 545, 320]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Leg"
+	      SID		      "153"
+	      Ports		      [0, 0, 0, 0, 0, 0, 1]
+	      Position		      [135, 25, 175, 65]
+	      ZOrder		      3
+	      BlockRotation	      270
+	      BlockMirror	      on
+	      NamePlacement	      "alternate"
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Body Elements/Solid"
+	      SourceType	      ""
+	      ClassName		      "Solid"
+	      InertiaType	      "CalculateFromGeometry"
+	      Mass		      "1"
+	      MassUnits		      "kg"
+	      CenterOfMass	      "[0 0 0]"
+	      CenterOfMassUnits	      "m"
+	      MomentsOfInertia	      "[1 1 1]"
+	      MomentsOfInertiaUnits   "kg*m^2"
+	      ProductsOfInertia	      "[0 0 0]"
+	      ProductsOfInertiaUnits  "kg*m^2"
+	      DensityBased	      "on"
+	      Density		      "1000"
+	      DensityUnits	      "kg/(m^3)"
+	      GraphicType	      "FromGeometry"
+	      MarkerShape	      "Sphere"
+	      MarkerSize	      "10"
+	      MarkerSizeUnits	      "m"
+	      GraphicVisPropType      "SimpleVisualProperties"
+	      GraphicDiffuseColor     "[0.0 0.6 0.8]"
+	      GraphicSpecularColor    "[0.5 0.5 0.5 1.0]"
+	      GraphicAmbientColor     "[0.15 0.15 0.15 1.0]"
+	      GraphicEmissiveColor    "[0.0 0.0 0.0 1.0]"
+	      GraphicShininess	      "75"
+	      GraphicOpacity	      "1.0"
+	      GeometryShape	      "Brick"
+	      RectangleSize	      "[1 1]"
+	      RectangleSizeUnits      "m"
+	      BrickDimensions	      "[leg_length 1 1]"
+	      BrickDimensionUnits     "cm"
+	      CylinderRadius	      "1"
+	      CylinderRadiusUnits     "m"
+	      CylinderLength	      "1"
+	      CylinderLengthUnits     "m"
+	      SphereRadius	      "1"
+	      SphereRadiusUnits	      "m"
+	      EllipsoidRadii	      "[1 1 1]"
+	      EllipsoidRadiiUnits     "m"
+	      ExtrusionCrossSection   "[1 1; -1 1; -1 -1; 1 -1]"
+	      ExtrusionCrossSectionUnits "m"
+	      ExtrusionLength	      "1"
+	      ExtrusionLengthUnits    "m"
+	      PolygonNumSides	      "3"
+	      PolygonOuterRadius      "1"
+	      PolygonOuterRadiusUnits "m"
+	      ExtGeomFileUnits	      "m"
+	      BlockFunction	      "simmechanics.library.body_elements.solid"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Transform\nLeg CG"
+	      SID		      "151"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [80, 65, 120, 105]
+	      ZOrder		      2
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	      SourceType	      ""
+	      ClassName		      "RigidTransform"
+	      TranslationMethod	      "StandardAxis"
+	      TranslationLengthUnit   "cm"
+	      TranslationStandardAxis "+X"
+	      TranslationStandardOffset	"leg_length/2"
+	      TranslationCartesianOffset "[0 0 0]"
+	      TranslationROffset      "0"
+	      TranslationROffsetUnits "m"
+	      TranslationZOffset      "0"
+	      TranslationZOffsetUnits "m"
+	      TranslationThetaOffset  "0"
+	      TranslationThetaOffsetUnits "deg"
+	      RotationMethod	      "None"
+	      RotationAngleUnits      "deg"
+	      RotationStandardAxis    "+Z"
+	      RotationAngle	      "0"
+	      RotationArbitraryAxis   "[0 0 1]"
+	      FollAlignAxisA	      "+X"
+	      BaseAlignAxisA	      "+Y"
+	      FollAlignAxisB	      "+Y"
+	      BaseAlignAxisB	      "+Z"
+	      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Transform\nLeg F"
+	      SID		      "152"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [195, 65, 235, 105]
+	      ZOrder		      2
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	      SourceType	      ""
+	      ClassName		      "RigidTransform"
+	      TranslationMethod	      "StandardAxis"
+	      TranslationLengthUnit   "cm"
+	      TranslationStandardAxis "+X"
+	      TranslationStandardOffset	"leg_length/2"
+	      TranslationCartesianOffset "[0 0 0]"
+	      TranslationROffset      "0"
+	      TranslationROffsetUnits "m"
+	      TranslationZOffset      "0"
+	      TranslationZOffsetUnits "m"
+	      TranslationThetaOffset  "0"
+	      TranslationThetaOffsetUnits "deg"
+	      RotationMethod	      "None"
+	      RotationAngleUnits      "deg"
+	      RotationStandardAxis    "+Z"
+	      RotationAngle	      "0"
+	      RotationArbitraryAxis   "[0 0 1]"
+	      FollAlignAxisA	      "+X"
+	      BaseAlignAxisA	      "+Y"
+	      FollAlignAxisB	      "+Y"
+	      BaseAlignAxisB	      "+Z"
+	      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "B"
+	      SID		      "154"
+	      Position		      [25, 78, 55, 92]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "1"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "F"
+	      SID		      "155"
+	      Position		      [260, 78, 290, 92]
+	      BlockMirror	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "2"
+	      Side		      "Right"
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "F"
+	      SrcPort		      RConn1
+	      DstBlock		      "Transform\nLeg F"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "B"
+	      SrcPort		      RConn1
+	      DstBlock		      "Transform\nLeg CG"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      Points		      [155, 85; 25, 0]
+	      DstBlock		      "Transform\nLeg F"
+	      DstPort		      LConn1
+	      Branch {
+		ConnectType		"SRC_SRC"
+		DstBlock		"Leg"
+		DstPort			RConn1
+	      }
+	      Branch {
+		ConnectType		"SRC_DEST"
+		SrcBlock		"Transform\nLeg CG"
+		SrcPort			RConn1
+		Points			[20, 0]
+	      }
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Platform"
+	  SID			  "162"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [200, 29, 265, 61]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Platform"
+	    Location		    [179, 125, 494, 281]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Platform"
+	      SID		      "165"
+	      Ports		      [0, 0, 0, 0, 0, 0, 1]
+	      Position		      [135, 25, 175, 65]
+	      ZOrder		      3
+	      BlockRotation	      270
+	      BlockMirror	      on
+	      NamePlacement	      "alternate"
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Body Elements/Solid"
+	      SourceType	      ""
+	      ClassName		      "Solid"
+	      InertiaType	      "CalculateFromGeometry"
+	      Mass		      "1"
+	      MassUnits		      "kg"
+	      CenterOfMass	      "[0 0 0]"
+	      CenterOfMassUnits	      "m"
+	      MomentsOfInertia	      "[1 1 1]"
+	      MomentsOfInertiaUnits   "kg*m^2"
+	      ProductsOfInertia	      "[0 0 0]"
+	      ProductsOfInertiaUnits  "kg*m^2"
+	      DensityBased	      "on"
+	      Density		      "1000"
+	      DensityUnits	      "kg/(m^3)"
+	      GraphicType	      "FromGeometry"
+	      MarkerShape	      "Sphere"
+	      MarkerSize	      "10"
+	      MarkerSizeUnits	      "m"
+	      GraphicVisPropType      "SimpleVisualProperties"
+	      GraphicDiffuseColor     "[0.6 0.6 0.0]"
+	      GraphicSpecularColor    "[0.5 0.5 0.5 1.0]"
+	      GraphicAmbientColor     "[0.15 0.15 0.15 1.0]"
+	      GraphicEmissiveColor    "[0.0 0.0 0.0 1.0]"
+	      GraphicShininess	      "75"
+	      GraphicOpacity	      "1.0"
+	      GeometryShape	      "Brick"
+	      RectangleSize	      "[1 1]"
+	      RectangleSizeUnits      "m"
+	      BrickDimensions	      "[platform_length 1 10]"
+	      BrickDimensionUnits     "cm"
+	      CylinderRadius	      "1"
+	      CylinderRadiusUnits     "m"
+	      CylinderLength	      "1"
+	      CylinderLengthUnits     "m"
+	      SphereRadius	      "1"
+	      SphereRadiusUnits	      "m"
+	      EllipsoidRadii	      "[1 1 1]"
+	      EllipsoidRadiiUnits     "m"
+	      ExtrusionCrossSection   "[1 1; -1 1; -1 -1; 1 -1]"
+	      ExtrusionCrossSectionUnits "m"
+	      ExtrusionLength	      "1"
+	      ExtrusionLengthUnits    "m"
+	      PolygonNumSides	      "3"
+	      PolygonOuterRadius      "1"
+	      PolygonOuterRadiusUnits "m"
+	      ExtGeomFileUnits	      "m"
+	      BlockFunction	      "simmechanics.library.body_elements.solid"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Transform\nPlatform CG"
+	      SID		      "163"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [80, 65, 120, 105]
+	      ZOrder		      2
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	      SourceType	      ""
+	      ClassName		      "RigidTransform"
+	      TranslationMethod	      "StandardAxis"
+	      TranslationLengthUnit   "cm"
+	      TranslationStandardAxis "+X"
+	      TranslationStandardOffset	"platform_length/2"
+	      TranslationCartesianOffset "[0 0 0]"
+	      TranslationROffset      "0"
+	      TranslationROffsetUnits "m"
+	      TranslationZOffset      "0"
+	      TranslationZOffsetUnits "m"
+	      TranslationThetaOffset  "0"
+	      TranslationThetaOffsetUnits "deg"
+	      RotationMethod	      "None"
+	      RotationAngleUnits      "deg"
+	      RotationStandardAxis    "+Z"
+	      RotationAngle	      "0"
+	      RotationArbitraryAxis   "[0 0 1]"
+	      FollAlignAxisA	      "+X"
+	      BaseAlignAxisA	      "+Y"
+	      FollAlignAxisB	      "+Y"
+	      BaseAlignAxisB	      "+Z"
+	      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Transform\nPlatform F"
+	      SID		      "164"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [195, 65, 235, 105]
+	      ZOrder		      2
+	      LibraryVersion	      "1.1"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	      SourceType	      ""
+	      ClassName		      "RigidTransform"
+	      TranslationMethod	      "StandardAxis"
+	      TranslationLengthUnit   "cm"
+	      TranslationStandardAxis "+X"
+	      TranslationStandardOffset	"platform_length/2"
+	      TranslationCartesianOffset "[0 0 0]"
+	      TranslationROffset      "0"
+	      TranslationROffsetUnits "m"
+	      TranslationZOffset      "0"
+	      TranslationZOffsetUnits "m"
+	      TranslationThetaOffset  "0"
+	      TranslationThetaOffsetUnits "deg"
+	      RotationMethod	      "None"
+	      RotationAngleUnits      "deg"
+	      RotationStandardAxis    "+Z"
+	      RotationAngle	      "0"
+	      RotationArbitraryAxis   "[0 0 1]"
+	      FollAlignAxisA	      "+X"
+	      BaseAlignAxisA	      "+Y"
+	      FollAlignAxisB	      "+Y"
+	      BaseAlignAxisB	      "+Z"
+	      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "B"
+	      SID		      "166"
+	      Position		      [25, 78, 55, 92]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "1"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "F"
+	      SID		      "167"
+	      Position		      [260, 78, 290, 92]
+	      BlockMirror	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "2"
+	      Side		      "Right"
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Transform\nPlatform CG"
+	      SrcPort		      RConn1
+	      Points		      [20, 0]
+	      Branch {
+		ConnectType		"DEST_SRC"
+		DstBlock		"Platform"
+		DstPort			RConn1
+	      }
+	      Branch {
+		ConnectType		"DEST_SRC"
+		DstBlock		"Transform\nPlatform F"
+		DstPort			LConn1
+	      }
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "B"
+	      SrcPort		      RConn1
+	      DstBlock		      "Transform\nPlatform CG"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "F"
+	      SrcPort		      RConn1
+	      DstBlock		      "Transform\nPlatform F"
+	      DstPort		      RConn1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rev\nLeg1 Base"
+	  SID			  "160"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [80, 190, 120, 230]
+	  ZOrder		  9
+	  BlockRotation		  270
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Joints/Revolute Joint"
+	  SourceType		  ""
+	  ClassName		  "RevoluteJoint"
+	  SenseConstraintForceX	  "off"
+	  SenseConstraintForceY	  "off"
+	  SenseConstraintForceZ	  "off"
+	  SenseConstraintTorqueX  "off"
+	  SenseConstraintTorqueY  "off"
+	  SenseConstraintTorqueZ  "off"
+	  ConstraintWrenchDir	  "FollowerOnBase"
+	  ConstraintWrenchFrame	  "BaseFrame"
+	  EquilibriumPosition	  "0"
+	  EquilibriumPositionUnits "rad"
+	  SpringStiffness	  "0"
+	  SpringStiffnessUnits	  "N*m/rad"
+	  DampingCoefficient	  "0"
+	  DampingCoefficientUnits "N*m/(rad/s)"
+	  ActuationMode		  "NoActuation"
+	  SensePosition		  "off"
+	  SenseVelocity		  "off"
+	  SenseAcceleration	  "off"
+	  SenseTorqueForce	  "off"
+	  PositionTargetValue	  "170"
+	  PositionTargetValueUnits "deg"
+	  PositionTargetSpecify	  "on"
+	  PositionTargetPriority  "Low"
+	  VelocityTargetValue	  "0"
+	  VelocityTargetValueUnits "rad/s"
+	  VelocityTargetSpecify	  "off"
+	  VelocityTargetPriority  "High"
+	  BlockFunction		  "simmechanics.library.joints.revolute_joint"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rev\nLeg1 Platform"
+	  SID			  "157"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [135, 25, 175, 65]
+	  ZOrder		  9
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Joints/Revolute Joint"
+	  SourceType		  ""
+	  ClassName		  "RevoluteJoint"
+	  SenseConstraintForceX	  "off"
+	  SenseConstraintForceY	  "off"
+	  SenseConstraintForceZ	  "off"
+	  SenseConstraintTorqueX  "off"
+	  SenseConstraintTorqueY  "off"
+	  SenseConstraintTorqueZ  "off"
+	  ConstraintWrenchDir	  "FollowerOnBase"
+	  ConstraintWrenchFrame	  "BaseFrame"
+	  EquilibriumPosition	  "0"
+	  EquilibriumPositionUnits "rad"
+	  SpringStiffness	  "0"
+	  SpringStiffnessUnits	  "N*m/rad"
+	  DampingCoefficient	  "0"
+	  DampingCoefficientUnits "N*m/(rad/s)"
+	  ActuationMode		  "NoActuation"
+	  SensePosition		  "off"
+	  SenseVelocity		  "off"
+	  SenseAcceleration	  "off"
+	  SenseTorqueForce	  "off"
+	  PositionTargetValue	  "0"
+	  PositionTargetValueUnits "rad"
+	  PositionTargetSpecify	  "off"
+	  PositionTargetPriority  "High"
+	  VelocityTargetValue	  "0"
+	  VelocityTargetValueUnits "rad/s"
+	  VelocityTargetSpecify	  "off"
+	  VelocityTargetPriority  "High"
+	  BlockFunction		  "simmechanics.library.joints.revolute_joint"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rev\nLeg2 Base"
+	  SID			  "158"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [350, 190, 390, 230]
+	  ZOrder		  9
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Joints/Revolute Joint"
+	  SourceType		  ""
+	  ClassName		  "RevoluteJoint"
+	  SenseConstraintForceX	  "off"
+	  SenseConstraintForceY	  "off"
+	  SenseConstraintForceZ	  "off"
+	  SenseConstraintTorqueX  "off"
+	  SenseConstraintTorqueY  "off"
+	  SenseConstraintTorqueZ  "off"
+	  ConstraintWrenchDir	  "FollowerOnBase"
+	  ConstraintWrenchFrame	  "BaseFrame"
+	  EquilibriumPosition	  "0"
+	  EquilibriumPositionUnits "rad"
+	  SpringStiffness	  "0"
+	  SpringStiffnessUnits	  "N*m/rad"
+	  DampingCoefficient	  "0"
+	  DampingCoefficientUnits "N*m/(rad/s)"
+	  ActuationMode		  "NoActuation"
+	  SensePosition		  "off"
+	  SenseVelocity		  "off"
+	  SenseAcceleration	  "off"
+	  SenseTorqueForce	  "off"
+	  PositionTargetValue	  "10"
+	  PositionTargetValueUnits "deg"
+	  PositionTargetSpecify	  "on"
+	  PositionTargetPriority  "Low"
+	  VelocityTargetValue	  "0"
+	  VelocityTargetValueUnits "rad/s"
+	  VelocityTargetSpecify	  "off"
+	  VelocityTargetPriority  "High"
+	  BlockFunction		  "simmechanics.library.joints.revolute_joint"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rev\nPlatform Leg2"
+	  SID			  "159"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [290, 25, 330, 65]
+	  ZOrder		  9
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Joints/Revolute Joint"
+	  SourceType		  ""
+	  ClassName		  "RevoluteJoint"
+	  SenseConstraintForceX	  "off"
+	  SenseConstraintForceY	  "off"
+	  SenseConstraintForceZ	  "off"
+	  SenseConstraintTorqueX  "off"
+	  SenseConstraintTorqueY  "off"
+	  SenseConstraintTorqueZ  "off"
+	  ConstraintWrenchDir	  "FollowerOnBase"
+	  ConstraintWrenchFrame	  "BaseFrame"
+	  EquilibriumPosition	  "0"
+	  EquilibriumPositionUnits "rad"
+	  SpringStiffness	  "0"
+	  SpringStiffnessUnits	  "N*m/rad"
+	  DampingCoefficient	  "0"
+	  DampingCoefficientUnits "N*m/(rad/s)"
+	  ActuationMode		  "NoActuation"
+	  SensePosition		  "off"
+	  SenseVelocity		  "off"
+	  SenseAcceleration	  "off"
+	  SenseTorqueForce	  "off"
+	  PositionTargetValue	  "0"
+	  PositionTargetValueUnits "rad"
+	  PositionTargetSpecify	  "off"
+	  PositionTargetPriority  "High"
+	  VelocityTargetValue	  "0"
+	  VelocityTargetValueUnits "rad/s"
+	  VelocityTargetSpecify	  "off"
+	  VelocityTargetPriority  "High"
+	  BlockFunction		  "simmechanics.library.joints.revolute_joint"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Transform\nLeg2 Base"
+	  SID			  "161"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [225, 235, 265, 275]
+	  ZOrder		  2
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	  SourceType		  ""
+	  ClassName		  "RigidTransform"
+	  TranslationMethod	  "StandardAxis"
+	  TranslationLengthUnit	  "cm"
+	  TranslationStandardAxis "+X"
+	  TranslationStandardOffset "platform_length"
+	  TranslationCartesianOffset "[0 0 0]"
+	  TranslationROffset	  "0"
+	  TranslationROffsetUnits "m"
+	  TranslationZOffset	  "0"
+	  TranslationZOffsetUnits "m"
+	  TranslationThetaOffset  "0"
+	  TranslationThetaOffsetUnits "deg"
+	  RotationMethod	  "None"
+	  RotationAngleUnits	  "deg"
+	  RotationStandardAxis	  "+Y"
+	  RotationAngle		  "90"
+	  RotationArbitraryAxis	  "[0 0 1]"
+	  FollAlignAxisA	  "+X"
+	  BaseAlignAxisA	  "+Y"
+	  FollAlignAxisB	  "+Y"
+	  BaseAlignAxisB	  "+Z"
+	  BlockFunction		  "simmechanics.library.frames_transforms.rigid_transform"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "World Frame1"
+	  SID			  "169"
+	  Ports			  [0, 0, 0, 0, 0, 0, 1]
+	  Position		  [80, 290, 120, 330]
+	  ZOrder		  4
+	  BlockRotation		  270
+	  ShowName		  off
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Frames and\n Transforms/World Frame"
+	  SourceType		  ""
+	  ClassName		  "WorldFrame"
+	  BlockFunction		  "simmechanics.library.frames_transforms.world_frame"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "L1CG"
+	  SID			  "171"
+	  Position		  [25, 161, 55, 179]
+	  NamePlacement		  "alternate"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "L1CG"
+	  SrcPort		  RConn1
+	  Points		  [15, 0]
+	  DstBlock		  "Leg1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "World Frame1"
+	  SrcPort		  RConn1
+	  Points		  [0, -20]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Rev\nLeg1 Base"
+	    DstPort		    LConn1
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Transform\nLeg2 Base"
+	    DstPort		    LConn1
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rev\nPlatform Leg2"
+	  SrcPort		  LConn1
+	  DstBlock		  "Platform"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Transform\nLeg2 Base"
+	  SrcPort		  RConn1
+	  Points		  [90, 0]
+	  DstBlock		  "Rev\nLeg2 Base"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rev\nLeg1 Platform"
+	  SrcPort		  RConn1
+	  DstBlock		  "Platform"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rev\nLeg2 Base"
+	  SrcPort		  LConn1
+	  DstBlock		  "Leg2"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rev\nPlatform Leg2"
+	  SrcPort		  RConn1
+	  Points		  [25, 0]
+	  DstBlock		  "Leg2"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rev\nLeg1 Platform"
+	  SrcPort		  LConn1
+	  Points		  [-25, 0]
+	  DstBlock		  "Leg1"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rev\nLeg1 Base"
+	  SrcPort		  RConn1
+	  DstBlock		  "Leg1"
+	  DstPort		  LConn2
+	}
+	Annotation {
+	  SID			  "172"
+	  Position		  [97, 209]
+	  FontName		  "Arial"
+	  FontSize		  12
+	}
+      }
+    }
+    Block {
+      BlockType		      From
+      Name		      "From"
+      SID		      "196"
+      Position		      [680, 365, 730, 385]
+      ZOrder		      -9
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "Cmd"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto"
+      SID		      "197"
+      Position		      [45, 172, 90, 198]
+      ZOrder		      -10
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "Cmd"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "HR"
+      SID		      "82"
+      Tag		      "Factory Generic"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [345, 320, 385, 345]
+      BlockRotation	      270
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Hydraulic/Hydraulic Elements/Hydraulic Reference"
+      SourceType	      "Hydraulic Reference"
+      SourceFile	      "foundation.hydraulic.elements.reference"
+      ComponentPath	      "foundation.hydraulic.elements.reference"
+      ComponentVariants	      "foundation.hydraulic.elements.reference"
+      ComponentVariantNames   "reference"
+      ClassName		      "hydro_reference"
+      SchemaVersion	      "1"
+      q_Log		      "off"
+      LocalVarNames	      "|q"
+      LocalVarDescs	      "|q"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Hydraulic Reference"
+      SID		      "83"
+      Tag		      "Factory Generic"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [475, 395, 515, 420]
+      BlockRotation	      270
+      BlockMirror	      on
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Hydraulic/Hydraulic Elements/Hydraulic Reference"
+      SourceType	      "Hydraulic Reference"
+      SourceFile	      "foundation.hydraulic.elements.reference"
+      ComponentPath	      "foundation.hydraulic.elements.reference"
+      ComponentVariants	      "foundation.hydraulic.elements.reference"
+      ComponentVariantNames   "reference"
+      ClassName		      "hydro_reference"
+      SchemaVersion	      "1"
+      q_Log		      "off"
+      LocalVarNames	      "|q"
+      LocalVarDescs	      "|q"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Ideal Hydraulic\nPressure Source"
+      SID		      "84"
+      Tag		      "Factory Generic"
+      Ports		      [0, 0, 0, 0, 0, 1, 2]
+      Position		      [465, 335, 505, 375]
+      BlockRotation	      270
+      BlockMirror	      on
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Hydraulic/Hydraulic Sources/Hydraulic Pressure\nSource"
+      SourceType	      "Hydraulic Pressure\nSource"
+      SourceFile	      "foundation.hydraulic.sources.pressure"
+      ComponentPath	      "foundation.hydraulic.sources.pressure"
+      ComponentVariants	      "foundation.hydraulic.sources.pressure"
+      ComponentVariantNames   "pressure"
+      ClassName		      "pressure_src"
+      SchemaVersion	      "1"
+      q_Log		      "off"
+      p_Log		      "off"
+      LocalVarNames	      "|flow_rate|pr_differential|power"
+      LocalVarDescs	      "|Flow rate through the source (m^3/s)|Pressure differential across the source (Pa)|Source p"
+      "ower (W)"
+      LocalVarLogging	      "[0 0 0]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mechanical\nTranslational\nReference"
+      SID		      "88"
+      Tag		      "Factory Generic"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [355, 200, 375, 220]
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Mechanical/Translational\nElements/Mechanical\nTranslational\nReference"
+      SourceType	      "Mechanical\nTranslational\nReference"
+      SourceFile	      "foundation.mechanical.translational.reference"
+      ComponentPath	      "foundation.mechanical.translational.reference"
+      ComponentVariants	      "foundation.mechanical.translational.reference"
+      ComponentVariantNames   "reference"
+      ClassName		      "reference_transl"
+      SchemaVersion	      "1"
+      f_Log		      "off"
+      LocalVarNames	      "|f"
+      LocalVarDescs	      "|f"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mechanism \nConfiguration"
+      SID		      "195"
+      Ports		      [0, 0, 0, 0, 0, 0, 1]
+      Position		      [125, 95, 165, 135]
+      ZOrder		      1
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "sm_lib/Utilities/Mechanism \nConfiguration"
+      SourceType	      ""
+      ClassName		      "MechanismConfiguration"
+      GravityVector	      "[0 -9.81 0]"
+      GravityUnits	      "m/s^2"
+      AllowGravitySignal      "off"
+      LinearizationDelta      "0.001"
+      BlockFunction	      "simmechanics.library.utilities.mechanism_configuration"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      SID		      "90"
+      Ports		      [2, 1]
+      Position		      [745, 346, 750, 384]
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PS Gain"
+      SID		      "91"
+      Tag		      "Factory Generic"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [265, 220, 295, 250]
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Physical Signals/Functions/PS Gain"
+      SourceType	      "PS Gain"
+      SourceFile	      "foundation.physical_signal.functions.gain"
+      ComponentPath	      "foundation.physical_signal.functions.gain"
+      ComponentVariants	      "foundation.physical_signal.functions.gain"
+      ComponentVariantNames   "gain"
+      ClassName		      "ps_gain"
+      SchemaVersion	      "1"
+      gain		      "-0.5"
+      gain_unit		      "1"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PS Subtract"
+      SID		      "92"
+      Tag		      "Factory Generic"
+      Ports		      [0, 0, 0, 0, 0, 2, 1]
+      Position		      [205, 217, 235, 248]
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Physical Signals/Functions/PS Subtract"
+      SourceType	      "PS Subtract"
+      SourceFile	      "foundation.physical_signal.functions.subtract"
+      ComponentPath	      "foundation.physical_signal.functions.subtract"
+      ComponentVariants	      "foundation.physical_signal.functions.subtract"
+      ComponentVariantNames   "subtract"
+      ClassName		      "ps_subtract"
+      SchemaVersion	      "1"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PS-Simulink\nConverter"
+      SID		      "93"
+      Ports		      [0, 1, 0, 0, 0, 1]
+      Position		      [640, 340, 670, 370]
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      SourceBlock	      "nesl_utility/PS-Simulink\nConverter"
+      SourceType	      "PS-Simulink\nConverter"
+      PhysicalDomain	      "network_engine_domain"
+      LeftPortType	      "input"
+      RightPortType	      "output"
+      SubClassName	      "ps_output"
+      Unit		      "1"
+      AffineConversion	      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PS-Simulink\nConverter1"
+      SID		      "185"
+      Ports		      [0, 1, 0, 0, 0, 1]
+      Position		      [580, 115, 610, 145]
+      ZOrder		      1
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      SourceBlock	      "nesl_utility/PS-Simulink\nConverter"
+      SourceType	      "PS-Simulink\nConverter"
+      PhysicalDomain	      "network_engine_domain"
+      LeftPortType	      "input"
+      RightPortType	      "output"
+      SubClassName	      "ps_output"
+      Unit		      "1"
+      AffineConversion	      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Piston"
+      SID		      "173"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [555, 48, 620, 82]
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Piston"
+	Location		[230, 164, 545, 313]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Piston"
+	  SID			  "176"
+	  Ports			  [0, 0, 0, 0, 0, 0, 1]
+	  Position		  [135, 25, 175, 65]
+	  ZOrder		  3
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Body Elements/Solid"
+	  SourceType		  ""
+	  ClassName		  "Solid"
+	  InertiaType		  "CalculateFromGeometry"
+	  Mass			  "1"
+	  MassUnits		  "kg"
+	  CenterOfMass		  "[0 0 0]"
+	  CenterOfMassUnits	  "m"
+	  MomentsOfInertia	  "[1 1 1]"
+	  MomentsOfInertiaUnits	  "kg*m^2"
+	  ProductsOfInertia	  "[0 0 0]"
+	  ProductsOfInertiaUnits  "kg*m^2"
+	  DensityBased		  "on"
+	  Density		  "1000"
+	  DensityUnits		  "kg/(m^3)"
+	  GraphicType		  "FromGeometry"
+	  MarkerShape		  "Sphere"
+	  MarkerSize		  "10"
+	  MarkerSizeUnits	  "m"
+	  GraphicVisPropType	  "SimpleVisualProperties"
+	  GraphicDiffuseColor	  "[1.0 1.0 1.0]"
+	  GraphicSpecularColor	  "[0.5 0.5 0.5 1.0]"
+	  GraphicAmbientColor	  "[0.15 0.15 0.15 1.0]"
+	  GraphicEmissiveColor	  "[0.0 0.0 0.0 1.0]"
+	  GraphicShininess	  "75"
+	  GraphicOpacity	  "1.0"
+	  GeometryShape		  "Brick"
+	  RectangleSize		  "[1 1]"
+	  RectangleSizeUnits	  "m"
+	  BrickDimensions	  "[piston_length 0.9 0.9]"
+	  BrickDimensionUnits	  "cm"
+	  CylinderRadius	  "1"
+	  CylinderRadiusUnits	  "m"
+	  CylinderLength	  "1"
+	  CylinderLengthUnits	  "m"
+	  SphereRadius		  "1"
+	  SphereRadiusUnits	  "m"
+	  EllipsoidRadii	  "[1 1 1]"
+	  EllipsoidRadiiUnits	  "m"
+	  ExtrusionCrossSection	  "[1 1; -1 1; -1 -1; 1 -1]"
+	  ExtrusionCrossSectionUnits "m"
+	  ExtrusionLength	  "1"
+	  ExtrusionLengthUnits	  "m"
+	  PolygonNumSides	  "3"
+	  PolygonOuterRadius	  "1"
+	  PolygonOuterRadiusUnits "m"
+	  ExtGeomFileUnits	  "m"
+	  BlockFunction		  "simmechanics.library.body_elements.solid"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Transform\nPiston CG"
+	  SID			  "174"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [80, 65, 120, 105]
+	  ZOrder		  2
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	  SourceType		  ""
+	  ClassName		  "RigidTransform"
+	  TranslationMethod	  "StandardAxis"
+	  TranslationLengthUnit	  "cm"
+	  TranslationStandardAxis "-Z"
+	  TranslationStandardOffset "piston_length/2"
+	  TranslationCartesianOffset "[0 0 0]"
+	  TranslationROffset	  "0"
+	  TranslationROffsetUnits "m"
+	  TranslationZOffset	  "0"
+	  TranslationZOffsetUnits "m"
+	  TranslationThetaOffset  "0"
+	  TranslationThetaOffsetUnits "deg"
+	  RotationMethod	  "StandardAxis"
+	  RotationAngleUnits	  "deg"
+	  RotationStandardAxis	  "-Y"
+	  RotationAngle		  "90"
+	  RotationArbitraryAxis	  "[0 0 1]"
+	  FollAlignAxisA	  "+X"
+	  BaseAlignAxisA	  "+Y"
+	  FollAlignAxisB	  "+Y"
+	  BaseAlignAxisB	  "+Z"
+	  BlockFunction		  "simmechanics.library.frames_transforms.rigid_transform"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Transform\nPistonF"
+	  SID			  "175"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [195, 65, 235, 105]
+	  ZOrder		  2
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+	  SourceType		  ""
+	  ClassName		  "RigidTransform"
+	  TranslationMethod	  "StandardAxis"
+	  TranslationLengthUnit	  "cm"
+	  TranslationStandardAxis "+X"
+	  TranslationStandardOffset "piston_length/2"
+	  TranslationCartesianOffset "[0 0 0]"
+	  TranslationROffset	  "0"
+	  TranslationROffsetUnits "m"
+	  TranslationZOffset	  "0"
+	  TranslationZOffsetUnits "m"
+	  TranslationThetaOffset  "0"
+	  TranslationThetaOffsetUnits "deg"
+	  RotationMethod	  "None"
+	  RotationAngleUnits	  "deg"
+	  RotationStandardAxis	  "+Z"
+	  RotationAngle		  "0"
+	  RotationArbitraryAxis	  "[0 0 1]"
+	  FollAlignAxisA	  "+X"
+	  BaseAlignAxisA	  "+Y"
+	  FollAlignAxisB	  "+Y"
+	  BaseAlignAxisB	  "+Z"
+	  BlockFunction		  "simmechanics.library.frames_transforms.rigid_transform"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  SID			  "177"
+	  Position		  [25, 78, 55, 92]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "F"
+	  SID			  "178"
+	  Position		  [260, 78, 290, 92]
+	  BlockMirror		  on
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "2"
+	  Side			  "Right"
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [155, 85; 0, -5]
+	  DstBlock		  "Piston"
+	  DstPort		  RConn1
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "Transform\nPiston CG"
+	    SrcPort		    RConn1
+	    Points		    [20, 0]
+	  }
+	  Branch {
+	    ConnectType		    "SRC_SRC"
+	    DstBlock		    "Transform\nPistonF"
+	    DstPort		    LConn1
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  DstBlock		  "Transform\nPiston CG"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "F"
+	  SrcPort		  RConn1
+	  DstBlock		  "Transform\nPistonF"
+	  DstPort		  RConn1
+	}
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Position"
+      SID		      "95"
+      Ports		      [1]
+      Position		      [775, 349, 805, 381]
+      FontName		      "Arial"
+      FontSize		      12
+      Floating		      off
+      Location		      [178, 636, 670, 850]
+      Open		      on
+      NumInputPorts	      "1"
+      ZoomMode		      "yonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      TimeRange		      "10"
+      YMin		      "0"
+      YMax		      "0.06"
+      DataFormat	      "StructureWithTime"
+      MaxDataPoints	      "50000"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Pris\nActuator"
+      SID		      "186"
+      Ports		      [0, 0, 0, 0, 0, 2, 3]
+      Position		      [465, 60, 505, 100]
+      ZOrder		      7
+      NamePlacement	      "alternate"
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "sm_lib/Joints/Prismatic \nJoint"
+      SourceType	      ""
+      ClassName		      "PrismaticJoint"
+      SenseConstraintForceX   "off"
+      SenseConstraintForceY   "off"
+      SenseConstraintForceZ   "off"
+      SenseConstraintTorqueX  "off"
+      SenseConstraintTorqueY  "off"
+      SenseConstraintTorqueZ  "off"
+      ConstraintWrenchDir     "FollowerOnBase"
+      ConstraintWrenchFrame   "BaseFrame"
+      EquilibriumPosition     "0"
+      EquilibriumPositionUnits "m"
+      SpringStiffness	      "0"
+      SpringStiffnessUnits    "N/m"
+      DampingCoefficient      "0"
+      DampingCoefficientUnits "N/(m/s)"
+      ActuationMode	      "TorqueForceActuation"
+      SensePosition	      "on"
+      SenseVelocity	      "on"
+      SenseAcceleration	      "off"
+      SenseTorqueForce	      "off"
+      PositionTargetValue     "0"
+      PositionTargetValueUnits "m"
+      PositionTargetSpecify   "on"
+      PositionTargetPriority  "High"
+      VelocityTargetValue     "0"
+      VelocityTargetValueUnits "m/s"
+      VelocityTargetSpecify   "off"
+      VelocityTargetPriority  "High"
+      BlockFunction	      "simmechanics.library.joints.prismatic_joint"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rev\nActuator Leg"
+      SID		      "187"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [650, 45, 690, 85]
+      ZOrder		      9
+      NamePlacement	      "alternate"
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "sm_lib/Joints/Revolute Joint"
+      SourceType	      ""
+      ClassName		      "RevoluteJoint"
+      SenseConstraintForceX   "off"
+      SenseConstraintForceY   "off"
+      SenseConstraintForceZ   "off"
+      SenseConstraintTorqueX  "off"
+      SenseConstraintTorqueY  "off"
+      SenseConstraintTorqueZ  "off"
+      ConstraintWrenchDir     "FollowerOnBase"
+      ConstraintWrenchFrame   "BaseFrame"
+      EquilibriumPosition     "0"
+      EquilibriumPositionUnits "rad"
+      SpringStiffness	      "0"
+      SpringStiffnessUnits    "N*m/rad"
+      DampingCoefficient      "0"
+      DampingCoefficientUnits "N*m/(rad/s)"
+      ActuationMode	      "NoActuation"
+      SensePosition	      "off"
+      SenseVelocity	      "off"
+      SenseAcceleration	      "off"
+      SenseTorqueForce	      "off"
+      PositionTargetValue     "170"
+      PositionTargetValueUnits "deg"
+      PositionTargetSpecify   "off"
+      PositionTargetPriority  "Low"
+      VelocityTargetValue     "0"
+      VelocityTargetValueUnits "rad/s"
+      VelocityTargetSpecify   "off"
+      VelocityTargetPriority  "High"
+      BlockFunction	      "simmechanics.library.joints.revolute_joint"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rev\nCylinder Base"
+      SID		      "188"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [295, 50, 335, 90]
+      ZOrder		      9
+      NamePlacement	      "alternate"
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "sm_lib/Joints/Revolute Joint"
+      SourceType	      ""
+      ClassName		      "RevoluteJoint"
+      SenseConstraintForceX   "off"
+      SenseConstraintForceY   "off"
+      SenseConstraintForceZ   "off"
+      SenseConstraintTorqueX  "off"
+      SenseConstraintTorqueY  "off"
+      SenseConstraintTorqueZ  "off"
+      ConstraintWrenchDir     "FollowerOnBase"
+      ConstraintWrenchFrame   "BaseFrame"
+      EquilibriumPosition     "0"
+      EquilibriumPositionUnits "rad"
+      SpringStiffness	      "0"
+      SpringStiffnessUnits    "N*m/rad"
+      DampingCoefficient      "0"
+      DampingCoefficientUnits "N*m/(rad/s)"
+      ActuationMode	      "NoActuation"
+      SensePosition	      "off"
+      SenseVelocity	      "off"
+      SenseAcceleration	      "off"
+      SenseTorqueForce	      "off"
+      PositionTargetValue     "3"
+      PositionTargetValueUnits "deg"
+      PositionTargetSpecify   "off"
+      PositionTargetPriority  "Low"
+      VelocityTargetValue     "0"
+      VelocityTargetValueUnits "rad/s"
+      VelocityTargetSpecify   "off"
+      VelocityTargetPriority  "High"
+      BlockFunction	      "simmechanics.library.joints.revolute_joint"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Sensor"
+      SID		      "112"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [611, 235, 629, 255]
+      BlockRotation	      270
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskDisplay	      "disp('S');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Sensor"
+	Location		[1056, 538, 1297, 726]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ideal Translational\nMotion Sensor"
+	  SID			  "85"
+	  Tag			  "Factory Generic"
+	  Ports			  [0, 0, 0, 0, 0, 1, 3]
+	  Position		  [80, 28, 125, 72]
+	  ShowName		  off
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "fl_lib/Mechanical/Mechanical Sensors/Ideal Translational\nMotion Sensor"
+	  SourceType		  "Ideal Translational\nMotion Sensor"
+	  SourceFile		  "foundation.mechanical.sensors.velocity"
+	  ComponentPath		  "foundation.mechanical.sensors.velocity"
+	  ComponentVariants	  "foundation.mechanical.sensors.velocity"
+	  ComponentVariantNames	  "velocity"
+	  ClassName		  "sensor_transl_motion"
+	  SchemaVersion		  "1"
+	  offset		  "0"
+	  offset_unit		  "m"
+	  v_Log			  "off"
+	  f_Log			  "off"
+	  x_Log			  "off"
+	  LocalVarNames		  "|v|f|x"
+	  LocalVarDescs		  "|v|f|x"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Mechanical\nTranslational\nReference1"
+	  SID			  "111"
+	  Tag			  "Factory Generic"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [150, 25, 170, 45]
+	  ShowName		  off
+	  LibraryVersion	  "1.1"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SourceBlock		  "fl_lib/Mechanical/Translational\nElements/Mechanical\nTranslational\nReference"
+	  SourceType		  "Mechanical\nTranslational\nReference"
+	  SourceFile		  "foundation.mechanical.translational.reference"
+	  ComponentPath		  "foundation.mechanical.translational.reference"
+	  ComponentVariants	  "foundation.mechanical.translational.reference"
+	  ComponentVariantNames	  "reference"
+	  ClassName		  "reference_transl"
+	  SchemaVersion		  "1"
+	  f_Log			  "off"
+	  LocalVarNames		  "|f"
+	  LocalVarDescs		  "|f"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "Conn1"
+	  SID			  "113"
+	  Position		  [25, 43, 55, 57]
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "Conn3"
+	  SID			  "115"
+	  Position		  [150, 58, 180, 72]
+	  BlockMirror		  on
+	  Port			  "2"
+	  Side			  "Right"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Mechanical\nTranslational\nReference1"
+	  SrcPort		  LConn1
+	  DstBlock		  "Ideal Translational\nMotion Sensor"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Conn1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Translational\nMotion Sensor"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Conn3"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Translational\nMotion Sensor"
+	  DstPort		  RConn3
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Signal Builder"
+      SID		      "100"
+      Tag		      "STV Subsys"
+      Ports		      [0, 1]
+      Position		      [15, 205, 90, 245]
+      CopyFcn		      "sigbuilder_block('copy');"
+      DeleteFcn		      "sigbuilder_block('delete');"
+      LoadFcn		      "sigbuilder_block('load');"
+      ModelCloseFcn	      "sigbuilder_block('modelClose');"
+      PreSaveFcn	      "sigbuilder_block('preSave');"
+      StartFcn		      "sigbuilder_block('start');"
+      PauseFcn		      "sigbuilder_block('pause')"
+      ContinueFcn	      "sigbuilder_block('continue')"
+      StopFcn		      "sigbuilder_block('stop');"
+      NameChangeFcn	      "sigbuilder_block('namechange');"
+      ClipboardFcn	      "sigbuilder_block('clipboard');"
+      OpenFcn		      "sigbuilder_block('open',[220.966 195.517 486 293.586 ]);"
+      CloseFcn		      "sigbuilder_block('close');"
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      on
+      MaskType		      "Sigbuilder block"
+      MaskDescription	      "Sigbuilder GUI"
+      MaskInitialization      "if ~strcmp(get_param(bdroot(gcbh),'SimulationStatus'),'stopped') tuvar = sigbuilder_blo"
+      "ck('maskInit'); end"
+      MaskDisplay	      "plot(0,0,100,100,[10,10,40,40,10],[80,20,20,80,80],[40,10],[50,50], [40,27,10],[65,72,56],[40"
+      ",25,25,10],[28,28,43,43]);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "port"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Signal Builder"
+	Location		[480, 85, 980, 386]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  SID			  "101"
+	  Tag			  "STV Demux"
+	  Ports			  [1, 1]
+	  Position		  [150, 30, 160, 600]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  FromWorkspace
+	  Name			  "FromWs"
+	  SID			  "102"
+	  Tag			  "STV FromWs"
+	  Position		  [30, 300, 115, 350]
+	  VariableName		  "tuvar"
+	  SampleTime		  "0"
+	  ZeroCross		  on
+	  SigBuilderData	  "DataTag0"
+	  VnvData		  "DataTag1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Signal 1"
+	  SID			  "103"
+	  Tag			  "STV Outport"
+	  Position		  [280, 30, 300, 40]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "FromWs"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -10]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  Points		  [50, 0; 0, -280]
+	  DstBlock		  "Signal 1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Simulink-PS\nConverter"
+      SID		      "104"
+      Ports		      [1, 0, 0, 0, 0, 0, 1]
+      Position		      [135, 210, 165, 240]
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      SourceBlock	      "nesl_utility/Simulink-PS\nConverter"
+      SourceType	      "Simulink-PS\nConverter"
+      PhysicalDomain	      "network_engine_domain"
+      LeftPortType	      "input"
+      RightPortType	      "output"
+      SubClassName	      "ps_input"
+      Unit		      "1"
+      AffineConversion	      off
+      InputFilterTimeConstant ".001"
+      UdotUserProvided	      "0"
+      SimscapeFilterOrder     "1"
+      InputFiltering	      "off"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Solver\nConfiguration"
+      SID		      "105"
+      Ports		      [0, 0, 0, 0, 0, 0, 1]
+      Position		      [240, 354, 285, 386]
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "nesl_utility/Solver\nConfiguration"
+      SourceType	      "Solver\nConfiguration"
+      PhysicalDomain	      "network_engine_domain"
+      LeftPortType	      "input"
+      RightPortType	      "generic"
+      SubClassName	      "solver"
+      UseCustomDae	      off
+      DoDC		      off
+      ResidualTolerance	      "1e-9"
+      UseLocalSolver	      off
+      LocalSolverChoice	      "NE_BACKWARD_EULER_ADVANCER"
+      LocalSolverSampleTime   ".001"
+      DoFixedCost	      off
+      MaxNonlinIter	      "3"
+      MaxModeIter	      "2"
+      LinearAlgebra	      "Sparse"
+      Accelerate	      off
+      Profile		      off
+      UseLocalSampling	      off
+      DelaysMemoryBudget      "1024"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Supply\nPressure"
+      SID		      "110"
+      Ports		      [0, 0, 0, 0, 0, 0, 1]
+      Position		      [410, 375, 440, 405]
+      ZOrder		      1
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "fl_lib/Physical Signals/Sources/PS Constant"
+      SourceType	      "PS Constant"
+      SourceFile	      "foundation.physical_signal.sources.constant"
+      ComponentPath	      "foundation.physical_signal.sources.constant"
+      ComponentVariants	      "foundation.physical_signal.sources.constant"
+      ComponentVariantNames   "constant"
+      ClassName		      "constant"
+      SchemaVersion	      "1"
+      constant		      "4e6"
+      constant_unit	      "1"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Transform\nCylinder Base"
+      SID		      "189"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [220, 50, 260, 90]
+      ZOrder		      2
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "sm_lib/Frames and\n Transforms/Rigid \nTransform"
+      SourceType	      ""
+      ClassName		      "RigidTransform"
+      TranslationMethod	      "StandardAxis"
+      TranslationLengthUnit   "cm"
+      TranslationStandardAxis "-X"
+      TranslationStandardOffset	"1.5*cylinder_length"
+      TranslationCartesianOffset "[0 0 0]"
+      TranslationROffset      "0"
+      TranslationROffsetUnits "m"
+      TranslationZOffset      "0"
+      TranslationZOffsetUnits "m"
+      TranslationThetaOffset  "0"
+      TranslationThetaOffsetUnits "deg"
+      RotationMethod	      "None"
+      RotationAngleUnits      "deg"
+      RotationStandardAxis    "+Y"
+      RotationAngle	      "90"
+      RotationArbitraryAxis   "[0 0 1]"
+      FollAlignAxisA	      "+X"
+      BaseAlignAxisA	      "+Y"
+      FollAlignAxisB	      "+Y"
+      BaseAlignAxisB	      "+Z"
+      BlockFunction	      "simmechanics.library.frames_transforms.rigid_transform"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Translational\nSimscape Intf"
+      SID		      "194"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [465, 119, 500, 161]
+      BlockMirror	      on
+      LibraryVersion	      "1.4"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "MS2G_SS_Intf_Lib/Translational\nSimscape Intf"
+      SourceType	      "SubSystem"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "World Frame3"
+      SID		      "191"
+      Ports		      [0, 0, 0, 0, 0, 0, 1]
+      Position		      [125, 50, 165, 90]
+      ZOrder		      4
+      ShowName		      off
+      LibraryVersion	      "1.1"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "sm_lib/Frames and\n Transforms/World Frame"
+      SourceType	      ""
+      ClassName		      "WorldFrame"
+      BlockFunction	      "simmechanics.library.frames_transforms.world_frame"
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Sensor"
+      SrcPort		      LConn1
+      Points		      [0, -10; -70, 0]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"DA Cylinder\nCustom"
+	DstPort			RConn1
+      }
+      Branch {
+	ConnectType		"DEST_SRC"
+	Points			[0, -60]
+	DstBlock		"Translational\nSimscape Intf"
+	DstPort			LConn2
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "PS Subtract"
+      SrcPort		      RConn1
+      DstBlock		      "PS Gain"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "PS Subtract"
+      SrcPort		      LConn2
+      Points		      [-5, 0; 0, 205; 435, 0; 0, -90]
+      Branch {
+	ConnectType		"DEST_SRC"
+	Labels			[0, 0]
+	DstBlock		"PS-Simulink\nConverter"
+	DstPort			LConn1
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"Sensor"
+	SrcPort			RConn1
+	Points			[0, 85]
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Ideal Hydraulic\nPressure Source"
+      SrcPort		      LConn1
+      Points		      [0, 0]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"Constant Area\nOrifice1"
+	DstPort			RConn1
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"Constant Area\nOrifice"
+	SrcPort			LConn1
+	Points			[55, 0]
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Constant Area\nOrifice"
+      SrcPort		      RConn1
+      Points		      [0, -5]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"DA Cylinder\nCustom"
+	DstPort			LConn2
+      }
+      Branch {
+	ConnectType		"DEST_SRC"
+	Points			[-50, 0]
+	DstBlock		"2-way Valve Custom"
+	DstPort			LConn2
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Mechanical\nTranslational\nReference"
+      SrcPort		      LConn1
+      Points		      [30, 0]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"DA Cylinder\nCustom"
+	DstPort			LConn1
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"Translational\nSimscape Intf"
+	SrcPort			RConn2
+	Points			[-30, 0; 0, 60]
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Custom Hydraulic\nFluid"
+      SrcPort		      RConn1
+      Points		      [15, 0]
+      Branch {
+	ConnectType		"DEST_SRC"
+	Points			[40, 0]
+	Branch {
+	  ConnectType		  "DEST_DEST"
+	  SrcBlock		  "HR"
+	  SrcPort		  LConn1
+	  Points		  [0, -5]
+	}
+	Branch {
+	  ConnectType		  "DEST_SRC"
+	  DstBlock		  "2-way Valve Custom"
+	  DstPort		  RConn1
+	}
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"Solver\nConfiguration"
+	SrcPort			RConn1
+	Points			[25, 0; 0, -70]
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Constant Area\nOrifice1"
+      SrcPort		      LConn1
+      Points		      [0, -5]
+      DstBlock		      "DA Cylinder\nCustom"
+      DstPort		      RConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "PS Gain"
+      SrcPort		      RConn1
+      DstBlock		      "2-way Valve Custom"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Supply\nPressure"
+      SrcPort		      RConn1
+      DstBlock		      "Ideal Hydraulic\nPressure Source"
+      DstPort		      RConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Simulink-PS\nConverter"
+      SrcPort		      RConn1
+      DstBlock		      "PS Subtract"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Ideal Hydraulic\nPressure Source"
+      SrcPort		      RConn2
+      DstBlock		      "Hydraulic Reference"
+      DstPort		      LConn1
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "Position"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "PS-Simulink\nConverter"
+      SrcPort		      1
+      DstBlock		      "Mux"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Signal Builder"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"Simulink-PS\nConverter"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Goto"
+	DstPort			1
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "PS-Simulink\nConverter1"
+      SrcPort		      LConn1
+      Points		      [-25, 0; 0, -50]
+      DstBlock		      "Pris\nActuator"
+      DstPort		      RConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Transform\nCylinder Base"
+      SrcPort		      RConn1
+      DstBlock		      "Rev\nCylinder Base"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Pris\nActuator"
+      SrcPort		      RConn1
+      DstBlock		      "Piston"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Cylinder"
+      SrcPort		      RConn1
+      DstBlock		      "Pris\nActuator"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Piston"
+      SrcPort		      RConn1
+      DstBlock		      "Rev\nActuator Leg"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "World Frame3"
+      SrcPort		      RConn1
+      Points		      [15, 0]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"Transform\nCylinder Base"
+	DstPort			LConn1
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"Mechanism \nConfiguration"
+	SrcPort			RConn1
+	Points			[15, 0; 0, -45]
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Rev\nActuator Leg"
+      SrcPort		      RConn1
+      DstBlock		      "Four Bar"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Rev\nCylinder Base"
+      SrcPort		      RConn1
+      DstBlock		      "Cylinder"
+      DstPort		      LConn1
+    }
+    Line {
+      SrcBlock		      "PS-Simulink\nConverter1"
+      SrcPort		      1
+      DstBlock		      "Extension"
+      DstPort		      1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Translational\nSimscape Intf"
+      SrcPort		      RConn1
+      Points		      [-15, 0; 0, -40]
+      DstBlock		      "Pris\nActuator"
+      DstPort		      LConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Translational\nSimscape Intf"
+      SrcPort		      LConn1
+      Points		      [15, 0; 0, -35]
+      DstBlock		      "Pris\nActuator"
+      DstPort		      RConn3
+    }
+    Line {
+      SrcBlock		      "From"
+      SrcPort		      1
+      DstBlock		      "Mux"
+      DstPort		      2
+    }
+    Annotation {
+      SID		      "192"
+      Position		      [411, 74]
+    }
+  }
+}
+MatData {
+  NumRecords		  2
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    R ,   8    (     @         %    \"     $    !     0         %  0 $0    $   #,    =F5R:6"
+    "9Y0FQK4&%T:',   !V97)I9GE\";&M(86YD;&5S '9N=DUG<DED>           86-T:79E1W)O=7        !R97%$:7-P4')C;G0      &)L:T1"
+    "I<W!-;V1E        9W)O=7!#;G0           !G<F]U<%)E<4-N=        &=R;W5P1$]/4E-I9       ;6]D96Q(              !B;&]C:"
+    "T@              &]V97)I9&53971T:6YG<P        X    P    !@    @    &          4    (               !          D    "
+    "     #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@         "
+    "%    \"                0         )          X    X    !@    @    &          4    (     0    $    !          D    ("
+    "            \\#\\.    ,     8    (    !@         %    \"                0         )          X    P    !@    @    "
+    "&          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $     "
+    "    \"0    @           #P/PX    P    !@    @    &          4    (               !          D         #@   #     & "
+    "   \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !"
+    "     0         )    \"         #  PA #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    "
+    "     %P!K0 X    P    !@    @    &          4    (               !          D         "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    P H   8    (     @         %    \"     $    !     0         %  0 %@    $   \"P    9W)I9"
+    "%-E='1I;F<              &-H86YN96QS                  !A>&5S                        8V]M;6]N                     &1"
+    "A=&%3970                   !D871A4V5T261X                :7-697)I9FEC871I;VY6:7-I8FQE '-B;V)J                     "
+    "  .    ,     8    (    !          %    \"     $    \"     0         0  ( ;VX   X   #@ @  !@    @    \"          4 "
+    "   (     0    $    !          4 !  *     0   %H   !S=&5P6       <W1E<%D      'E-:6X       !Y36%X        8V]L;W(   "
+    "   &QI;F53='EL90!L:6YE5VED=&@ ;&%B96P      &]U=$EN9&5X           .    .     8    (    !@         %    \"     $    "
+    "!     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @   "
+    "            X    X    !@    @    &          4    (     0    $    !          D    (            \\/\\.    .     8   "
+    " (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \"     8         !0    @  "
+    "  !     P    $         \"0   !@   !\"/NC9K/KJ/P                     .    ,     8    (    !          %    \"     $ "
+    "   !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !          D    (            ^#"
+    "\\.    .     8    (    !          %    \"     $    (     0         0    \"    %-I9VYA;\" Q#@   #@    &    \"     8"
+    "         !0    @    !     0    $         \"0    @           #P/PX   \"P 0  !@    @    \"          4    (     0    "
+    "$    !          4 !  +     0   #<   !C:&%N;F5L<P   'E,:6T         ;&%B96Q0;W,   !L86)E;$@      &QA8F5L4&%T8V@   X "
+    "   X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    0     8    (    !@      "
+    "   %    \"     $    \"     0         )    $    'L4KD?A>G2_*5R/PO4HK#\\.    ,     8    (    !          %    \"     "
+    "$    \"     0         0  ( 5$P   X    X    !@    @    &          4    (     0    $    !          D    (          0"
+    " ?$ .    .     8    (    !@         %    \"     $    !     0         )    \"        ( $,'! #@   &@\"   &    \"    "
+    " (         !0    @    !     0    $         !0 $  X    !    8@   &1I<W!4:6UE        9&ES<$UO9&4       !M:6Y4:6UE   "
+    "      &UA>%1I;64         869T97)&:6YA;%-T<@!S86UP;&54:6UE     'IE<F]#<F]S<P              #@   $     &    \"     8 "
+    "        !0    @    !     @    $         \"0   !                       \"1 #@   #@    &    \"     8         !0    @"
+    "    !     0    $         \"0    @           #P/PX    X    !@    @    &          4    (     0    $    !          D "
+    "   (               .    .     8    (    !@         %    \"     $    !     0         )    \"            \"1 #@   $ "
+    "    &    \"     0         !0    @    !    \"P    $         $     L   !%>'1R87!O;&%T90      #@   #@    &    \"     "
+    "8         !0    @    !     0    $         \"0    @               X    P    !@    @    $          4    (     0    ("
+    "    !         !   @!O;@  #@   ( !   &    \"     (         !0    @    !     0    $         !0 $  X    !    .    &%C"
+    "=&EV941I<W!)9'@ =&EM95)A;F=E      !N86UE             &1I<W!L87E286YG90  #@   #@    &    \"     8         !0    @  "
+    "  !     0    $         \"0    @           #P/PX   !     !@    @    &          4    (     0    (    !          D   "
+    " 0                       D0 X    X    !@    @    $          4    (     0    <    !         !     '    1W)O=7 @,0 ."
+    "    0     8    (    !@         %    \"     $    \"     0         )    $                       )$ .    .     8    ("
+    "    !@         %    \"     $    !     0         )    \"            / _#@   #@    &    \"     8         !0    @    "
+    "!     0    $         \"0    @               X   \"     !@    @    1          $          0 $ $U#3U,!    \"    %-I9U"
+    "-U:71E#@   $@    &    \"     T         !0    @    &     0    $         !@   !@       #= @    $    !     0    ,    "
+    ".    X H   8    (    \"0         %    \"     $   \"P\"@   0         \"    L H    !24T     #@   ! *   &    \"     ("
+    "         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@   ,@)   &    \"    !$          0      "
+    "   !  0 34-/4P$    -    1FEL95=R87!P97)?7P    X   \"(\"0  !@    @    !          4    (    \"0    $    !          X"
+    "      @  !@    @    )          4    (    T $   $    !          (   #0 0   @    T   \"P    \\    /    !0 0  L $  - "
+    "!             $=R;W5P<P!.86UE %-I9VYA;', 6$1A=&$ 641A=&$ 4VEG4W5I=&53:6=N86P 57-E<D1A=&$ 4VEG4W5I=&5'<F]U< !!8W1I="
+    "F53:6=N86P 4F5Q=6ER96UE;G1);F9O %1I;65286YG90!3:6=3=6ET90!!8W1I=F5'<F]U<                                     8    "
+    "                (                    #                                                P                    $    # "
+    "    @                    (    \"     0                    ,    !               !     0    $    %     @    (    !  "
+    "        ,    !    !          #     @    $    !    !     $    \"    !0    $    #                                   "
+    "            .          X    X    !@    @    $          4    (     0    <    !         !     '    1W)O=7 @,0 .    ."
+    "     8    (    !          %    \"     $    (     0         0    \"    %-I9VYA;\" Q#@   '     &    \"     8        "
+    " !0    @    !    \"     $         \"0   $               %*X'H7K4=@_S<S,S,S,_#\\         0         A 9V9F9F9F$D    "
+    "     @0        \"1 #@   '     &    \"     8         !0    @    !    \"     $         \"0   $                      "
+    "    FIF9F9F9J3^:F9F9F9FI/WL4KD?A>I0_>Q2N1^%ZE#\\                     #@   $@    &    \"     T         !0    @    &"
+    "     0    $         !@   !@       #= @    $    !     P    $    .    2     8    (    #0         %    \"     8    ! "
+    "    0         &    &        -T\"     0    $    \"     @    X    X!0  !@    @    !          4    (    !     $    ! "
+    "         X    X    !@    @    \"          4    (     0         !          4 !  !     0         .    0 $   8    (  "
+    "   @         %    \"     $    !     0         %  0 \"0    $    D    3F%M90      6$1A=&$     641A=&$     57-E<D1A=&"
+    "$       X    P    !@    @    $          4    (               !         !          #@   #     &    \"     8        "
+    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
+    "       X    P    !@    @    &          4    (               !          D         #@   ! \"   &    \"     (        "
+    " !0    @    !     0    $         !0 $ !     !    8    $YA;64               !3:6=N86QS            06-T:79E4VEG;F%L "
+    "    %)E<75I<F5M96YT26YF;P!5<V5R1&%T80          5&EM95)A;F=E          X    P    !@    @    $          4    (       "
+    "        !         !          #@   $@    &    \"     T         !0    @    %     0    $         !@   !0       #= @  "
+    "             0         .    ,     8    (    !@         %    \"                0         )          X    P    !@   "
+    " @    $          4    (               !         !          #@   #     &    \"     8         !0    @               "
+    "$         \"0         .    0     8    (    !@         %    \"     $    \"     0         )    $                    "
+    "   )$ .    : $   8    (     @         %    \"     $    !     0         %  0 #     $    P    3F%M90          1W)O=7"
+    "!S        06-T:79E1W)O=7  57-E<D1A=&$     #@   #     &    \"     0         !0    @               $         $      "
+    "    .    2     8    (    #0         %    \"     4    !     0         &    %        -T\"               \"          "
+    "X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    ,     8    (    !@    "
+    "     %    \"                0         )          X   \"(    !@    @    )          4    (     0   %@    !          "
+    "(   !8      %)30     .    2     8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P "
+    "    .          "
+  }
+}
