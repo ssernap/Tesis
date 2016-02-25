@@ -1,0 +1,1 @@
+   friccion_aislada_esferica_acc.c 

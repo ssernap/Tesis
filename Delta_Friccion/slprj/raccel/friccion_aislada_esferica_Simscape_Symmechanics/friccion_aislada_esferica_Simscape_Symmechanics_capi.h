@@ -1,0 +1,8 @@
+#include "__cf_friccion_aislada_esferica_Simscape_Symmechanics.h"
+#ifndef _RTW_HEADER_friccion_aislada_esferica_Simscape_Symmechanics_capi_h_
+#define _RTW_HEADER_friccion_aislada_esferica_Simscape_Symmechanics_capi_h_
+#include "friccion_aislada_esferica_Simscape_Symmechanics.h"
+extern void
+friccion_aislada_esferica_Simscape_Symmechanics_InitializeDataMapInfo (
+SimStruct * const rtS ) ;
+#endif

@@ -45,6 +45,45 @@ unsigned int sf_friccion_aislada_esferica_estatica_method_dispatcher(SimStruct
   return 0;
 }
 
+unsigned int sf_friccion_aislada_esferica_estatica_process_testpoint_info_call
+  ( int nlhs, mxArray * plhs[], int nrhs, const mxArray * prhs[] )
+{
+
+#ifdef MATLAB_MEX_FILE
+
+  char commandName[32];
+  char machineName[128];
+  if (nrhs < 3 || !mxIsChar(prhs[0]) || !mxIsChar(prhs[1]))
+    return 0;
+
+  /* Possible call to get testpoint info. */
+  mxGetString(prhs[0], commandName,sizeof(commandName)/sizeof(char));
+  commandName[(sizeof(commandName)/sizeof(char)-1)] = '\0';
+  if (strcmp(commandName,"get_testpoint_info"))
+    return 0;
+  mxGetString(prhs[1], machineName, sizeof(machineName)/sizeof(char));
+  machineName[(sizeof(machineName)/sizeof(char)-1)] = '\0';
+  if (!strcmp(machineName, "friccion_aislada_esferica_estatica")) {
+    unsigned int chartFileNumber;
+    chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
+    switch (chartFileNumber) {
+     default:
+      plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+    }
+
+    return 1;
+  }
+
+  return 0;
+
+#else
+
+  return 0;
+
+#endif
+
+}
+
 unsigned int sf_friccion_aislada_esferica_estatica_process_check_sum_call( int
   nlhs, mxArray * plhs[], int nrhs, const mxArray * prhs[] )
 {
@@ -75,10 +114,10 @@ unsigned int sf_friccion_aislada_esferica_estatica_process_check_sum_call( int
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1988951430U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1290412853U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1589971048U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2800716222U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2844726599U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2572081246U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(284924891U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1693959864U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
@@ -106,18 +145,18 @@ unsigned int sf_friccion_aislada_esferica_estatica_process_check_sum_call( int
         ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0.0);
       }
     } else if (!strcmp(commandName,"target")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3031367619U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4001028638U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3978939492U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(838979348U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3084158392U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2524169757U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2812955680U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(245732821U);
     } else {
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3849656905U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2608758248U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1954832073U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2815255318U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(222020237U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1959287888U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2443742202U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(922218037U);
   }
 
   return 1;

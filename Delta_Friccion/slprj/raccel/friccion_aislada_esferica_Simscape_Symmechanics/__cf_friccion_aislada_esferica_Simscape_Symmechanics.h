@@ -1,0 +1,3 @@
+#ifndef CF_friccion_aislada_esferica_Simscape_Symmechanics_H__
+#define CF_friccion_aislada_esferica_Simscape_Symmechanics_H__
+#endif

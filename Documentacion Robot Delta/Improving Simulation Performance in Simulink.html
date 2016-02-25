@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html -->
+<html class="wf-automate-n7-active wf-futurapt-i4-active wf-futurapt-i5-active wf-futurapt-i7-active wf-futurapt-n4-active wf-futurapt-n5-active wf-futurapt-n7-active wf-minionprosubhead-n4-active wf-museoslab-n7-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Improving Simulation Performance in Simulink</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript" async="" src="./Improving Simulation Performance in Simulink_files/elqCfg.min.js"></script><script src="./Improving Simulation Performance in Simulink_files/aquant.js" async="" type="text/javascript"></script><script src="./Improving Simulation Performance in Simulink_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script><style type="text/css"></style><script src="./Improving Simulation Performance in Simulink_files/mbox.js"></script><style type="text/css">{visibility: hidden;}</style><script src="./Improving Simulation Performance in Simulink_files/satellite-56972e2c64746d54aa00cb73.js"></script><style type="text/css">{visibility: hidden;}</style><style>.mboxDefault { visibility:hidden; }</style>
+<!-- END Adobe DTM --> <link href="./Improving Simulation Performance in Simulink_files/reset.css" rel="stylesheet" type="text/css">
+<link href="./Improving Simulation Performance in Simulink_files/960.css" rel="stylesheet" type="text/css">
+<link href="./Improving Simulation Performance in Simulink_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Improving Simulation Performance in Simulink_files/site5.css" rel="stylesheet" type="text/css">
+<!--[if IE 6]>
+<link href="/includes_content/nextgen/css/site5_ie6.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 7]>
+<link href="/includes_content/nextgen/css/site5_ie7.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 8]>
+<link href="/includes_content/nextgen/css/site5_ie8.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/nextgen/css/site5_ie9.css?20131015" rel="stylesheet" type="text/css">
+<![endif]-->
+<link href="./Improving Simulation Performance in Simulink_files/print.css" rel="stylesheet" type="text/css" media="print">
+<link rel="stylesheet" type="text/css" href="./Improving Simulation Performance in Simulink_files/shadowbox.css">
+<link href="./Improving Simulation Performance in Simulink_files/sticky-nav.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/jquery-latest.js"></script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/jquery.hover-intent.js"></script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/localnav.js"></script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/global.js"></script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/global_search.js"></script>
+<script src="./Improving Simulation Performance in Simulink_files/bootstrap.min.js"></script>
+<script src="./Improving Simulation Performance in Simulink_files/bootstrap-affix.min.js"></script>
+<script src="./Improving Simulation Performance in Simulink_files/sticky-nav.js"></script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<script type="text/javascript" language="JavaScript1.3">var domain = "com";</script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/xvy5baa.js"></script>
+<style type="text/css">.tk-museo-slab{font-family:"museo-slab",serif;}.tk-futura-pt{font-family:"futura-pt","Arial","Helvetica",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}</style><link rel="stylesheet" href="./Improving Simulation Performance in Simulink_files/xvy5baa-l.css" media="all"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<meta name="description" content="Tips and techniques to make your model run faster.">
+<link rel="stylesheet" href="./Improving Simulation Performance in Simulink_files/print(1).css" type="text/css" media="print">
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/jquery.cookie.js"></script>
+<script type="text/javascript">
+(function() {
+// Check if cookies are enabled
+function cookiesEnabled() {
+return $.cookie('check', 'valid', { expires: 1 }) && $.cookie('check') == 'valid';
+}
+// Set the language of the domain and redirect to the domain
+function setDomainLanguage(language) {
+if($.cookie("lang") != null) {
+$.removeCookie("lang");
+}
+$.cookie("lang", 'lang=' + language, {path: '/', expires: 365, domain: 'ch.mathworks.com'});
+}
+// do not display the domain selector if querystring is not present
+// or if query string has nocookie value
+// or if cookies are disabled
+var displayDomainSelector = true;
+function detectDomain() {
+var queries = {};
+$.each(document.location.search.substr(1).split('&'), function(c,q){
+if(q != undefined && q != "") {
+var i = q.split('=');
+if(i[1] != undefined) {
+queries[i[0].toString()] = i[1].toString();
+}
+}
+});
+var requested_domain = (queries['requestedDomain'] != undefined) ? queries['requestedDomain'] : "";
+var nocookie = (queries['nocookie'] != undefined) ? queries['nocookie'] : "";
+var client = (queries['client'] != undefined) ? queries['client'] : "";
+if(requested_domain == "" || nocookie == "true" || !cookiesEnabled() || client == "addons") {
+displayDomainSelector = false;
+}
+}
+detectDomain();
+function extractDomain(url) {
+var domain;
+//find & remove protocol (http, ftp, etc.) and get domain
+if (url.indexOf("://") > -1) {
+domain = url.split('/')[2];
+} else {
+domain = url.split('/')[0];
+}
+//find & remove port number
+domain = domain.split(':')[0];
+return domain;
+}
+function getDomainContent(returnContent) {
+// Get the location information from the marketing site
+$.ajax({
+url : "/includes_content/domainSelect/location.html",
+type : "get",
+async: false,
+success : function(data) {
+$("#location_content").html(data);
+var button_link = $("#button_link").text();
+var current_location = $("#current_location").text();
+var location_key = $("#location_key").text();
+//Set the location in the text and button
+$(".text_location").text(current_location);
+$(".domain_selector a").text("Select " + current_location);
+// if the current location is different from the browser location, update the button functionality
+var browser_domain = extractDomain(window.location.href);
+if(button_link.indexOf(browser_domain) == -1) {
+// Get the current page link from the links within the selector
+new_button_link = $("." + location_key).attr("href");
+$(".domain_selector a").attr("href",new_button_link);
+}
+}
+});
+if(returnContent) {
+return $('#country-unselected').html();
+}
+}
+$(document).ready(function () {
+//setLocation();
+// determine if links need to be rewritten
+if ( $( "#country-unselected li a" ).length ) {
+$("#country-unselected li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+if ( $( "li.headernav_login > a" ).length ) {
+var login_url = $("li.headernav_login > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.headernav_login > a").attr("href", login_url);
+}
+if ( $( "li.mwa-nav_logout > a" ).length ) {
+var login_url = $("li.mwa-nav_logout > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.mwa-nav_logout > a").attr("href", login_url);
+}
+if ( $( ".mwa-nav li a" ).length ) {
+$(".mwa-nav li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+// set the country dropdown link to open the new domain selector
+$("#globalcountry_link").click(function(){
+var content = getDomainContent(true);
+Shadowbox.open({
+content: content,
+player: "html",
+height: 630,
+width: 800
+});
+});
+// set the selector button to close the modal
+$('body').on('click','#domain_select_button',function(){
+Shadowbox.close();
+});
+// set the click function for Switzerland/French link
+$('body').on('click','#swiss_french',function(){
+setDomainLanguage('fr');
+});
+// set the click function for the Switzerland/German link
+$('body').on('click','#swiss_german',function(){
+setDomainLanguage('de');
+});
+});
+// onload functionality for the selector
+window.onload = function() {
+$(document).ready(function () {
+if(displayDomainSelector) {
+var content = getDomainContent(true);
+Shadowbox.open({
+content: content,
+player: "html",
+height: 630,
+width: 800
+});
+}
+});
+}
+})(jQuery);
+</script>
+<style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><script src="./Improving Simulation Performance in Simulink_files/s-code-contents-73da148cb454c4f6e395aa8df704854c99540662.js"></script></head> 
+<body id="nextgen_b" class="adjusted_template">
+	<div class="container_192">
+	  <div class="grid_192">
+	    <div class="page_container">
+
+        <div class="grid_192">
+            	<div class="header_container">
+<div class="headernav">
+<ul>
+<li class="headernav_country"><a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#" id="globalcountry_link">United States</a></li>
+<li class="headernav_contact"><a href="http://www.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://www.mathworks.com/store/?s_tid=gn_store">How To Buy</a></li>
+<li class="headernav_search"><form name="search" id="site_search" class="site_search" action="http://www.mathworks.com/search/site_search.html" method="get">
+<input type="text" name="q" id="query" class="textfield clear_global_search_text_onfocus" value="Search MathWorks" autocomplete="off">
+<input type="submit" id="searchbutton" value="Search" class="submit_go clear_global_search_text_onsubmit">
+</form></li>
+</ul>
+</div>
+<div class="mwa-nav">
+<ul>
+<li class="mwa-nav_name"><a href="https://www.mathworks.com/accesslogin/editProfile.do?s_tid=gn_ep">sebastian serna palleja</a></li>
+<li class="mwa-nav_account"><a href="https://www.mathworks.com/accesslogin/myAccount.do?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_logout"><a href="https://www.mathworks.com/accesslogin/logout.do?uri=http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</div>
+<div class="logo_container">
+<a href="http://www.mathworks.com/index.html?s_tid=gn_logo"><img src="./Improving Simulation Performance in Simulink_files/bg_header_mwlogo_notag.jpg" alt="MathWorks" class="mw_logo"></a>
+<p class="tagline">Accelerating the pace of engineering and science</p>
+</div>
+</div>
+        </div>
+        
+        <div class="grid_192"> <div class="topnav_container">
+<div class="topnav_frame">
+<div class="topnav">
+<ul>
+<li class="topnav_products "><a href="http://www.mathworks.com/products/?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://www.mathworks.com/solutions/?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://www.mathworks.com/academia/?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://www.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://www.mathworks.com/company/events/?s_tid=gn_ev">Events</a></li>
+<li class="topnav_company active"><a href="http://www.mathworks.com/company/?s_tid=gn_co">Company</a></li>
+</ul>
+</div>
+</div>
+</div> </div>
+	      <div class="sticky_header_container affix"> 
+	          <div class="grid_192">        
+        <div class="section_image level_3" style="background-color:#8bbcc9; background-image:url(/images/nextgen/section_heads/bg-newsletters.png);
+        ">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+          <td>         <p class="h1">Technical Articles and Newsletters</p> 
+     
+                </td>
+                <td class="ctabox_container">
+                <ul class="ctabox">
+                              
+
+
+        <li><a href="http://www.mathworks.com/company/aboutus/contact_us/contact_sales.html" class="sales" target="">Contact sales</a></li>
+                </ul>	
+ </td>
+        </tr>
+          </tbody></table>
+    </div>
+</div>
+	                <div class="grid_192">
+	                    <div class="horizontal_nav_container">
+	                        <div class="subnav" id="subnav">
+<ul>
+<li class="">
+<a href="http://www.mathworks.com/company/newsletters/index.html">Overview</a>
+</li><li class="">
+<a href="http://www.mathworks.com/company/newsletters/search.html">Search Technical Articles</a>
+</li><li class="">
+<a href="" data-toggle="dropdown" data-target="#">Newsletters<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class=""><a href="http://www.mathworks.com/digest/current/">MATLAB Digest</a></li><li class=""><a href="http://www.mathworks.com/edu_digest/current/">MATLAB Digest | Academic Edition</a></li><li class=""><a href="http://www.mathworks.com/news_notes/current/">MathWorks News&amp;Notes</a></li>
+</ul>
+</li><li class="">
+<a href="http://www.mathworks.com/company/newsletters/clevescorner/">Cleve's Corner Collection</a>
+</li><li class="">
+<a href="http://www.mathworks.com/company/newsletters/signup.html">Sign Up</a>
+</li>
+</ul>
+</div>
+	                    </div>
+	                </div>
+	      </div>
+	      <div class="content_frame" style="margin-top: 83px;">
+	        <div class="grid_192">
+	        
+	          <div class="content_container" id="content_container">
+	          		      <div id="tech_articles_indiv_article"> 
+    
+ 
+
+        
+        
+<div class="grid_128 push_6">
+      <div class="grid_128">
+		<h1>Improving Simulation Performance in Simulink</h1>
+        <div class="grid_86">
+          <div id="byline">
+            <p>By Seth Popinchalk, MathWorks</p>          </div>
+        </div>
+        <div class="grid_42">
+			                  <div id="datasheet">
+
+
+
+
+
+
+
+
+ 
+                <a href="http://www.mathworks.com/tagteam/73701_92002v01_improving-simulation-performance-in-simulink.pdf" class="datasheet float_right " target="_blank">View PDF </a>
+   
+                  </div>
+			        </div>
+      </div>
+      <div class="grid_128">
+		
+<p>Whatever the level of complexity of the model, every Simulink<sup>®</sup> user wants to improve simulation performance. This article presents tips and techniques to help you make the most of your memory and processing power. It covers the following topics:</p>
+
+<p><a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#SelectingaSimulationMode">Selecting a simulation mode</a><br>
+<a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#IdentifyingSimulationBottlenecks">Identifying simulation bottlenecks</a><br>
+<a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#ModifyingandSimplifyingYourModel">Modifying and simplifying your model</a><br>
+<a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#RunningMultipleSimulationsinParallel">Running multiple simulations in parallel</a></p>
+
+<p>While every situation is unique, the techniques described here can be applied to a wide range of projects. Use them as a list of things to try whenever you need to increase the speed of your simulations.</p>
+
+<h2 id="SelectingaSimulationMode">Selecting a Simulation Mode</h2>
+
+<p>In Simulink, three modes affect simulation performance: Normal, Accelerator, and Rapid Accelerator (Figure 1). As their names imply, Accelerator is faster than Normal, and Rapid Accelerator is faster still. Each increase in speed typically means sacrificing another capability—for example, flexibility, interactivity, or diagnostics. In many cases, if you can work without one of these capabilities—at least temporarily—simulation performance will improve.</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68049_wl_simper24568_fig1_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68049_wm_simper24568_fig1_w.jpg" alt="Figure 1. Simulink simulation modes." class="" height="201" width="350"></a></div>	  
+
+<div class="caption_container">Figure 1. Simulink simulation modes.</div>
+
+<p>In <strong>Normal mode</strong>, Simulink interprets your model during each simulation run. If you change your model frequently, this is generally the preferred mode to use because it requires no separate compilation step.</p>
+
+<p>In <strong>Accelerator mode</strong>, Simulink compiles a model into a binary shared library or DLL where possible, eliminating the block-to-block overhead of an interpreted simulation in Normal Mode. Accelerator mode supports the debugger and profiler, but not runtime diagnostics.</p>
+
+<p>In <strong>Rapid Accelerator mode</strong>, Simulink compiles a standalone executable for the model, which can run on a separate processing core. You can use Rapid Accelerator mode only when the full model is capable of generating code, and this mode restricts interaction with the model during simulations. For example, Rapid Accelerator mode does not support debugging. As with Accelerator mode, it's best to use Rapid Accelerator mode when your simulations take much more time than the one-time cost of compilation.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/how-the-acceleration-modes-work.html">how the acceleration modes work</a>, <a href="http://www.mathworks.com/help/simulink/ug/choosing-a-simulation-mode.html">choosing a simulation mode</a>, and <a href="http://www.mathworks.com/help/simulink/ug/comparing-performance.html">comparing performance</a>.</p>
+
+<p>You can trade off compile-time speed for simulation speed by setting the compiler optimization level. Compiler optimizations for accelerations are disabled by default. Enabling them (Figure 2) will accelerate simulation runs but result in longer build times. The speed and efficiency of the C compiler used for Accelerator and Rapid Accelerator modes also affects the time required in the compile step.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/gui/optimization-pane-general.html">setting the compiler optimization level</a>.</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68050_wl_simper24568_fig2_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68050_wm_simper24568_fig2_w.jpg" alt="Figure 2. Compiler optimizations." class="" height="198" width="350"></a></div>	  
+
+<div class="caption_container">Figure 2. Compiler optimizations.</div>
+
+<h3>When Accelerator Modes Might Not Substantially Improve Performance</h3>
+
+<p>Accelerator or Rapid Accelerator mode may not improve performance much in the following situations:</p>
+
+<p><strong>Your model's algorithm is primarily contained in a few complex blocks</strong>, such as the Fast Fourier Transform block or lookup tables. A small model may run slower in an accelerator mode because native blocks are highly optimized. In contrast, a model with many basic blocks is more likely to benefit from compilation.</p>
+
+<p><strong>Your model contains compiled code</strong>, such as code from S-functions, Stateflow<sup>®</sup> blocks, and MATLAB<sup>®</sup> functions. Using the compilation step will not speed the model further.</p>
+
+<p><strong>Your model contains blocks that cannot be compiled</strong>, such as Interpreted MATLAB Function blocks.</p>
+
+<p><strong>Your simulation runs include initialization or termination phases</strong>. Because the accelerator modes work only on the simulation phase of each run, they may not offer much improvement if they require time-consuming initialization or termination phases. For details, see the <a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#AcceleratingtheInitializationPhase">Accelerating the Initialization Phase</a> section of this article.</p>
+
+<p><strong>Your system lacks sufficient memory</strong>. Memory issues can slow simulations, particularly for large models running on 32-bit operating systems. You can monitor Simulink memory usage with the <tt>sldiagnostics</tt> function. If you use a 32-bit Windows system, consider using the Windows 3GB startup switch or switching to a 64-bit system.</p>
+
+<p><strong>You log large data sets</strong>. When logging large amounts of data (for example, in models that include the Workspace I/O, To Workspace, To File, or Scope blocks), use decimation or limit the logged output to the last part of the simulation. Avoid logging redundant data (for example, log the time only once) and extraneous data (for example, log integer values instead of doubles when feasible). To File blocks save data incrementally in an array format, so use them for logging tasks when managing memory usage for long simulations is a priority.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/exporting-simulation-data.html">exporting simulation data</a>.</p>
+
+<h2 id="IdentifyingSimulationBottlenecks">Identifying Simulation Bottlenecks</h2>
+
+<p>If the acceleration modes do not provide the simulation speed you require, use the <tt>sldiagnostics</tt> function, Simulink Profiler, and Simulink Model Advisor to identify and eliminate simulation bottlenecks. The <tt>sldiagnostics</tt> function examines your Simulink model without running it and displays diagnostic information, including how many instances of each block are in your model and how much time and memory compilation requires.</p>
+
+<p>As you review the results produced by <tt>sldiagnostics</tt>, note how many interpreted MATLAB functions your model uses (Figure 3). Because data exchange between MATLAB and Simulink passes through several software layers, Interpreted MATLAB Function blocks usually slow simulations, particularly if the model needs many data exchanges. Additionally, because interpreted MATLAB functions cannot be compiled, Interpreted MATLAB Function blocks impede attempts to use an acceleration mode to speed up simulations.</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68051_wl_simper24568_fig3_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68051_wm_simper24568_fig3_w.jpg" alt="Figure 3. Sample output of sldiagnostics." class="" height="339" width="350"></a></div>	  
+
+<div class="caption_container">Figure 3. Sample output of <tt>sldiagnostics</tt>. The model uses three MATLAB Function blocks.</div>
+
+<p>Simulink Profiler lets you quantify exactly how much time each phase of your simulation takes and how much time each block takes to simulate (Figure 4). This procedure can generate a great deal of data. To minimize the amount of data that you need to review, focus on those methods that consume the most time and those that are most frequently called.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/comparing-performance.html">capturing performance data</a>.</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68052_wl_simper24568_fig4_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68052_wm_simper24568_fig4_w.jpg" alt="Figure 4. A sample Simulink Profiler report." class="" height="225" width="350"></a></div>	  
+
+<div class="caption_container">Figure 4. A sample Simulink Profiler report.</div>
+
+<h3>Using MATLAB Functions Instead of Interpreted MATLAB Function Blocks</h3>
+
+<p>To call a MATLAB function within your Simulink model, use a MATLAB Function block instead of an Interpreted MATLAB Function block or a MATLAB S-function. (The MATLAB Function block was previously called the Embedded MATLAB block, and the Interpreted MATLAB Function block was previously called the MATLAB Function block.) The MATLAB Function is the faster alternative. It supports the generation of embeddable C code, and does not incur the data packaging overhead required by the Interpreted MATLAB Function block. While the MATLAB Function block does not support all MATLAB functions, the subset of the MATLAB language that it does support is extensive. By replacing your interpreted MATLAB code with code that uses only this embeddable MATLAB subset, you can significantly improve performance.</p>
+
+<p>To quickly find all the Interpreted MATLAB Function blocks in your model, open Model Explorer and search your model by Block Type, selecting <tt>MATLABFcn</tt> as the type.</p>
+
+<p>Learn more about working with the <a href="http://www.mathworks.com/help/simulink/slref/matlabfunction.html">MATLAB Function block</a>.</p>
+
+<h2 id="ModifyingandSimplifyingYourModel">Modifying and Simplifying Your Model</h2>
+
+<p>Most of the techniques described so far require few, if any, changes to the model itself. You can achieve additional performance improvements by applying techniques that involve modifications to the model.</p>
+
+<h3 id="AcceleratingtheInitializationPhase">Accelerating the Initialization Phase</h3>
+
+<p>Large images and complex graphics take a long time to load and render. As a result, masked blocks that contain images might make your model less responsive. To accelerate the initialization phase of a simulation, remove complex drawings and images. If you don't want to remove an image, you can still improve performance by replacing it with a smaller, low-resolution version. To do this, use the Mask Editor and edit the icon drawing commands to change the image that is loaded by the call to <tt>image()</tt>.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/gui/mask-editor-overview.html">using the Simulink Mask Editor</a>.</p>
+
+<p>When you update or open a model, Simulink runs the mask initialization code. If you have complicated mask initialization commands that contain many calls to <tt>set_param</tt>, consider consolidating consecutive calls to <tt>set_param()</tt>into a single call with multiple argument pairs. This can reduce the overhead associated with these calls.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/mask-code-execution.html">mask code execution</a>.</p>
+
+<p>If you use MATLAB scripts to load and initialize data, you can often improve performance by loading MAT-files instead. The drawback is that the data in a MAT-file is not in a human-readable form, and can therefore be more difficult to work with than a script. However, load typically initializes data much more quickly than the equivalent script.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/matlab/data-import-and-export.html">loading data from a MAT-file into your workspace</a>.</p>
+
+<h3>Reducing Interactivity</h3>
+
+<p>In general, the more interactive the model, the longer it will take to simulate. The tips in this section illustrate ways to improve performance by giving up some interactivity.</p>
+
+<p><strong>Enable inline parameters optimization</strong>. When you enable this optimization in the Optimization pane of the Configuration Parameters dialog box, Simulink uses the numerical values of model parameters instead of their symbolic names. This substitution can improve performance by reducing the parameter tuning computations performed during simulations.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/blocks.html">inlining parameters</a>.</p>
+
+<p><strong>Disable debugging diagnostics</strong>. Some enabled diagnostic features noticeably slow simulations. You can disable them in the Diagnostics pane of the Configuration Parameters dialog box.</p>
+
+<p><em>Note: Running the <a href="http://www.mathworks.com/help/simulink/gui/diagnostics-pane-data-validity.html">array bounds exceeded</a> and <a href="http://www.mathworks.com/help/simulink/gui/diagnostics-pane-solver.html">solver data inconsistency</a> diagnostics can cause a noticeable slowdown in model run-time performance.</em></p>
+
+<p><strong>Disable MATLAB debugging and use BLAS library support</strong>. After verifying that your MATLAB code works correctly, disable debugging support. In the Simulation Target pane of the Configuration Parameters dialog box, disable debugging/animation, overflow detection, and echoing expressions without semicolons (Figure 5).</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/gui/simulation-target-pane-general.html">using the Simulation Target pane</a>.</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68053_wl_simper24568_fig5_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68053_wm_simper24568_fig5_w.jpg" alt=" the CFigure 5. The Simulation Target pane ofonfiguration Parameters dialog box." class="" height="131" width="350"></a></div>	  
+
+<div class="caption_container">Figure 5. The Simulation Target pane of the Configuration Parameters dialog box.</div>
+
+<p>If your simulation involves low-level MATLAB matrix operations, enable the Basic Linear Algebra Subprograms (BLAS) Library feature to make use of highly optimized external linear algebra routines.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/speed-up-simulation.html">speeding up simulation with the basic linear algebra subprograms (BLAS) library</a>.</p>
+
+<p><strong>Disable Stateflow animations</strong>. By default, Stateflow charts highlight the current active states and animate the state transitions that take place as the model runs. This feature is useful for debugging, but it slows the simulation. To accelerate simulations, either close all Stateflow charts or disable the animation. Similarly, if you're using Simulink 3D Animation™, SimMechanics™ visualization, FlightGear, or another 3D animation package, consider disabling the animation or reducing scene fidelity to improve performance.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/stateflow/ug/speeding-up-simulation.html">speeding up simulation in Stateflow</a>.</p>
+
+<p><strong>Adjust viewer-specific parameters and manage viewers through enabled subsystems</strong>. If your model contains a scope viewer that displays a large number of data points and you can't eliminate the scope, try adjusting the viewer parameters to trade off fidelity for rendering speed. Be aware, however, that by using decimation to reduce the number of plotted data points, you risk missing short transients and other phenomena that would be obvious with more data points. You can place viewers in enabled subsystems to more precisely control which visualizations are enabled and when.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/slref/scopeviewer.html">how scope signal viewer parameter settings can affect performance</a>.</p>
+
+<h3>Reducing Model Complexity</h3>
+
+<p>Simplifying your model without sacrificing fidelity is an effective way to improve simulation performance. Here are three ways to reduce model complexity.</p>
+
+<p><strong>Replace a subsystem with a lower-fidelity alternative</strong>. In many cases, you can simplify your model by replacing a complex subsystem model with one of the following:</p>
+
+<ul>
+<li>A linear or nonlinear dynamic model created from measured input-output data using System Identification Toolbox<span class="tm">™</span></li>
+
+<li>A high-fidelity, nonlinear statistical model created using Model-Based Calibration Toolbox<span class="tm">™</span></li>
+
+<li>A linear model created using Simulink Control Design<span class="tm">™</span></li>
+
+<li>A lookup table</li>
+</ul>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/about-lookup-table-blocks.html">working with lookup tables</a>, <a href="http://www.mathworks.com/help/simulink/ug/tips-to-optimize-generated-code-for-lookup-table-blocks.html#bswlwb3">optimizing breakpoint spacing in lookup tables</a>, and <a href="http://www.mathworks.com/help/simulink/ug/tips-to-optimize-generated-code-for-lookup-table-blocks.html">optimizing generated code for lookup table blocks</a>.</p>
+
+<p>You can maintain both representations of the subsystem in a library and use variant subsystems to manage them.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/slref/configurablesubsystem.html">using configurable subsystem blocks</a>.</p>
+
+<p><strong>Reduce the number of blocks</strong>. When you reduce the number of blocks in your model, fewer blocks will need to be updated during simulations, leading to faster simulation runs. Vectorization is one way to reduce your block count. For example, if you have several parallel signals that undergo a similar set of computations, try combining them into a vector and performing a single computation. Another way is to simply enable the Block Reduction optimization in the Optimization &gt; General section of the configuration parameters.</p>
+
+<p><strong>Use frame-based processing</strong>. In frame-based processing, samples are processed in batches instead of one at a time. If your model includes an analog-to-digital converter, for example, you can collect the output samples in a buffer and process the buffer with a single operation, such as a fast Fourier transform. Processing data in chunks in this way reduces the number of times that blocks in your model must be invoked. In general, scheduling overhead decreases as frame size increases. However, larger frames consume more memory, and memory limitations can adversely affect the performance of complex models. Experiment with different frame sizes to find one that maximizes the performance benefit of frame-based processing without causing memory issues.</p>
+
+<h3>Choosing and Configuring a Solver</h3>
+
+<p>Simulink provides a comprehensive library of solvers, including fixed-step and variable-step solvers to handle stiff and nonstiff systems. Each solver determines the time of the next simulation step and applies a numerical method to solve ordinary differential equations that represent the model. The solver you choose and the solver options you specify will affect simulation speed.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/gads/choose-a-solver.html">choosing a solver</a>.</p>
+
+<p><strong>Select a solver that matches the stiffness of your system</strong>. A stiff system has both slowly and quickly varying continuous dynamics. <em>Implicit solvers</em> are specifically designed for stiff problems, whereas <em>explicit solvers</em> are designed for nonstiff problems. Using nonstiff solvers to solve stiff systems is inefficient and can lead to incorrect results. If a nonstiff solver uses a very small step size to solve your model, it may be because you have a stiff system.</p>
+
+<p><strong>Choose a variable-step or fixed-step solver based on your model's step size and dynamics</strong>. Exercise caution when deciding whether to use a variable-step or fixed-step solver; otherwise, your solver could take additional time steps to capture dynamics that are not important to you, or it could perform unnecessary calculations to work out the next time step.</p>
+
+<p>In general, simulations run with variable-step solvers are faster than those run with fixed-step solvers: You use fixed-step solvers when the step size is less than or equal to the fundamental sample time of the model. With a variable-step solver, the step size can vary because variable-step solvers dynamically adjust the step size. As a result, the step size for some time steps is larger than the fundamental sample time, reducing the number of steps required to complete the simulation.</p>
+
+<p>As a rule, choose a fixed-step solver when the fundamental sample time of your model is equal to one of the sample rates. Choose a variable-step solver to capture continuous dynamics, or when the fundamental sample time of your model is less than the fastest sample rate.</p>
+
+<p><strong>Decrease the solver order</strong>. Decreasing the solver order improves simulation speed because it reduces the number of calculations that Simulink performs to determine state outputs. Of course, the results become less accurate as the order of the solver decreases. The goal is to choose the lowest solver order that will produce results that meet your accuracy requirements.</p>
+
+<p><strong>Increase the solver step size or the error tolerance</strong>. Similarly, increasing the solver step size or increasing the solver error tolerance usually increases simulation speed at the expense of accuracy. Such changes should be made with care because they can cause Simulink to miss potentially important dynamics during simulations.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/stateflow/ug/speeding-up-simulation.html">speeding up the simulation</a> and <a href="http://www.mathworks.com/help/simulink/ug/improving-simulation-accuracy.html">improving accuracy</a>.</p>
+
+<p><strong>Disable zero-crossing detection</strong>. Variable-step solvers dynamically adjust the step size, increasing it when a variable changes slowly and decreasing it when a variable changes rapidly. This behavior causes the solver to take many small steps in the vicinity of a discontinuity because this is when a variable is rapidly changing. Accuracy improves, but it often comes with long simulation times.</p>
+
+<p>To avoid the small time steps and long simulations associated with these situations, Simulink uses zero-crossing detection to accurately locate such discontinuities. For systems that exhibit frequent fluctuation betweens modes of operation—a phenomenon known as <em>chattering</em>—this zero-crossing detection can actually have the opposite effect and slow simulations. In these situations, it may be possible to adjust zero-crossing detection to improve performance.</p>
+
+<p><em>Note: Zero-crossing detection can be enabled or disabled for specific blocks in the model. You can improve performance by disabling zero-crossing detection for blocks that do not affect the accuracy of the simulation.</em></p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/stateflow/ug/when-to-enable-zero-crossing-detection.html">when to enable zero-crossing detection</a>.</p>
+
+<h3>Saving the Simulation State</h3>
+
+<p>Engineers typically simulate a Simulink model repeatedly for different inputs, boundary conditions, and operating conditions. In many situations, these simulations share a common startup phase in which the model transitions from its initial state to some other state. An electric motor, for example, may be brought up to speed before various control sequences are tested.</p>
+
+<p>Using the Simulink SimState feature, you can save the simulation state at the end of the startup phase and then restore it for use as the initial state for future simulations. This technique does not improve simulation speed <em>per se</em>, but it can reduce total simulation time for consecutive runs because the startup phase needs to be simulated only once.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/saving-and-restoring-the-simulation-state-as-the-simstate.html">saving and restoring the simulation state as the SimState</a>.</p>
+
+<h2 id="RunningMultipleSimulationsinParallel">Running Multiple Simulations in Parallel</h2>
+
+<p>You can reduce the total amount of time it takes to run multiple independent simulations by distributing simulation tasks among multiple processing cores with Simulink and Parallel Computing Toolbox<span class="tm">™</span>. You can further reduce overall simulation time by using MATLAB Distributed Computing Server<span class="tm">™</span> to run the simulations on a computer cluster.</p>
+
+<p>Common use cases for running simulations in parallel include <a href="http://www.mathworks.com/discovery/monte-carlo-simulation.html">Monte Carlo analysis</a> and design optimization. For example, you might set up a Monte Carlo simulation in which you vary the value of a parameter across a predetermined range. You can then perform simulations for each parameter value independently and in parallel on multiple cores.</p>
+
+<p>You can parallelize many of the tasks involved in design optimization, including estimating model parameters from test data, tuning controller gains to achieve a desired response, optimizing design parameters, performing sensitivity analysis, and performing robustness analysis. The total simulation time decreases as the number of processors in use increases (Figure 6).</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68054_wl_simper24568_fig6_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68054_wm_simper24568_fig6_w.jpg" alt="Figure 6. Speedup (measured by the ratio of time needed to complete iterations sequentially over the time need to complete them in parallel) as a function of the number of workers used." class="" height="525" width="350"></a></div>	  
+
+<div class="caption_container">Figure 6. Speedup (measured by the ratio of time needed to complete iterations sequentially over the time need to complete them in parallel) as a function of the number of workers used.</div>
+
+<p>Often, you can convert a sequential algorithm to a parallel algorithm by simply changing a <tt>for</tt>-loop to a <tt>parfor</tt>-loop. The <tt>parfor</tt> construct in Parallel Computing Toolbox is similar to a standard <tt>for</tt>-loop. The key difference is that <tt>parfor</tt> distributes the computations performed within the loop to worker processors.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/help/simulink/ug/running-parallel-simulations.html">running parallel simulations</a>.</p>
+
+<p>Parallel Computing Toolbox is integrated with Simulink Design Optimization<span class="tm">™</span> and SystemTest™ to help you speed parameter tuning using numerical optimization and test execution, respectively.</p>
+
+<p>Learn more about <a href="http://www.mathworks.com/company/newsletters/articles/improving-simulink-design-optimization-performance-using-parallel-computing.html">improving Simulink Design Optimization performance using parallel computing</a> and <a href="http://www.mathworks.com/help/systemtest/systemtest-software-and-parallel-computing-toolbox-integration.html">integrating SystemTest and Parallel Computing Toolbox</a>.</p>
+
+<h2>Simulink Performance Advisor</h2>
+
+<p>Starting with Simulink R2012b, you can use the Performance Advisor to check for conditions and configuration settings that might cause inefficient simulation performance (Figure 7). The Performance Advisor analyzes the model and produces a report that lists the suboptimal conditions or settings that it finds. It suggests better model configuration settings where appropriate, and provides mechanisms for fixing issues automatically or manually. The techniques recommended in this article, as well as other approaches, can be automatically tested in the Performance Advisor.</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/71138_wl_Simulation_7.png"><img src="./Improving Simulation Performance in Simulink_files/71138_wm_Simulation_7_350.png" alt="Figure 7. The Simulink Performance Advisor." class="" height="327" width="350"></a></div>	  
+
+<div class="caption_container">Figure 7. The Simulink Performance Advisor.</div>
+
+<h2>Applying the Techniques and Measuring the Results</h2>
+
+<p>To illustrate the relative effectiveness of these techniques on a realistic project, we measured the simulation time performance improvement provided by applying some of the changes suggested above to a model of an automatic transmission system (Figure 8).</p>
+
+
+		
+	  		
+	    	<div class="image_container"><a href="http://www.mathworks.com/cmsimages/68055_wl_simper24568_fig8_wl.jpg"><img src="./Improving Simulation Performance in Simulink_files/68055_wm_simper24568_fig8_w.jpg" alt="Figure 8. Simulink model of an automatic transmission system." class="" height="232" width="350"></a></div>	  
+
+<div class="caption_container">Figure 8. Simulink model of an automatic transmission system.</div>
+
+<p>To improve performance, we made the following changes:</p>
+
+<ul>
+<li>Simplified the graphics used in the model (changed the engine image file format from TIF to JPG, removed the transmission image, simplified the car line art)</li>
+
+<li>Loaded data via a MAT-file instead of a script in <tt>PreLoadFcn</tt>, and decimated logged signal vehicle_speed by 10</li>
+
+<li>Replaced Interpreted MATLAB Function blocks with MATLAB functions (This change has the greatest single effect.)</li>
+
+<li>Enabled the following optimizations: Block reduction, Implement logic signals as Boolean (vs. double) data, and Inline parameters</li>
+
+<li>Disabled expensive diagnostics that check for solver data inconsistency, division by singular matrix, Inf or NaN block output, simulation range checking, and array bounds exceeded</li>
+
+<li>Removed Scopes and enabled optimizations for Accelerator mode</li>
+
+<li>Replaced an ode3 fixed-step solver with an ode23 variable-step solver, and set max step size to auto</li>
+</ul>
+
+<p>These changes reduced simulation time from 9.06 seconds to 0.98 seconds! Using the optimized model, we can now apply rapid acceleration and parallel simulation to compare the performance of those techniques (Table 1).</p>
+
+<table class="datatable zebra"><tbody>
+<tr class="odd">
+<td>Original Model, Normal Mode, Serial Execution</td>
+<td>453 seconds</td>
+</tr>
+
+<tr class="even">
+<td>Improved Model, Normal Mode, Serial Execution</td>
+<td>49.1 seconds</td>
+</tr>
+
+<tr class="odd">
+<td>Improved Model, Rapid Accelerator Mode, Serial Execution</td>
+<td>31.4 seconds</td>
+</tr>
+
+<tr class="even">
+<td>Improved Model, Normal Mode, Parallel Simulation (6 local workers)</td>
+<td>13.2 seconds</td>
+</tr>
+
+<tr class="odd">
+<td>Improved Model, Rapid Accelerator Mode, Parallel Simulation (6 local workers)</td>
+<td>8.58 seconds</td>
+</tr>
+
+<tr class="even">
+<td>Improved Model, Rapid Accelerator Mode, Parallel Simulation (12 local workers)</td>
+<td>4.86 seconds</td>
+</tr>
+
+</tbody></table>
+
+Table 1. Time for 50 iterations of each model for 1000 seconds of simulation time. System used: Lenovo S20 with Intel<sup>®</sup> Xeon W3690 (3.46 GHz, 12 MB cache), 24 GB DDR3 1333 MHz PC3-10600 SDRAM, Drive 1: 500 GB 7200 RPM, Drive 2: 160 GB SSD with TRIM Support; MATLAB R2011b is installed on Drive 2.      </div>      
+      <div class="grid_128">
+            <div class="footnote float_right">
+            <p>Published 2012 - 92002v01</p>
+            </div>
+      </div>           
+      <div class="grid_128">
+		<div class="separator margined_40"> </div>
+      </div>
+      <div class="grid_128">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+      <div class="callout_container   solid margined_20  ">
+        <div class="callout_content  bg_center_center" id="reference_container">         	<div class="grid_136">
+				           </div>
+		<div class="grid_122">			<div class="grid_59">				
+																																																													           	<h3>Products Used</h3>
+			<ul>
+																											<li><a href="http://www.mathworks.com/products/matlab">MATLAB</a></li>
+													<li><a href="http://www.mathworks.com/products/simulink">Simulink</a></li>
+																																										<li><a href="http://www.mathworks.com/products/distriben">MATLAB Distributed Computing Server</a></li>
+													<li><a href="http://www.mathworks.com/products/mbc">Model-Based Calibration Toolbox</a></li>
+													<li><a href="http://www.mathworks.com/products/parallel-computing">Parallel Computing Toolbox</a></li>
+													<li><a href="http://www.mathworks.com/products/simcontrol">Simulink Control Design</a></li>
+													<li><a href="http://www.mathworks.com/products/sl-design-optimization">Simulink Design Optimization</a></li>
+													<li><a href="http://www.mathworks.com/products/stateflow">Stateflow</a></li>
+													<li><a href="http://www.mathworks.com/products/sysid">System Identification Toolbox</a></li>
+													<li><a href="http://www.mathworks.com/products/systemtest">SystemTest</a></li>
+																		</ul>
+			                	         	</div>
+           <div class="grid_59 push_4">
+			        					<h3>Learn More</h3>
+								<ul>
+    				                    																			    						     							    							    																									<li><a href="http://blogs.mathworks.com/seth/2010/12/06/5-resources-for-simulation-performance/">Five Resources for Simulation Performance</a></li>
+						    				                    																			    						     							    							    																									<li><a href="http://blogs.mathworks.com/seth/2010/10/28/tips-for-simulation-performance/">Tips for Simulation Performance</a></li>
+						    				                    																			    						    																									<li><a href="http://www.mathworks.com/videos/speeding-up-simulink-for-control-systems-applications-81736.html">Speeding Up Simulink for Control System Applications 59:45</a></li>
+						    				                    																			    						    																									<li><a href="http://www.mathworks.com/videos/speeding-up-simulink-for-signal-processing-applications-81748.html">Speeding Up Simulink for Signal Processing Applications 60:47</a></li>
+						    								</ul>
+        	         	</div>
+		</div>
+ </div>
+      </div>
+
+  
+      </div>
+
+    
+    </div>
+	<div class="current_url" style="display:none;">
+		This page was printed from: <strong>http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html</strong>
+	</div>
+
+</div>
+<div class="grid_50 push_4">
+  <h3>Start a new search</h3>
+  <div class="search_container">
+              <form method="get" action="http://www.mathworks.com/company/newsletters/search.html" id="technical_articles_search" name="search">
+                <input type="hidden" value="technical_articles_en" name="c[]">
+                
+                <input type="text" class="textfield clear_text_onfocus" name="q" id="technical_articles_query" value="Search Technical Articles" autocomplete="off">
+                <input id="submitsearch" class="search_submit clear_text_onsubmit" type="submit" value="Search" name="submitsearch">
+              </form>
+  </div>
+</div>
+
+  
+
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+<style>
+h2.domain_selector { border-bottom:none; }
+</style>
+
+<div id="country-unselected" style="display:none;"> 
+  <div class="content_container" id="content_container">
+    <div class="container_192">
+      <div class="grid_150 push_3">
+        <object type="image/svg+xml" width="167px" class="mw_logo" alt="MathWorks" data="http://www.mathworks.com/images/responsive/global/pic-header-mathworks-logo2.svg">
+          <img alt="MathWorks" width="167px" src="./Improving Simulation Performance in Simulink_files/pic-header-mathworks-logo.png">
+        </object>
+      </div>
+      <div class="clear"></div>
+      <div class="separator"></div>
+      <div class="grid_150 push_3 margined_20">
+        <h1>Select Your Country</h1>
+        <p>Choose your country to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="text_location"></strong>.</p>
+        <div class="domain_selector">
+
+
+
+
+
+
+
+
+
+        <div class="button rounded margined_20  secondary  " id="domain_select_button">
+                <a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html#"></a>
+        </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="grid_150 push_3">
+        <p>You can also select a location from the following list:</p>
+        <div class="grid_32">
+          <h2 class="domain_selector">Americas</h2>
+          <div class="separator"></div>
+          <ul class="unbulleted_list">
+            <li><a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="canada_select">Canada</a> (English)</li>
+            <li><a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_states_select">United States</a> (English)</li>
+          </ul>
+        </div>
+        <div class="grid_76 push_5">
+          <h2 class="domain_selector">Europe</h2>
+          <div class="separator"></div>
+          <div class="grid_32">
+            <ul class="unbulleted_list">
+              <li><a href="http://nl.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="belgium_select">Belgium</a> (English)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="denmark_select">Denmark</a> (English)</li>
+              <li><a href="http://de.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="deutschland_select">Deutschland</a> (Deutsch)</li>
+              <li><a href="http://es.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="espana_select">España</a> (Español)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="finland_select">Finland</a> (English)</li>
+              <li><a href="http://fr.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="france_select">France</a> (Français)</li>
+              <li><a href="http://uk.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="ireland_select">Ireland</a> (English)</li>
+              <li><a href="http://it.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="italia_select">Italia</a> (Italiano)</li>
+              <li><a href="http://nl.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="luxembourg_select">Luxembourg</a> (English)</li>
+            </ul>
+          </div>
+          <div class="grid_32 push_5">
+            <ul class="unbulleted_list">
+              <li><a href="http://nl.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="netherlands_select">Netherlands</a> (English)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="norway_select">Norway</a> (English)</li>
+              <li><a href="http://de.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="osterreich_select">Österreich</a> (Deutsch)</li>
+              <li><a href="http://www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="portugal_select">Portugal</a> (English)</li>
+              <li><a href="http://se.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="sweden_select">Sweden</a> (English)</li>
+              <li>Switzerland
+                <ul class="unbulleted_list" style="margin-left:20px;">
+                  <li><a href="http://ch.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_german" class="switzerland_select">Deutsch</a></li>
+                  <li><a href="http://ch.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_french">Français</a></li>
+                </ul>
+              </li>
+              <li><a href="http://uk.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_kingdom_select">United Kingdom</a> (English)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid_32 push_5">
+          <h2 class="domain_selector">Asia Pacific</h2>
+          <div class="separator"></div>
+          <ul class="unbulleted_list">
+            <li><a href="http://au.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="australia_select">Australia</a> (English)</li>
+            <li><a href="http://in.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="india_select">India</a> (English)</li>
+            <li><a href="http://au.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="new_zealand_select">New Zealand</a> (English)</li>
+            <li><a href="http://cn.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="china_select">中国</a> (简体中文)</li>
+            <li><a href="http://jp.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="japan_select">日本</a> (日本語)</li>
+            <li><a href="http://kr.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="korea_select">한국</a> (한국어)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="grid_150 push_3">
+        <p class="txt_center"><strong><a href="http://www.mathworks.com/company/worldwide/">See all countries</a></strong></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+	            
+	                
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+		
+	  
+	  <div class="grid_192">
+<div class="fat_footer">
+<div id="homepage_fat_footer" class="grid_176 push_8">
+<div class="grid_26">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/company/">About MathWorks</a></li>
+<li><a href="http://www.mathworks.com/company/jobs/opportunities/">Careers – <em>500+ Openings</em></a></li>
+<li><a href="http://www.mathworks.com/company/aboutus/soc_mission/">Social Mission</a></li>
+<li><a href="http://www.mathworks.com/company/aboutus/contact_us/">Contact Us</a></li>
+<li><a href="http://www.mathworks.com/videos/">Videos</a></li>
+<li>&nbsp;</li>
+<li><a href="http://www.mathworks.com/discovery/">Discover…</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/support/">Support</a></li>
+<li><a href="http://www.mathworks.com/help/">Documentation</a></li>
+<li><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?url=/licensecenter/">License Center</a></li>
+<li><a href="http://www.mathworks.com/downloads/web_downloads/">Downloads</a></li>
+<li><a href="http://www.mathworks.com/support/contact_us/index.html">Contact Support</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/company/events/">Events</a></li>
+<li><a href="http://www.mathworks.com/company/events/webinars/upcoming.html">Webinars</a></li>
+<li><a href="http://www.mathworks.com/company/events/seminars/">Seminars</a></li>
+<li><a href="http://www.mathworks.com/company/events/conferences/">Conferences</a></li>
+<li><a href="http://www.mathworks.com/company/events/tradeshows/">Tradeshows</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/services/training/index.html">Training</a></li>
+<li><a href="http://www.mathworks.com/services/training/courses/">Course Offerings</a></li>
+<li><a href="http://www.mathworks.com/training-schedule/">Schedule</a></li>
+<li><a href="http://www.mathworks.com/services/training/request_training.html">Training at Your Facility</a></li>
+<li><a href="http://www.mathworks.com/services/training/certification/index.html">Certification</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/matlabcentral/">User Community</a></li>
+<li><a href="http://www.mathworks.com/matlabcentral/fileexchange/">File Exchange</a></li>
+<li><a href="http://www.mathworks.com/matlabcentral/answers/index/">MATLAB Answers</a></li>
+<li><a href="http://www.mathworks.com/matlabcentral/newsreader/">Newsgroup</a></li>
+<li><a href="http://blogs.mathworks.com/">Blogs</a></li>
+</ul>
+</div>
+<div class="grid_26 push_4">
+<ul class="unbulleted_list">
+<li class="header"><a href="http://www.mathworks.com/company/newsroom/press-releases/">News</a></li>
+<li><a href="http://www.mathworks.com/company/newsroom/">Newsroom</a></li>
+<li><a href="http://www.mathworks.com/company/newsletters/">Newsletters</a></li>
+<li><a href="http://www.mathworks.com/company/user_stories/">User Stories</a></li>
+<li><a href="http://www.mathworks.com/company/newsletters/search.html">Technical Articles</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+	  <div class="grid_192"> <div class="footer_container">
+<div class="footer">
+<div class="social_media_icon_container">
+<div class="social_media_icons">
+<ul class="footernav">
+<li class="footernav_rss"><a href="http://www.mathworks.com/company/rss/index.html"></a></li>
+<li class="footernav_linkedin"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_lkd&amp;url=http://www.linkedin.com/company/the-mathworks_2" target="_blank"></a></li>
+<li class="footernav_google"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_glg&amp;url=https://plus.google.com/117177960465154322866?prsrc=3" target="_blank"></a></li>
+<li class="footernav_facebook"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&amp;url=http://www.facebook.com/MATLAB" target="_blank"></a></li>
+<li class="footernav_twitter"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_twt&amp;url=http://www.twitter.com/MATLAB" target="_blank"></a></li>
+</ul>
+</div>
+<p><em>Join the conversation</em></p>
+</div>
+<ul class="footernav">
+<li class="footernav_piracy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+<li class="footernav_privacy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_trademarks"><a href="http://www.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_patents"><a href="http://www.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+</ul>
+<div class="copyright">© 1994-2016 The MathWorks, Inc.</div>
+</div>
+</div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script><script>
+ var qcord;var qcrev; var qclabels;
+ var ezt = ezt ||[];
+
+ (function(){
+   var elem = document.createElement('script');
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem,scpt);
+ }());
+
+
+ ezt.push({qacct: 'p-zfNtLVVEHXE-1',
+           orderid: qcord,
+           revenue: qcrev,
+           labels: qclabels
+           });
+</script>
+<noscript>
+  &lt;img src="//pixel.quantserve.com/pixel/p-zfNtLVVEHXE-1.gif?labels=_fp.event.Default" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript><script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023777138;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Improving Simulation Performance in Simulink_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./Improving Simulation Performance in Simulink_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?frame=0&amp;random=1456373132920&amp;cv=8&amp;fst=1456373132920&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=768&amp;u_w=1360&amp;u_ah=738&amp;u_aw=1360&amp;u_cd=24&amp;u_his=10&amp;u_tz=-300&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A//www.mathworks.com/company/newsletters/articles/improving-simulation-performance-in-simulink.html&amp;ref=https%3A//www.google.com.co/&amp;tiba=Improving%20Simulation%20Performance%20in%20Simulink" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Adobe DTM --> </div>
+	</div>
+
+
+<div class="go-top" style="display: block;"></div><div id="sb-container"><div id="sb-overlay"></div><div id="sb-wrapper"><div id="sb-title"><div id="sb-nav"><a id="sb-nav-close" title="Close" onclick="Shadowbox.close()"></a><a id="sb-nav-next" title="Next" onclick="Shadowbox.next()"></a><a id="sb-nav-play" title="Play" onclick="Shadowbox.play()"></a><a id="sb-nav-pause" title="Pause" onclick="Shadowbox.pause()"></a><a id="sb-nav-previous" title="Previous" onclick="Shadowbox.previous()"></a><div id="sb-counter"></div></div><div id="sb-title-inner"></div></div><div id="sb-wrapper-inner"><div id="sb-body"><div id="sb-body-inner"></div><div id="sb-loading"><div id="sb-loading-inner"><span>loading</span></div></div></div></div><div id="sb-info"><div id="sb-info-inner"></div></div></div></div></body></html>
