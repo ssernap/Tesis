@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsjpduw -->
+<html class="wf-automate-n7-active wf-futurapt-i4-active wf-futurapt-i5-active wf-futurapt-i7-active wf-futurapt-n4-active wf-futurapt-n5-active wf-futurapt-n7-active wf-minionprosubhead-n4-active wf-museoslab-n7-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Setting Up Solvers for Physical Models - MATLAB &amp; Simulink</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6.css" rel="stylesheet" type="text/css">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6_lg.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6_md.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6_sm+xs.css" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6_sm.css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6_xs.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_ie8.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/html5shiv-printshiv.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/site6_ie9.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/site6_offcanvas.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_offcanvas_ie8.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" async="" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/ahy.js"></script><script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/aquant.js" async="" type="text/javascript"></script><script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/jquery-latest.js"></script><style type="text/css"></style>
+<script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/jquery.mobile.custom.min.js"></script>
+<script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/bootstrap.min.js"></script>
+<script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/global.js"></script>
+<script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/xvy5baa.js"></script>
+<style type="text/css">.tk-museo-slab{font-family:"museo-slab",serif;}.tk-futura-pt{font-family:"futura-pt","Arial","Helvetica",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}</style><link rel="stylesheet" href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/xvy5baa-l.css" media="all"><script>try{Typekit.load();}catch(e){}</script>
+<!-- BEGIN Adobe DTM -->
+<script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script><script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/mbox.js"></script><style type="text/css">{visibility: hidden;}</style><style>.mboxDefault { visibility:hidden; }</style>
+<!-- END Adobe DTM -->
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/doc_center.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/releases/R2015b/css/doc_center_ie8.css?20150306" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/releases/R2015b/css/doc_center_ie9.css?20150306" rel="stylesheet" type="text/css">
+<![endif]-->
+<link href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/doc_center_print.css" rel="stylesheet" type="text/css" media="print">
+<script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/matlab_dialog.js"></script>
+<link rel="stylesheet" href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/docstyle.css" type="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="toctype" itemprop="pagetype" content="con">
+<meta name="infotype" itemprop="infotype" content="con">
+<meta name="description" itemprop="description" content="This section explains how to select solvers for physical simulation.">
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/l10n.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/docscripts.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/mw.toc.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/mw.imagescaling.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/mw.imageanimation.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/mw.breadcrumb.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/jquery.highlight.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/nanoscroller.min.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/doc_omniture.js"></script>
+<!-- Additions/overrides from the doc side -->
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/docsearch.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/jquery.toggleval.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/MathRenderer.js"></script><style type="text/css">math { visibility: hidden; }</style><link type="text/css" rel="stylesheet" href="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/main.css"><script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/dojo.js"></script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/jquery.cookie.js"></script>
+<script type="text/javascript">
+(function() {
+// Check if cookies are enabled
+function cookiesEnabled() {
+return $.cookie('check', 'valid', { expires: 1 }) && $.cookie('check') == 'valid';
+}
+// Set the language of the domain and redirect to the domain
+function setDomainLanguage(language) {
+if($.cookie("lang") != null) {
+$.removeCookie("lang");
+}
+$.cookie("lang", 'lang=' + language, {path: '/', expires: 365, domain: 'ch.mathworks.com'});
+}
+// do not display the domain selector if querystring is not present
+// or if query string has nocookie value
+// or if cookies are disabled
+var displayDomainSelector = true;
+function detectDomain() {
+var queries = {};
+$.each(document.location.search.substr(1).split('&'), function(c,q){
+if(q != undefined && q != "") {
+var i = q.split('=');
+if(i[1] != undefined) {
+queries[i[0].toString()] = i[1].toString();
+}
+}
+});
+var requested_domain = (queries['requestedDomain'] != undefined) ? queries['requestedDomain'] : "";
+var nocookie = (queries['nocookie'] != undefined) ? queries['nocookie'] : "";
+var client = (queries['client'] != undefined) ? queries['client'] : "";
+if(requested_domain == "" || nocookie == "true" || !cookiesEnabled() || client == "addons") {
+displayDomainSelector = false;
+}
+}
+detectDomain();
+function extractDomain(url) {
+var domain;
+//find & remove protocol (http, ftp, etc.) and get domain
+if (url.indexOf("://") > -1) {
+domain = url.split('/')[2];
+} else {
+domain = url.split('/')[0];
+}
+//find & remove port number
+domain = domain.split(':')[0];
+return domain;
+}
+function getDomainContent(returnContent) {
+// Get the location information from the marketing site
+$.ajax({
+url : "/includes_content/domainSelect/location.html",
+type : "get",
+async: false,
+success : function(data) {
+$("#location_content").html(data);
+var button_link = $("#button_link").text();
+var current_location = $("#current_location").text();
+var location_key = $("#location_key").text();
+//Set the location in the text and button
+$(".text_location").text(current_location);
+$("#domain_select_button").text("Select " + current_location);
+// if the current location is different from the browser location, update the button functionality
+var browser_domain = extractDomain(window.location.href);
+if(button_link.indexOf(browser_domain) == -1) {
+// Get the current page link from the links within the selector
+new_button_link = $("." + location_key).attr("href");
+$("#domain_select_button").attr("href",new_button_link);
+$("#domain_select_button").removeAttr("data-dismiss");
+}
+}
+});
+if(returnContent) {
+return $('#country-unselected').html();
+}
+}
+$(document).ready(function () {
+//setLocation();
+// determine if links need to be rewritten
+if ( $( "#country-unselected li a" ).length ) {
+$("#country-unselected li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+if ( $( "li.headernav_login > a" ).length ) {
+var login_url = $("li.headernav_login > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.headernav_login > a").attr("href", login_url);
+}
+if ( $( "li.mwa-nav_logout > a" ).length ) {
+var login_url = $("li.mwa-nav_logout > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.mwa-nav_logout > a").attr("href", login_url);
+}
+if ( $( ".mwa-nav li a" ).length ) {
+$(".mwa-nav li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+$('body').on('click','.footernav_country a',function(){
+getDomainContent(false);
+});
+// set the click function for Switzerland/French link
+$('body').on('click','#swiss_french',function(){
+setDomainLanguage('fr');
+});
+// set the click function for the Switzerland/German link
+$('body').on('click','#swiss_german',function(){
+setDomainLanguage('de');
+});
+});
+// onload functionality for the selector
+$(document).ready(function () {
+if(displayDomainSelector) {
+getDomainContent(false);
+$('#country-unselected').modal('show');
+}
+});
+})(jQuery);
+</script>
+<style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/satellite-5480c4083639370018670600.js"></script><style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/s-code-contents-73da148cb454c4f6e395aa8df704854c99540662.js"></script><style type="text/css" id="ki-k7v-ku"></style><style type="text/css" id="ki-k7v-kl"></style></head>
+  
+<body id="responsive_offcanvas" class="no_animate">
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+<a href="http://www.mathworks.com/index.html?s_tid=gn_logo" class="svg_link navbar-brand">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav">
+<li class="headernav_login dropdown">
+<a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#" class="dropdown-toggle" data-toggle="dropdown">
+sebastian
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="mwa-nav_account"><a href="https://www.mathworks.com/accesslogin/myAccount.do?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_associate"><a href="https://www.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc">Associate License</a></li>
+<li class="mwa-nav_logout"><a href="https://www.mathworks.com/accesslogin/logout.do?uri=http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</li>
+<li class="topnav_products "><a href="http://www.mathworks.com/products/?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://www.mathworks.com/solutions/?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://www.mathworks.com/academia/?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://www.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://www.mathworks.com/company/events/?s_tid=gn_ev">Events</a></li>
+<li class="topnav_company "><a href="http://www.mathworks.com/company/?s_tid=gn_co">Company</a></li>
+<li class="headernav_contact"><a href="http://www.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://www.mathworks.com/store/default.do?s_cid=store_top_nav&amp;s_tid=gn_store">How To Buy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_contact"><a href="http://www.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://www.mathworks.com/store/default.do?s_cid=store_top_nav&amp;s_tid=gn_store">How To Buy</a></li>
+<li class="headernav_login dropdown">
+<a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#" class="dropdown-toggle" data-toggle="dropdown">
+sebastian
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="mwa-nav_account"><a href="https://www.mathworks.com/accesslogin/myAccount.do?s_tid=gn_myac">My Account</a></li>
+<li class="mwa-nav_associate"><a href="https://www.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc">Associate License</a></li>
+<li class="mwa-nav_logout"><a href="https://www.mathworks.com/accesslogin/logout.do?uri=http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html" id="mwa-log_out">Log Out</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="http://www.mathworks.com/index.html?s_tid=gn_logo" class="svg_link pull-left">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="http://www.mathworks.com/products/?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://www.mathworks.com/solutions/?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://www.mathworks.com/academia/?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://www.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://www.mathworks.com/company/events/?s_tid=gn_ev">Events</a></li>
+<li class="topnav_company "><a href="http://www.mathworks.com/company/?s_tid=gn_co">Company</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Conjoined Header: Start -->
+<div class="sticky_header_container includes_subnav affix-top">
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container-fluid">
+<div class="row" id="mobile_search_row">
+<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7" id="mobile_search">
+<div class="search_nested_content_container">
+<div id="search_scope_doc" class="collapse in">
+<form id="docsearch_form" name="docsearch_form" method="get" data-release="R2015b" data-language="en" action="http://www.mathworks.com/help/search.html">
+<div class="input-group tokenized_search_field">
+<label class="sr-only">Search MATLAB Documentation</label>
+<input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search R2015b Documentation" id="docsearch">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Documentation</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<!-- <li data-toggle="collapse" data-target="#search_scope_doc"><a href="#">Documentation</a></li> -->
+<li data-toggle="collapse" data-target="#search_scope_support" class="doc_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#">Support</a></li>
+<li data-toggle="collapse" data-target="#search_scope_site" class="doc_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#">MathWorks</a></li>
+</ul>
+<script>
+$(".doc_search_scope_trigger").click(function() {
+$("#search_scope_doc").removeClass("in");
+$("#search").val($("#docsearch").val());
+$("#query").val($("#docsearch").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1" disabled=""></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_support" class="collapse">
+<form id="support_search" action="http://www.mathworks.com/support/search_results.html" method="get" accept-charset="utf-8">
+<div class="input-group">
+<label class="sr-only">Search All Support Resources</label>
+<input id="suggestion" type="hidden" name="suggestion" value="">
+<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+<input id="search" class="form-control conjoined_search" type="text" name="q" placeholder="Search All Support Resources" autocomplete="off">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Support</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="support_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#">Documentation</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_support"><a href="#">Support</a></li>-->
+<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#">MathWorks</a></li>
+</ul>
+<script>
+$(".support_search_scope_trigger").click(function() {
+$("#search_scope_support").removeClass("in");
+$("#docsearch").val($("#search").val());
+$("#query").val($("#search").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="support_submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_site" class="collapse">
+<form name="search" id="site_search" class="site_search" action="http://www.mathworks.com/search/site_search.html" method="get">
+<div class="input-group">
+<label class="sr-only">Search MathWorks.com</label>
+<input type="hidden" name="c[]" value="entire_site">
+<input type="text" name="q" id="query" class="form-control conjoined_search" placeholder="Search MathWorks.com" autocomplete="off" \="">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="site_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#">Documentation</a></li>
+<li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#">Support</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="#">MathWorks</a></li>-->
+</ul>
+<script>
+$(".site_search_scope_trigger").click(function() {
+$("#search_scope_site").removeClass("in");
+$("#search").val($("#query").val());
+$("#docsearch").val($("#query").val());
+});
+</script>
+<button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+<div class="col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5" id="section_header_title">
+<div class="section_header_content">
+<div class="section_header_title add_cursor_pointer">
+<h1>Documentation</h1>
+</div>
+</div>
+</div>
+<div class="visible-xs" id="search_actuator">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+</div>
+<script>
+$(".section_header_title").click(function(){
+$(window.location).attr('href', '/help');
+});
+</script>
+<!-- Section Header: End -->
+<!-- Mobile Local Nav: Start -->
+<!-- Mobile Local Nav: End -->
+</div>
+</div>
+<!-- Horo Nav: Start -->
+<div class="horizontal_nav">
+<div class="horizontal_nav_container">
+<div class="offcanvas_actuator active" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle">
+<button type="button" class="btn">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-menu"></span>
+</button>
+<span class="offcanvas_actuator_label" id="translation_icon-menu"></span>
+<span class="offcanvas_actuator_close"></span>
+</div>
+<div class="offcanvas_horizontal_nav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12 hidden-xs hidden-sm">
+<div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trial Software</a></li>
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horo Nav: End -->
+</div>
+<!-- Conjoined Header: End -->
+
+  <div class="row-offcanvas row-offcanvas-left active">
+  
+    <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+      <nav class="offcanvas_nav" role="navigation">
+          <ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_breadcrumb">
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://www.mathworks.com/help/index.html" itemprop="url"><span itemprop="title">All Products</span></a></li>
+</ul>
+
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_disambiguation">
+<li class="product"><a href="http://www.mathworks.com/help/physmod/simscape/index.html">Simscape</a>
+<div class="dropdown">
+<span class="icon-arrow-down icon_16" id="dropdownMenu1" data-toggle="dropdown"></span>
+<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/simscape/getting-started-with-simscape.html?s_cid=doc_flyout">Getting Started</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/simscape/examples.html?s_cid=doc_flyout">Examples</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/simscape/simscapeblocklist.html?s_cid=doc_flyout">Simscape Blocks and Other Reference</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/physmod/simscape/release-notes.html?s_cid=doc_flyout">Release Notes</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.mathworks.com/help/releases/R2015b/pdf_doc/physmod/simscape/index.html?s_cid=doc_flyout">PDF Documentation</a></li>
+</ul>
+</div>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://www.mathworks.com/help/physmod/simscape/desktop-simulation.html" itemprop="url"><span itemprop="title">Desktop Simulation</span></a></li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://www.mathworks.com/help/physmod/simscape/simulation-setup.html" itemprop="url"><span itemprop="title">Simulation Setup</span></a></li>
+</ul>
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_scrollspy nav">
+<li class="nav_scrollspy_function active"><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#responsive_offcanvas">Setting Up Solvers for Physical Models</a></li>
+<li class="nav_scrollspy_title">On this page</li>
+
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc3wd" class="intrnllnk">About Simulink and Simscape Solvers</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsjpdrw" class="intrnllnk">Choosing Simulink and Simscape Solvers</a>
+<ul class="nav">
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsjpduu" class="intrnllnk">Working with Global Simulink Solvers</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsjpduw" class="intrnllnk">Working with Local Simscape Solvers</a></li>
+</ul>
+</li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc3yn" class="intrnllnk">Harmonizing Simulink and Simscape Solvers</a>
+<ul class="nav">
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc4iw" class="intrnllnk">Switching from the Default Explicit Solver to Other Simulink Solvers</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc4b0" class="intrnllnk">Filtering Input Signals and Providing Time Derivatives</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc56b" class="intrnllnk">Enabling or Disabling Simulink Zero-Crossing Detection</a></li>
+<li class=""><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmij7s" class="intrnllnk">Making Multirate Simulation Consistent</a></li></ul>
+
+      </li></ul></nav>
+      <script src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/offcanvas.js"></script>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <!-- MOBILE CTA - End -->
+
+
+    <div class="content_container" id="content_container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+              
+
+
+
+
+
+
+           
+     
+    
+           
+<section id="doc_center_content" lang="en"><div id="pgtype-topic">
+  
+
+<span id="brsbz56" class="anchor_target"></span><h2 class="title r2015b" itemprop="title content" id="brsbz56">Setting Up Solvers for Physical Models</h2><div itemprop="content"><span id="bsmc3wd" class="anchor_target"></span><h3 class="title" id="bsmc3wd">About Simulink and Simscape Solvers</h3><p>This section explains how to select solvers for physical simulation.
+Proper simulation of Simscape™ models requires certain changes
+to Simulink<sup>®</sup> defaults and consideration of physical simulation
+trade-offs. For recommended choices, see <a href="http://www.mathworks.com/help/physmod/simscape/ug/making-optimal-solver-choices-for-physical-simulation.html">Making Optimal Solver Choices for Physical Simulation</a>.</p></div><div itemprop="content"><span id="bsjpdrw" class="anchor_target"></span><h3 class="title" id="bsjpdrw">Choosing Simulink and Simscape Solvers</h3><p>Simulink and Simscape solver technologies provide
+a range of tools to simulate physical systems, including the powerful Simscape technique
+of local solvers. You choose global, or model-wide, solvers through Simulink.
+After making these choices, check that they are consistent; see <a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc3yn" class="intrnllnk">Harmonizing Simulink and Simscape Solvers</a>.</p><ul><li><p><a class="intrnllnk" href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsjpduu">Working with Global Simulink Solvers</a></p></li><li><p><a class="intrnllnk" href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsjpduw">Working with Local Simscape Solvers</a></p></li></ul><span id="bsjpduu" class="anchor_target"></span><h4 class="title" id="bsjpduu">Working with Global Simulink Solvers</h4><p>In the Configuration Parameters dialog box of your model, on
+the <b>Solver</b> pane, the solver and related settings
+that you select are global choices. For more information, see <a href="http://www.mathworks.com/help/simulink/ug/choosing-a-solver.html">Solvers</a> in
+the Simulink documentation.</p><p>When you first create a model, the default Simulink solver
+is ode45. To select a different solver, follow a procedure similar
+to the procedure in <a href="http://www.mathworks.com/help/physmod/simscape/ug/creating-and-simulating-a-simple-model.html#bqmb4ar-1">Modifying Initial Settings</a>.</p><ul type="disc"><li><p>You can choose one from a suite of both variable-step
+and fixed-step solvers. A variable-step solver is the default.</p></li><li><p>You can also select from among explicit and implicit
+solvers. An explicit solver is the default. But for physical models,
+MathWorks recommends implicit solvers, such as ode14x, ode23t, and
+ode15s. Implicit solvers require fewer time steps than explicit solvers,
+such as ode45, ode113, and ode1.</p><p>See <a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc4iw" class="intrnllnk">Switching from the Default Explicit Solver to Other Simulink Solvers</a>.</p></li><li><p>If all the Simulink and Simscape states
+in your model are discrete, Simulink automatically switches to
+a discrete solver and issues a warning. Otherwise, a continuous solver
+is the default.</p></li><li><p>By default, Simulink variable-step solvers attempt
+to locate events in time by zero-crossing detection. See <a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc56b" class="intrnllnk">Enabling or Disabling Simulink Zero-Crossing Detection</a>.</p></li></ul><span id="bsjpduw" class="anchor_target"></span><h4 class="title" id="bsjpduw">Working with Local Simscape Solvers</h4><p>You can switch one or more physical networks to a local implicit,
+fixed-step Simscape solver by selecting <b>Use local solver</b> in
+the network <a href="http://www.mathworks.com/help/physmod/simscape/ref/solverconfiguration.html">Solver Configuration</a> block.
+The solver and related settings you make in each Solver Configuration
+block are specific to the connected physical network and can differ
+from network to network.</p><p>A physical network using a local solver appears to the global Simulink solver
+as if it has discrete states. You can still use any continuous global
+solver.</p><p><b><span id="bsjrei4" class="anchor_target"></span>Choosing Local Solvers and Sample Times.&nbsp;&nbsp;</b>To use a local solver, choose a solver type (Backward Euler
+or Trapezoidal Rule) and a sample time. Backward Euler is the default.</p><p><b><span id="bsjrei6" class="anchor_target"></span>Choosing Fixed-Cost Simulation.&nbsp;&nbsp;</b>You can select a fixed-cost simulation for one or more physical
+networks by selecting <b>Use fixed-cost runtime consistency
+iterations</b>, as well as <b>Use local solver</b>,
+and fixing the number of nonlinear and mode iterations. Fixed-cost
+simulation requires a global fixed-step solver.</p><p><b><span id="bsk186u" class="anchor_target"></span>Choosing Multirate Simulation.&nbsp;&nbsp;</b>With the local solver option, you can perform multirate simulations,
+with:</p><ul type="disc"><li><p>Different sample times in different physical networks,
+through their respective Solver Configuration blocks</p></li><li><p>A sample-based Simulink block in the model with
+a sample time different from the Solver Configuration block or blocks</p></li></ul></div><div itemprop="content"><span id="bsmc3yn" class="anchor_target"></span><h3 class="title" id="bsmc3yn">Harmonizing Simulink and Simscape Solvers</h3><span id="simscape_solver_harmonizing" class="anchor_target"></span><p>Your Simulink and Simscape solver choices must work
+together consistently. To ensure consistency of your Simulink and Simscape solver
+choices for a particular model, open the model Configuration Parameters
+dialog box. From the top menu bar in the model window, select <b>Simulation</b> &gt; <b>Model
+Configuration Parameters</b>. Review and adjust the following
+settings.</p><ul><li><p><a class="intrnllnk" href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc4iw">Switching from the Default Explicit Solver to Other Simulink Solvers</a></p></li><li><p><a class="intrnllnk" href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc4b0">Filtering Input Signals and Providing Time Derivatives</a></p></li><li><p><a class="intrnllnk" href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmc56b">Enabling or Disabling Simulink Zero-Crossing Detection</a></p></li><li><p><a class="intrnllnk" href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#bsmij7s">Making Multirate Simulation Consistent</a></p></li></ul><span id="zmw57dd0e3845" class="anchor_target"></span><p class="title"><b>Simscape Pane of the Configuration Parameters Dialog Box</b></p><p>
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/csh_config_params_simscape.gif" height="633" width="872" alt=""></p><span id="bsmc4iw" class="anchor_target"></span><h4 class="title" id="bsmc4iw">Switching from the Default Explicit Solver to Other Simulink Solvers</h4><span id="simscape_selecting_solver" class="anchor_target"></span><p>If you do not modify the default (explicit) solver, your performance
+may not be optimal. Implicit solvers are better for most physical
+simulations. For more information about implicit solvers and physical
+systems, see <a href="http://www.mathworks.com/help/physmod/simscape/ug/important-concepts-and-choices-in-physical-simulation.html">Important Concepts and Choices in Physical Simulation</a>.</p><p><b><span id="bsmc4j0" class="anchor_target"></span>Diagnostic Messages About Explicit Solvers.&nbsp;&nbsp;</b>When you use an explicit solver in a model containing Simscape blocks,
+the system issues a warning to alert you to a potential problem.</p><p>To turn off this default warning or to change it to an error
+message, go to the <b>Simscape</b> pane of the Configuration
+Parameters dialog box:</p><ol type="1"><li><p>From the <b>Explicit solver used in model containing
+Physical Networks blocks</b> drop-down list, select the option
+that you want:</p><ul type="disc"><li><p><code>warning</code> — If the
+model uses an explicit solver, the system issues a warning upon simulation.
+This is the default option that alerts you to a potential problem
+if you use the default solver.</p></li><li><p><code>error</code> — If the model
+uses an explicit solver, the system issues an error message upon simulation.
+If your model is stiff, and you do not want to use explicit solvers,
+select this option to avoid future errors.</p></li><li><p><code>none</code> — If the model
+uses an explicit solver, the system issues no warning or error message
+upon simulation. If you want to work with explicit solvers, in particular
+for models that are not stiff, select this option.</p></li></ul></li><li><p>Click <b>OK</b>.</p></li></ol><span id="bsmc4b0" class="anchor_target"></span><h4 class="title" id="bsmc4b0">Filtering Input Signals and Providing Time Derivatives</h4><p>You may need to provide time derivatives of some of the input
+signals, especially if you use an explicit solver. One way of providing
+the necessary input derivatives is by filtering the input through
+a low-pass filter. Input filtering makes the input signal smoother
+and generally improves model performance. The additional benefit is
+that the Simscape engine computes the time derivatives of the
+filtered input. The first-order filter provides one derivative, while
+the second-order filter provides the first and second derivatives.
+If you use input filtering, it is very important to select the appropriate
+value for the filter time constant.</p><p>The filter time constant controls the filtering of the input
+signal. The filtered input follows the true input but is smoothed,
+with a lag on the order of the time constant that you choose. Set
+the time constant to a value no larger than the smallest time interval
+in the system that interests you. If you choose a very small time
+constant, the filtered input signal is closer to the true input signal.
+However, this filtered input signal increases the stiffness of the
+system and slows the simulation.</p><p>Instead of using input filtering, you can provide time derivatives
+for the input signal directly, as additional physical signals.</p><p>You can control the way you provide time derivatives for each
+input signal by configuring the Simulink-PS Converter block connected
+to that input signal:</p><ol type="1"><li><p>Open the Simulink-PS Converter block dialog box.</p></li><li><p>Click the <b>Input handling</b> tab.</p><p class="listimage">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/sim_ps_conv_db2.png" height="479" width="438" alt=""></p></li><li><p>To turn on input filtering, set the <b>Filtering
+and derivatives</b> parameter to <code>Filter input</code>.
+Select the first-order or second-order filter, by using the <b>Input
+filtering order</b> parameter, and set the appropriate <b>Input
+filtering time constant</b> parameter value for your model.</p></li><li><p>To avoid filtering the input signal, set the <b>Filtering
+and derivatives</b> parameter to <code>Provide input
+derivative(s)</code>. Then set the <b>Input derivatives</b> parameter
+value:</p><ul type="disc"><li><p><code>Provide first derivative</code> —
+ If you select this option, an additional Simulink input port
+appears on the Simulink-PS Converter block, to let you connect the
+signal providing input derivatives. </p></li><li><p><code>Provide first and second derivatives</code> —
+If you select this option, two additional Simulink input ports
+appear on the Simulink-PS Converter block, to let you connect the
+signals providing input derivatives.</p></li></ul></li></ol><span id="bsmc56b" class="anchor_target"></span><h4 class="title" id="bsmc56b">Enabling or Disabling Simulink Zero-Crossing Detection</h4><span id="ssc_zero_crossing" class="anchor_target"></span><p>By default, Simulink tracks an important class of simulation
+events by detecting zero crossings. With a global variable-step solver
+and without a local solver, Simulink attempts to locate the simulated
+times of zero crossings, if present. See <a href="http://www.mathworks.com/help/physmod/simscape/ug/how-simscape-models-represent-physical-systems.html#bsjpdkz">Working with Simscape Representation</a>.</p><p><b><span id="bsmc56r" class="anchor_target"></span>Diagnostic Messages About Globally Disabling Zero-Crossing
+Detection.&nbsp;&nbsp;</b>You can globally disable zero-crossing detection in the <b>Solver</b> pane
+of the Configuration Parameters dialog box, under <b>Zero-crossing
+options</b>. If you do, and if you are using a global variable-step
+solver without a local solver, the system issues a warning or error
+when you simulate with Simscape blocks.</p><p>You can choose between warning and error messages in the <b>Simscape</b> pane
+of the Configuration Parameters dialog box.</p><ol type="1"><li><p>From the <b>Zero-crossing control is globally
+disabled in Simulink</b> drop-down list, select the option
+that you want, if you globally disable zero-crossing detection:</p><ul type="disc"><li><p><code>warning</code> — The system
+issues a warning message upon simulation. This option is the default.</p></li><li><p><code>error</code> — The system
+issues an error message upon simulation, which stops.</p></li></ul></li><li><p>Click <b>OK</b>.</p></li></ol><span id="bsmij7s" class="anchor_target"></span><h4 class="title" id="bsmij7s">Making Multirate Simulation Consistent</h4><p>The sample time or step size of the global Simulink solver
+must be the smallest time step of all the solvers in a multirate Simscape simulation.</p><p>To avoid simulation errors in sample time propagation, go to
+the <b>Solver</b> pane in the Configuration Parameters
+dialog box and select the <b>Automatically handle rate transition
+for data transfer</b> check box.</p></div>
+</div></section>
+<div class="modal fade" id="matlab-command-dialog" tabindex="-1" role="dialog" aria-labelledby="matlabCommandDialogLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">MATLAB Command</h4>
+      </div>
+      <div class="modal-body" id="dialog-body">
+        <p>You clicked a link that corresponds to this MATLAB command: </p>
+        <pre id="dialog-matlab-command"></pre>
+        <p>Run the command by entering it in the MATLAB Command Window.
+        Web browsers do not support MATLAB commands.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn_secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div><div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onclick="openFeedbackWindow(&#39;http://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams=&#39;+document.location.href+&#39;-YES-R2015b&#39;);">
+<input type="button" value="No" onclick="openFeedbackWindow(&#39;http://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams=&#39;+document.location.href+&#39;-NO-R2015b&#39;);">
+</div>
+<!--Last updated: Tue Aug 25 01:40:22 EDT 2015-->
+
+  
+
+
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+
+<div class="modal fade" id="country-unselected">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <object type="image/svg+xml" width="167px" class="mw_logo" alt="MathWorks" data="http://www.mathworks.com/images/responsive/global/pic-header-mathworks-logo2.svg">
+          <img alt="MathWorks" width="167px" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/pic-header-mathworks-logo.png">
+        </object>
+      </div>
+      <div class="modal-body">
+        <div class="row add_margin_40">
+          <div class="col-xs-12">
+            <h1 class="icon-globe icon_color_secondary">Select Your Country</h1>
+            <p>Choose your country to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="text_location"></strong>.</p>
+            <a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html#" id="domain_select_button" class="btn btn_secondary" data-dismiss="modal"></a>
+          </div>
+        </div>
+        <p>You can also select a location from the following list:</p>
+        <div class="row add_margin_30">
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Americas</h3>
+            <ul class="list-unstyled">
+              <li><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="canada_select">Canada</a> (English)</li>
+              <li><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_states_select">United States</a> (English)</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 class="add_bottom_rule">Europe</h3>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled add_margin_0_sm">
+                  <li><a href="http://nl.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="belgium_select">Belgium</a> (English)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="denmark_select">Denmark</a> (English)</li>
+                  <li><a href="http://de.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="deutschland_select">Deutschland</a> (Deutsch)</li>
+                  <li><a href="http://es.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="espana_select">España</a> (Español)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="finland_select">Finland</a> (English)</li>
+                  <li><a href="http://fr.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="france_select">France</a> (Français)</li>
+                  <li><a href="http://uk.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="ireland_select">Ireland</a> (English)</li>
+                  <li><a href="http://it.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="italia_select">Italia</a> (Italiano)</li>
+                  <li><a href="http://nl.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="luxembourg_select">Luxembourg</a> (English)</li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><a href="http://nl.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="netherlands_select">Netherlands</a> (English)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="norway_select">Norway</a> (English)</li>
+                  <li><a href="http://de.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="osterreich_select">Österreich</a> (Deutsch)</li>
+                  <li><a href="http://www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="portugal_select">Portugal</a> (English)</li>
+                  <li><a href="http://se.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="sweden_select">Sweden</a> (English)</li>
+                  <li>Switzerland
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="http://ch.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_german" class="switzerland_select">Deutsch</a></li>
+                      <li><a href="http://ch.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" id="swiss_french">Français</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="http://uk.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="united_kingdom_select">United Kingdom</a> (English)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Asia Pacific</h3>
+            <ul class="list-unstyled">
+              <li><a href="http://au.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="australia_select">Australia</a> (English)</li>
+              <li><a href="http://in.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="india_select">India</a> (English)</li>
+              <li><a href="http://au.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="new_zealand_select">New Zealand</a> (English)</li>
+              <li><a href="http://cn.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="china_select">中国</a> (简体中文)</li>
+              <li><a href="http://jp.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="japan_select">日本</a> (日本語)</li>
+              <li><a href="http://kr.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html?action=changeCountry&amp;s_tid=gn_loc_drop" class="korea_select">한국</a> (한국어)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center"><strong><a href="http://www.mathworks.com/company/worldwide/">See all countries</a></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <div class="cta_container_mobile visible-sm visible-xs">
+      <div class="container-fluid">      
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trial Software</a></li>
+<li class="cta_item cta_item_general"><a href="http://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MOBILE CTA - End -->
+
+        <!-- BODY TRAIL - Begin -->
+        <div class="body_trail_container">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="http://www.mathworks.com/help/physmod/simscape/index.html?s_cid=doc_ftr">Simscape Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://www.mathworks.com/help/physmod/simscape/getting-started-with-simscape.html?s_cid=doc_ftr">Getting Started</a></li>
+<li><a href="http://www.mathworks.com/help/physmod/simscape/examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="http://www.mathworks.com/help/physmod/simscape/simscapeblocklist.html?s_cid=doc_ftr">Simscape Blocks and Other Reference</a></li>
+<li><a href="http://www.mathworks.com/help/physmod/simscape/release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+<li><a href="http://www.mathworks.com/help/releases/R2015b/pdf_doc/physmod/simscape/index.html?s_cid=doc_ftr">PDF Documentation</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="http://www.mathworks.com/help/index.html?s_cid=doc_ftr">Other Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://www.mathworks.com/help/matlab/index.html?s_cid=doc_ftr">MATLAB</a></li><li><a href="http://www.mathworks.com/help/simulink/index.html?s_cid=doc_ftr">Simulink</a></li><li><a href="http://www.mathworks.com/help/physmod/elec/index.html?s_cid=doc_ftr">SimElectronics</a></li><li><a href="http://www.mathworks.com/help/physmod/hydro/index.html?s_cid=doc_ftr">SimHydraulics</a></li><li><a href="http://www.mathworks.com/help/physmod/sps/index.html?s_cid=doc_ftr">SimPowerSystems</a></li><li><a href="http://www.mathworks.com/help/index.html?s_cid=doc_ftr">All Products</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="http://www.mathworks.com/support/?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://www.mathworks.com/matlabcentral/answers/?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="http://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="http://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="http://www.mathworks.com/products/availability/?s_cid=doc_ftr">Product Requirements</a></li><li><a href="http://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3">
+<div class="panel panel_color_transparent panel_color_fill">
+<div class="panel-body"> <img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/bg-trial-arrow_02.png" class="add_margin_5">
+<h4>Try MATLAB, Simulink, and Other Products</h4>
+<a href="http://www.mathworks.com/programs/trials/trial_request.html?prodcode=SS&amp;s_iid=doc_trial_SS_footer" class="icon-chevron">Get trial now </a>
+</div>
+</div>
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BODY TRAIL - End -->
+
+    <footer id="footer" class="bs-footer">
+        <!-- FAT FOOTER - Begin --> 
+        <div class="container-fluid">
+          <div class="fat_footer_container">
+            <div class="execmatlabproduct">
+<p class="copyright">© 1994-2015 The MathWorks, Inc.</p>
+<ul class="footernav">
+<li class="footernav_acknowledgments"><a href="matlab:web([docroot &#39;/acknowledgments.html&#39;])">Acknowledgments</a></li>
+<li class="footernav_trademarks"><a href="matlab:web([matlabroot &#39;/trademarks.txt&#39;])">Trademarks</a></li>
+<li class="footernav_patents"><a href="matlab:web([matlabroot &#39;/patents.txt&#39;])">Patents</a></li>
+<li class="footernav_terms"><a href="matlab:web(matlab.internal.licenseAgreement)">Terms of Use</a></li>
+</ul>
+</div>
+          </div>
+        </div>
+        <!-- FAT FOOTER - End -->
+      <div class="container-fluid">
+       <div class="footer">
+<div class="row">
+<div class="col-xs-12 col-lg-9">
+<ul class="countrynav" id="countrynav">
+<li class="footernav_country">
+<a href="javascript:void(0);" data-toggle="modal" data-target="#country-unselected">
+<span class="icon-globe icon_color_quinary icon_16"></span>United States
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<ul class="footernav">
+<li class="footernav_patents"><a href="http://www.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+<li class="footernav_trademarks"><a href="http://www.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_privacy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_piracy"><a href="http://www.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<p class="copyright">© 1994-2016 The MathWorks, Inc.</p>
+</div>
+<div class="clearfix visible-sm add_margin_10"></div>
+<div class="col-xs-12 col-lg-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&amp;url=http://www.facebook.com/MATLAB" target="_blank" class="svg_link">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/ico-facebook.svg" alt="Facebook" class="ico_facebook">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_twt&amp;url=http://www.twitter.com/MATLAB" target="_blank" class="svg_link">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/ico-twitter.svg" alt="Twitter" class="ico_twitter">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_glg&amp;url=https://plus.google.com/117177960465154322866?prsrc=3" target="_blank" class="svg_link">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/ico-google-plus.svg" alt="Google+" class="ico_google">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_lkd&amp;url=http://www.linkedin.com/company/the-mathworks_2" target="_blank" class="svg_link">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin">
+</a>
+</li>
+<li>
+<a href="http://www.mathworks.com/company/rss/index.html" class="svg_link">
+<img src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/ico-rss.svg" alt="RSS" class="ico_rss">
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Join the conversation</em></p>
+</div>
+</div>
+</div>
+</div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script><script>
+ var qcord;var qcrev; var qclabels;
+ var ezt = ezt ||[];
+
+ (function(){
+   var elem = document.createElement('script');
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem,scpt);
+ }());
+
+
+ ezt.push({qacct: 'p-zfNtLVVEHXE-1',
+           orderid: qcord,
+           revenue: qcrev,
+           labels: qclabels
+           });
+</script>
+<noscript>
+  &lt;img src="//pixel.quantserve.com/pixel/p-zfNtLVVEHXE-1.gif?labels=_fp.event.Default" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript><script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023777138;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./Setting Up Solvers for Physical Models - MATLAB & Simulink_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?frame=0&amp;random=1456502550452&amp;cv=8&amp;fst=1456502550452&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=768&amp;u_w=1360&amp;u_ah=738&amp;u_aw=1360&amp;u_cd=24&amp;u_his=4&amp;u_tz=-300&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A//www.mathworks.com/help/physmod/simscape/ug/setting-up-solvers-for-physical-models.html&amp;ref=https%3A//www.google.com.co/&amp;tiba=Setting%20Up%20Solvers%20for%20Physical%20Models%20-%20MATLAB%20%26%20Simulink" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Adobe DTM -->
+      </div>
+    </footer>
+
+  </div>
+
+
+
+<a class="btn btn_primary" id="go-top" style="display: none;"><span class="icon-arrow-open-up icon_24"></span></a></body></html>
